@@ -13,8 +13,8 @@
         <property name="jdbcUrl">
             <value>jdbc:mysql://localhost:3306/auction?useSSL=false</value>
         </property>
-        <property name="auction">
-            <value>root</value>
+        <property name="user">
+            <value>auction</value>
         </property>
         <property name="password">
             <value>auction</value>
