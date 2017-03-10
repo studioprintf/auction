@@ -10,10 +10,18 @@ import pojo.User;
 
 public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
 
-	@Override
-	public List<User> getUser() throws HibernateException{
-		List<User> users=getHibernateTemplate().loadAll(User.class);
+	public UserDaoImpl() {
+        System.out.println("UserDao IN");
+    }
+
+    @Override  
+    public void saveObject(Object obj) throws HibernateException {  
+        getHibernateTemplate().save(obj);  
+    }  
+
+    public List<User> getUsers() throws HibernateException{
+        List<User> users=getHibernateTemplate().loadAll(User.class);
         return users;
-	}
+    }
 	
 }

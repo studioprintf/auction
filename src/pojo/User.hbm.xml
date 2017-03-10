@@ -4,16 +4,17 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="pojo.User">
-        <id name="userId">
+        <id name="user_id">
             <generator class="increment" />
         </id>
-        <property name="userName" />
-        <property name="userPassword" />
-        <property name="userType" />
-        <property name="userEmail" />
-        <property name="registerTime" />
-        <property name="signTime" />
-        <property name="signIp" />
+        <property name="user_name" />
+        <property name="user_password" />
+        <property name="user_type" />
+        <property name="user_email" />
+        <property name="register_time" />
+        <property name="sign_time" />
+        <property name="sign_ip" />
+        <properties name="balance" />
     </class>
     
 </hibernate-mapping>

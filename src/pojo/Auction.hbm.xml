@@ -1,0 +1,16 @@
+<?xml version="1.0" 	encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojo.Auction">
+        <id name="auction_id">
+            <generator class="increment" />
+        </id>
+        <property name="goods_id" />
+        <property name="price" />
+        <property name="user_id" />
+        <property name="create_time" />
+    </class>
+    
+</hibernate-mapping>

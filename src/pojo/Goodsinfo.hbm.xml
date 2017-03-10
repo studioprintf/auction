@@ -1,0 +1,20 @@
+<?xml version="1.0" 	encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojo.Goodsinfo">
+        <id name="goods_id">
+            <generator class="increment" />
+        </id>
+        <property name="goods_title" />
+        <property name="goods_describe" />
+        <property name="goods_image1" />
+        <property name="goods_image2" />
+        <property name="goods_image3" />
+        <property name="goods_image4" />
+        <property name="goods_image5" />
+        <property name="goods_image6" />
+    </class>
+    
+</hibernate-mapping>

@@ -3,61 +3,69 @@ package pojo;
 import java.sql.Timestamp;
 
 public class User {
-	private int userId;
-	private String userName;
-	private String userPassword;
-	private int userType;
-	private String userEmail;
-	private Timestamp registerTime;
-	private Timestamp signTime;
-	private String signIp;
-	public int getUserId() {
-		return userId;
+	private int user_id;
+	private String user_name;
+	private String user_password;
+	private int user_type;
+	private String user_email;
+	private Timestamp register_time;
+	private Timestamp sign_time;
+	private String sign_ip;
+	private Double balance;
+	public int getUser_id() {
+		return user_id;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
-	public String getUserName() {
-		return userName;
+	public String getUser_name() {
+		return user_name;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
-	public String getUserPassword() {
-		return userPassword;
+	public String getUser_password() {
+		return user_password;
 	}
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
+	public void setUser_password(String user_password) {
+		this.user_password = user_password;
 	}
-	public int getUserType() {
-		return userType;
+	public int getUser_type() {
+		return user_type;
 	}
-	public void setUserType(int userType) {
-		this.userType = userType;
+	public void setUser_type(int user_type) {
+		this.user_type = user_type;
 	}
-	public String getUserEmail() {
-		return userEmail;
+	public String getUser_email() {
+		return user_email;
 	}
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
+	public void setUser_email(String user_email) {
+		this.user_email = user_email;
 	}
-	public Timestamp getRegisterTime() {
-		return registerTime;
+	public Timestamp getRegister_time() {
+		return register_time;
 	}
-	public void setRegisterTime(Timestamp registerTime) {
-		this.registerTime = registerTime;
+	public void setRegister_time(Timestamp register_time) {
+		this.register_time = register_time;
 	}
-	public Timestamp getSignTime() {
-		return signTime;
+	public Timestamp getSign_time() {
+		return sign_time;
 	}
-	public void setSignTime(Timestamp signTime) {
-		this.signTime = signTime;
+	public void setSign_time(Timestamp sign_time) {
+		this.sign_time = sign_time;
 	}
-	public String getSignIp() {
-		return signIp;
+	public String getSign_ip() {
+		return sign_ip;
 	}
-	public void setSignIp(String signIp) {
-		this.signIp = signIp;
+	public void setSign_ip(String sign_ip) {
+		this.sign_ip = sign_ip;
 	}
+	public Double getBalance() {
+		return balance;
+	}
+	public void setBalance(Double balance) {
+		this.balance = balance;
+	}
+	
 	
 }
