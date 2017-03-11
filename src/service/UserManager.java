@@ -2,6 +2,8 @@ package service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.HibernateException;
 
 import daoImpl.UserDaoImpl;
@@ -26,6 +28,18 @@ public class UserManager {
 
     public List<User> getUsers() throws HibernateException {  
         return dao.getUsers();
-    } 
+    }
+    
+    @Transactional
+    public boolean register(User user) throws HibernateException{
+    	dao.saveObject(user);
+    	return true;
+    }
+    
+    public boolean login(User user) throws HibernateException{
+    	
+    	return true;
+    	
+    }
 	
 }

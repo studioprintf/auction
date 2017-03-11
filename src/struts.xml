@@ -14,6 +14,10 @@
 		<action name="login" class="action.LoginAction">
 			<result name="success">/welcome.jsp</result>
 		</action>
+		
+		<action name="register" class="action.RegisterAction">
+			<result name="success">/welcome.jsp</result>
+		</action>
 
 		<action name="*">
 			<result>/{1}.jsp</result>
