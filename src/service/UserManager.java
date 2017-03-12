@@ -30,16 +30,20 @@ public class UserManager {
         return dao.getUsers();
     }
     
-    @Transactional
     public boolean register(User user) throws HibernateException{
     	dao.saveObject(user);
     	return true;
     }
     
-    public boolean login(User user) throws HibernateException{
-    	
-    	return true;
-    	
+    public String login(User user) throws HibernateException{
+    	User user1 = dao.findUser(user);
+    	if(user1!=null)
+    		if(user1.getUser_password().equals(user.getUser_password()))
+    			return "success";
+    		else
+    			return "error";
+    	else
+    		return "null";
     }
 	
 }

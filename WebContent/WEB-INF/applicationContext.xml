@@ -39,6 +39,10 @@
         <property name="mappingResources">
             <list>
                 <value>pojo/User.hbm.xml</value>
+                <value>pojo/Auction.hbm.xml</value>
+                <value>pojo/Goods.hbm.xml</value>
+                <value>pojo/Goodsinfo.hbm.xml</value>
+                <value>pojo/Order.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -49,6 +53,7 @@
             </props>
         </property>
     </bean>
+    
     
     <bean id="transactionManager"
         class="org.springframework.orm.hibernate5.HibernateTransactionManager">

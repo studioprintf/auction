@@ -54,12 +54,18 @@ public class LoginAction implements Action{
 
 	public String execute() throws Exception
     {
-        ServletActionContext.getResponse().setContentType(contentType);   
-        user.setUser_name(user_name);
-        user.setUser_password(user_password);
-        if(userManager.login(user))
-        	return SUCCESS;  
-        else
+		user = new User();
+        ServletActionContext.getResponse().setContentType(contentType);
+        user.setUser_name(getUser_name());
+        user.setUser_password(getUser_password());
+        if(userManager.login(user).equals("success")){
+        	System.out.println("用户"+getUser_name()+"登陆成功");
+        	String remoteAddr = ServletActionContext.getRequest().getRemoteAddr();
+        	return SUCCESS;
+        }
+        else if(userManager.login(user).equals("error"))
         	return ERROR;
+        else
+        	return NONE;
     }
 }
