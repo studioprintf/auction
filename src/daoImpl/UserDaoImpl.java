@@ -4,20 +4,21 @@ import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Repository;
 
 import dao.UserDao;
 import pojo.User;
 
-@Transactional()
+@Repository
 public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
 
 	public UserDaoImpl() {
         System.out.println("UserDao IN");
     }
 	
-    public void saveObject(Object obj) throws HibernateException {
-        getHibernateTemplate().save(obj);  
+    public void saveObject(User obj) throws HibernateException {
+        getHibernateTemplate().save(obj);
+        
     }  
 
     public List<User> getUsers() throws HibernateException{
@@ -32,5 +33,10 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
     	else
     		return null;
     }
+
+	public void updateObject(User user) throws HibernateException {
+		getHibernateTemplate().update(user);
+		
+	}
 	
 }

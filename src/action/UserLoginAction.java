@@ -1,5 +1,8 @@
 package action;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.Action;
@@ -54,9 +57,9 @@ public class UserLoginAction implements Action{
         ServletActionContext.getResponse().setContentType(contentType);
         user.setUser_name(getUser_name());
         user.setUser_password(getUser_password());
+        user.setSign_ip(ServletActionContext.getRequest().getRemoteAddr());
+        user.setSign_time(new Timestamp(new Date().getTime()));
         if(userManager.login(user).equals("success")){
-        	System.out.println("用户"+getUser_name()+"登陆成功");
-        	String remoteAddr = ServletActionContext.getRequest().getRemoteAddr();
         	return SUCCESS;
         }
         else if(userManager.login(user).equals("error"))

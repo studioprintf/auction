@@ -11,11 +11,11 @@
 			<result>/index.jsp</result>
 		</action>
 
-		<action name="login" class="action.LoginAction">
+		<action name="login" class="action.UserLoginAction">
 			<result name="success">/welcome.jsp</result>
 		</action>
 		
-		<action name="register" class="action.RegisterAction">
+		<action name="register" class="action.UserRegisterAction">
 			<result name="success">/welcome.jsp</result>
 		</action>
 

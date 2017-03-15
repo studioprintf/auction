@@ -3,11 +3,13 @@ package action;
 import java.sql.Timestamp;
 import java.util.Date;
 
+import org.springframework.stereotype.Controller;
+
 import com.opensymphony.xwork2.Action;
 
 import pojo.User;
 import service.UserManagerImpl;
-
+@Controller
 public class UserRegisterAction implements Action {
 	private String user_name;
 	private String user_password;
@@ -39,9 +41,9 @@ public class UserRegisterAction implements Action {
 		this.user_email = user_email;
 	}
 
-	
 	public String execute() throws Exception {
 		User user = new User();
+		System.out.println(getUser_name());
 		user.setUser_name(user_name);
 		user.setUser_password(user_password);
 		user.setRegister_time(new Timestamp(new Date().getTime()));

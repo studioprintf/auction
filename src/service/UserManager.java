@@ -19,8 +19,6 @@ import pojo.User;
  */
 public interface UserManager {
 	public String login(User user) throws HibernateException;
-	
 	public boolean register(User user) throws HibernateException;
-	
 	public List<User> getUsers() throws HibernateException;
 }

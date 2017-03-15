@@ -7,8 +7,8 @@ import pojo.User;
 
 public interface UserDao {
 	
-    public void saveObject(Object obj) throws HibernateException;
-
+    public void saveObject(User user) throws HibernateException;
     public List<User> getUsers() throws HibernateException;
+	public void updateObject(User user) throws HibernateException;
 
 }
