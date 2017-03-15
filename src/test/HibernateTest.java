@@ -10,7 +10,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
 import pojo.User;
-import service.UserManager;
+import service.UserManagerImpl;
 
 public class HibernateTest {
 

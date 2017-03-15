@@ -6,18 +6,18 @@ import java.util.Date;
 import com.opensymphony.xwork2.Action;
 
 import pojo.User;
-import service.UserManager;
+import service.UserManagerImpl;
 
-public class RegisterAction implements Action {
+public class UserRegisterAction implements Action {
 	private String user_name;
 	private String user_password;
 	private String user_email;
-	private UserManager userManager;
+	private UserManagerImpl userManager;
 
-	public UserManager getUserManager() {
+	public UserManagerImpl getUserManager() {
 		return userManager;
 	}
-	public void setUserManager(UserManager userManager) {
+	public void setUserManager(UserManagerImpl userManager) {
 		this.userManager = userManager;
 	}
 	public String getUser_name() {

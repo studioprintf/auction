@@ -5,13 +5,13 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.Action;
 
 import pojo.User;
-import service.UserManager;
+import service.UserManagerImpl;
 
 
-public class LoginAction implements Action{
+public class UserLoginAction implements Action{
 	
 	private String contentType = "text/html;charset=utf-8";
-	private UserManager userManager;
+	private UserManagerImpl userManager;
 	private String user_name;
 	private String user_password;
 	private User user;
@@ -38,12 +38,12 @@ public class LoginAction implements Action{
 	}
 
 
-	public UserManager getUserManager() {
+	public UserManagerImpl getUserManager() {
 		return userManager;
 	}
 
 
-	public void setUserManager(UserManager userManager) {
+	public void setUserManager(UserManagerImpl userManager) {
 		this.userManager = userManager;
 	}
 
