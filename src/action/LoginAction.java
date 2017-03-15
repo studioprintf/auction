@@ -1,12 +1,8 @@
 package action;
 
-import java.io.PrintWriter;
-import java.util.Date;
-
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.Action;
-import com.opensymphony.xwork2.ActionSupport;
 
 import pojo.User;
 import service.UserManager;
