@@ -49,5 +49,17 @@ public class UserManagerImpl implements UserManager{
     	else
     		return "null";
     }
+
+	@Override
+	public boolean reflect(User user, Double amount) throws HibernateException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean recharge(User user, Double amount) throws HibernateException {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }

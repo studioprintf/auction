@@ -1,8 +1,13 @@
 package pojo;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class Goods {
+public class Goods implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int goods_id;
 	private int create_user;
 	private String state;

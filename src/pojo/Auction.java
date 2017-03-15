@@ -1,8 +1,13 @@
 package pojo;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class Auction {
+public class Auction implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int auction_id;
 	private int goods_id;
 	private Double price;

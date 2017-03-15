@@ -1,6 +1,12 @@
 package pojo;
 
-public class Goodsinfo {
+import java.io.Serializable;
+
+public class Goodsinfo implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int goods_id;
 	private String goods_title;
 	private String goods_describe;

@@ -1,6 +1,12 @@
 package pojo;
 
-public class Balance_log {
+import java.io.Serializable;
+
+public class Balance_log implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int balance_log_id;
 	private int user_id;
 	private String operation_type;

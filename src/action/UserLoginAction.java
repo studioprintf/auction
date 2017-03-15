@@ -4,13 +4,14 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 import org.apache.struts2.ServletActionContext;
+import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.Action;
 
 import pojo.User;
 import service.UserManagerImpl;
 
-
+@Controller
 public class UserLoginAction implements Action{
 	
 	private String contentType = "text/html;charset=utf-8";
