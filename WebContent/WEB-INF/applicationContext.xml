@@ -66,6 +66,36 @@
         </property>
     </bean>
     
+    <bean id="orderDaoImpl" class="daoImpl.OrderDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    
+    <bean id="goodsinfoDaoImpl" class="daoImpl.GoodsinfoDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    
+    <bean id="goodsDaoImpl" class="daoImpl.GoodsDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    
+    <bean id="balance_logDaoImpl" class="daoImpl.Balance_logDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    
+    <bean id="auctionDaoImpl" class="daoImpl.AuctionDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    
     <bean id="userManager" class="service.UserManager">
         <property name="dao">
             <ref bean="userDaoImpl" />
