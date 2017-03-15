@@ -27,7 +27,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
     }
     
     public User findUser(User user) throws HibernateException{
-    	List<?> list =getHibernateTemplate().find("FROM User U WHERE U.user_name = ?",user.getUser_name());
+    	List<?> list =getHibernateTemplate().find("FROM User U WHERE U.user_name = ?0",user.getUser_name());
     	if(list.size()!=0)
     		return (User) list.get(0);
     	else
