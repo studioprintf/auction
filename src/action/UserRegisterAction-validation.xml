@@ -1,0 +1,44 @@
+<!DOCTYPE validators PUBLIC
+  "-//Apache Struts//XWork Validator 1.0.3//EN"
+  "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+  
+  <validators>
+  	<field name="user_name">
+  		<!-- 必须输入项 -->
+  		<field-validator type="requiredstring">
+  			<!-- 切割字符串前后的空格，调用trim() -->
+  			<param name="trim">true</param>
+  			<message>必须输入用户名</message>
+  		</field-validator>
+  		<!-- user_name必须符合表达式 -->
+  		<field-validator type="regex">
+  			<param name="regex"><![CDATA[(/w{4,10})]]></param>
+  			<message>限定字母数字长度在4-10之间</message>
+  		</field-validator>
+  	</field>
+  	<field name="user_password">
+  		<!-- 必须输入项 -->
+  		<field-validator type="requiredstring">
+  			<param name="trim">true</param>
+  			<message>必须输入密码</message>
+  		</field-validator>
+  		<!-- user_name必须符合表达式 -->
+  		<field-validator type="stringlength">
+  			<param name="minLength">6</param>
+  			<param name="maxLength">20</param>
+  			<message>限定密码长度在4-20之间</message>
+  		</field-validator>
+  	</field>
+  	<field name="user_email">
+  		<!-- 必须输入项 -->
+  		<field-validator type="requiredstring">
+  			<param name="trim">true</param>
+  			<message>必须输入密码</message>
+  		</field-validator>
+  		<!-- user_name必须符合表达式 -->
+  		<field-validator type="email">
+  			<param name="trim">true</param>
+  			<message>限定密码长度在4-10之间</message>
+  		</field-validator>
+  	</field>
+  </validators>

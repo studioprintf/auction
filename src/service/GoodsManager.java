@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import org.hibernate.HibernateException;
 
 import pojo.Goods;
@@ -14,6 +16,7 @@ import pojo.Goodsinfo;
  * @return  
  */
 public interface GoodsManager {
+	public List<?> searchGoods(Goodsinfo goodsinfo) throws HibernateException;
 	public boolean onSale(Goods goods,Goodsinfo goodsinfo) throws HibernateException;
 	public boolean unSale(Goods goods) throws HibernateException;
 }

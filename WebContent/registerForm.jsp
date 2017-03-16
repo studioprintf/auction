@@ -9,7 +9,7 @@
 <body>
 	<form action="register" method="post">
 	<table>
-		<caption><h3>User Register</h3></caption>
+		<caption>User Register</caption>
 		<tr>
 			<td>Username:<input type="text" name = "user_name"/></td>
 		</tr>
@@ -17,7 +17,7 @@
 			<td>Password:<input type="password" name = "user_password"/></td>
 		</tr>
 		<tr>
-			<td>Email:<input type="test" name = "user_email"/></td>
+			<td>Email:<input type="text" name = "user_email"/></td>
 		</tr>
 		<tr align="center">
 			<td colspan="2"><input type="submit" value="Login"/></td>

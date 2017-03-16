@@ -1,5 +1,7 @@
 package action;
 
+import org.springframework.stereotype.Controller;
+
 import com.opensymphony.xwork2.Action;
 
 /** 
@@ -10,11 +12,22 @@ import com.opensymphony.xwork2.Action;
  * @since  
  * @return  
  */
-public class UserSearch implements Action {
+@Controller
+public class UserSearchAction implements Action {
+	private String searchKey;
+	
+	public String getSearchKey() {
+		return searchKey;
+	}
+
+	public void setSearchKey(String searchKey) {
+		this.searchKey = searchKey;
+	}
 
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

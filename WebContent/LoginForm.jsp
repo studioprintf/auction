@@ -9,7 +9,7 @@
 <body>
 	<form action="login" method="post">
 	<table>
-		<caption><h3>User Login</h3></caption>
+		<caption>User Login</caption>
 		<tr>
 			<td>Username:<input type="text" name = "user_name"/></td>
 		</tr>

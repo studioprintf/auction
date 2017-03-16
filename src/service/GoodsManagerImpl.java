@@ -1,0 +1,64 @@
+package service;
+
+import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.springframework.stereotype.Service;
+
+import daoImpl.GoodsDaoImpl;
+import daoImpl.GoodsinfoDaoImpl;
+import pojo.Goods;
+import pojo.Goodsinfo;
+
+/** 
+ * @author Lucifer 
+ * @date 2017年3月16日 下午8:33:53 
+ * @version 1.0 
+ * @parameter  
+ * @since  
+ * @return  
+ */
+@Service
+public class GoodsManagerImpl implements GoodsManager {
+	private GoodsDaoImpl goodsDao;
+	private GoodsinfoDaoImpl goodsInfoDao;
+	
+	public GoodsDaoImpl getGoodsDao() {
+		return goodsDao;
+	}
+
+	public void setGoodsDao(GoodsDaoImpl goodsDao) {
+		this.goodsDao = goodsDao;
+	}
+
+	public GoodsinfoDaoImpl getGoodsInfoDao() {
+		return goodsInfoDao;
+	}
+
+	public void setGoodsInfoDao(GoodsinfoDaoImpl goodsInfoDao) {
+		this.goodsInfoDao = goodsInfoDao;
+	}
+
+	@Override
+	public List<?> searchGoods(Goodsinfo goodsinfo) throws HibernateException {
+		// TODO Auto-generated method stub
+		List<?> result = goodsInfoDao.getGoodsInfo(goodsinfo);
+		return result;
+	}
+
+	@Override
+	public boolean onSale(Goods goods, Goodsinfo goodsinfo) throws HibernateException {
+		// TODO Auto-generated method stub
+		goodsDao.saveGoods(goods);
+		goodsInfoDao.saveInfo(goodsinfo);
+		return true;
+	}
+
+	@Override
+	public boolean unSale(Goods goods) throws HibernateException {
+		// TODO Auto-generated method stub
+		goodsDao.updateGoods(goods);
+		return false;
+	}
+
+}
