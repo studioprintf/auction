@@ -7,23 +7,28 @@
 
 	<package name="auction" extends="struts-default">
 
-		<action name="index">
-			<result>/index.jsp</result>
+		<action name="">
+			<result>/public/index.jsp</result>
 		</action>
 
 		<action name="login" class="action.UserLoginAction">
-			<result name="success">/welcome.jsp</result>
-			<result name="error">/error.jsp</result>
-			<result name="none">/none.jsp</result>
-			<result name="input">/input.jsp</result>
+			<result name="success">/welcome</result>
+			<result name="error">/error</result>
+			<result name="none">/none</result>
+			<result name="input">/input</result>
 		</action>
 		
 		<action name="register" class="action.UserRegisterAction">
-			<result name="success">/welcome.jsp</result>
+			<result name="success">/welcome</result>
+		</action>
+		
+		<action name="updatePassword" class="action.UserUpatePasswordAction">
+			<result name="success">/success</result>
+			<result name="error">/error</result>
 		</action>
 
 		<action name="*">
-			<result>/{1}.jsp</result>
+			<result>/public/{1}.jsp</result>
 		</action>
 	</package>
 
