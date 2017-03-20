@@ -42,22 +42,30 @@ public class GoodsManagerImpl implements GoodsManager {
 	@Override
 	public List<?> searchGoods(Goodsinfo goodsinfo) throws HibernateException {
 		// TODO Auto-generated method stub
-		List<?> result = goodsInfoDao.getGoodsInfo(goodsinfo);
-		return result;
+		return null;
 	}
 
 	@Override
-	public boolean onSale(Goods goods, Goodsinfo goodsinfo) throws HibernateException {
+	public boolean updateGoodsInfo(Goods goods) throws HibernateException {
 		// TODO Auto-generated method stub
-		goodsDao.saveGoods(goods);
-		goodsInfoDao.saveInfo(goodsinfo);
-		return true;
+		return false;
 	}
 
 	@Override
-	public boolean unSale(Goods goods) throws HibernateException {
+	public List<?> getGoodsInfo(Goods goods) throws HibernateException {
 		// TODO Auto-generated method stub
-		goodsDao.updateGoods(goods);
+		return null;
+	}
+
+	@Override
+	public List<?> getOnSaleGoods() throws HibernateException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean deleteGoods(Goods goods) throws HibernateException {
+		// TODO Auto-generated method stub
 		return false;
 	}
 

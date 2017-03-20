@@ -11,7 +11,7 @@ import com.opensymphony.xwork2.Action;
 
 import pojo.Goods;
 import pojo.Goodsinfo;
-import service.GoodsManagerImpl;
+import service.AuctionProcessManagerImpl;
 
 /** 
  * @author Lucifer 
@@ -39,7 +39,7 @@ public class UserCreateGoodsAction implements Action,SessionAware {
 	private String goods_image5;
 	private String goods_image6;
 	
-	private GoodsManagerImpl gm;
+	private AuctionProcessManagerImpl apm;
 	private Map<String, Object> session;
 	
 	public int getCreate_user() {
@@ -147,15 +147,15 @@ public class UserCreateGoodsAction implements Action,SessionAware {
 	public void setGoods_image6(String goods_image6) {
 		this.goods_image6 = goods_image6;
 	}
+	
 
-	public GoodsManagerImpl getGm() {
-		return gm;
+	public AuctionProcessManagerImpl getApm() {
+		return apm;
 	}
 
-	public void setGm(GoodsManagerImpl gm) {
-		this.gm = gm;
+	public void setApm(AuctionProcessManagerImpl apm) {
+		this.apm = apm;
 	}
-
 
 	@Override
 	public void setSession(Map<String, Object> session) {
@@ -178,7 +178,7 @@ public class UserCreateGoodsAction implements Action,SessionAware {
 		goods.setStart_time(start_time);
 		goods.setFinal_time(final_time);
 		goods.setCreate_time(new Timestamp(new Date().getTime()));
-		gm.onSale(goods, goodsinfo);
+		apm.onSale(goods,goodsinfo);
 		
 		return null;
 	}

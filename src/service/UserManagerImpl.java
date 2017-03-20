@@ -52,13 +52,19 @@ public class UserManagerImpl implements UserManager{
     }
 
 	@Override
-	public boolean reflect(User user, Double amount) throws HibernateException {
+	public List<User> findUserInfo(User user) throws HibernateException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean updateUserInfo(User user) throws HibernateException {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean recharge(User user, Double amount) throws HibernateException {
+	public boolean updateUserPW(User user) throws HibernateException {
 		// TODO Auto-generated method stub
 		return false;
 	}

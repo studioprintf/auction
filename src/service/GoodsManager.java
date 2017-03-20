@@ -16,7 +16,14 @@ import pojo.Goodsinfo;
  * @return  
  */
 public interface GoodsManager {
+	//搜索商品
 	public List<?> searchGoods(Goodsinfo goodsinfo) throws HibernateException;
-	public boolean onSale(Goods goods,Goodsinfo goodsinfo) throws HibernateException;
-	public boolean unSale(Goods goods) throws HibernateException;
+	//更新商品信息
+	public boolean updateGoodsInfo(Goods goods) throws HibernateException;
+	//查看商品信息
+	public List<?> getGoodsInfo(Goods goods) throws HibernateException;
+	//查看正在拍卖的商品
+	public List<?> getOnSaleGoods() throws HibernateException;
+	//删除商品
+	public boolean deleteGoods(Goods goods) throws HibernateException; 
 }
