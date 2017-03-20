@@ -40,6 +40,7 @@ public class UserManagerImpl implements UserManager{
     		if(userSql.getUser_password().equals(user.getUser_password())){
     			userSql.setSign_ip(user.getSign_ip());
     			userSql.setSign_time(user.getSign_time());
+    			user.setUser_id(userSql.getUser_id());
     			dao.updateObject(userSql);
     			System.out.println("用户"+userSql.getUser_name()+"登陆成功");
     			return "success";

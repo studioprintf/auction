@@ -16,7 +16,7 @@ public class Goods implements Serializable{
 	private Timestamp create_time;
 	private Timestamp start_time;
 	private Timestamp final_time;
-	private Timestamp final_price;
+	private Double final_price;
 	public int getGoods_id() {
 		return goods_id;
 	}
@@ -65,10 +65,10 @@ public class Goods implements Serializable{
 	public void setFinal_time(Timestamp final_time) {
 		this.final_time = final_time;
 	}
-	public Timestamp getFinal_price() {
+	public Double getFinal_price() {
 		return final_price;
 	}
-	public void setFinal_price(Timestamp final_price) {
+	public void setFinal_price(Double final_price) {
 		this.final_price = final_price;
 	}
 	

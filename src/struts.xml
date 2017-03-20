@@ -13,6 +13,9 @@
 
 		<action name="login" class="action.UserLoginAction">
 			<result name="success">/welcome.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="none">/none.jsp</result>
+			<result name="input">/input.jsp</result>
 		</action>
 		
 		<action name="register" class="action.UserRegisterAction">
