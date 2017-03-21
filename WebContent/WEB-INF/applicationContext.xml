@@ -129,6 +129,12 @@
     	</property>
     </bean>
     
+    <bean id="updatePasswordAction" class="action.UserUpdatePasswordAction">
+    	<property name="userManager">
+    		<ref bean="userManager"></ref>
+    	</property>
+    </bean>
+    
     <aop:aspectj-autoproxy proxy-target-class="true" />
 
     <aop:config  proxy-target-class="true">

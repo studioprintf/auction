@@ -7,6 +7,6 @@
 <title>Welcome</title>
 </head>
 <body>
-  Login success!
+  ${sessionScope.USER_NAME},${sessionScope.USER_ID} Login success!
 </body>
 </html>

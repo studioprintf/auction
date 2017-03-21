@@ -66,7 +66,14 @@ public class UserManagerImpl implements UserManager{
 	@Override
 	public boolean updateUserPW(User user) throws HibernateException {
 		// TODO Auto-generated method stub
-		return false;
+		User userSql = dao.findUser(user);
+		userSql.setUser_password(user.getUser_password());
+		try {
+			dao.updateObject(userSql);
+		} catch (HibernateException e) {
+			return false;
+		}
+		return true;
 	}
 	
 }

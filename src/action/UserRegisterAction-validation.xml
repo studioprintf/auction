@@ -12,7 +12,7 @@
   		</field-validator>
   		<!-- user_name必须符合表达式 -->
   		<field-validator type="regex">
-  			<param name="regex"><![CDATA[(/w{4,10})]]></param>
+  			<param name="regexExpression"><![CDATA[(\w{4,10})]]></param>
   			<message>限定字母数字长度在4-10之间</message>
   		</field-validator>
   	</field>

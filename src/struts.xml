@@ -6,7 +6,21 @@
 <struts>
 
 	<package name="auction" extends="struts-default">
+		
+		<interceptors>
+    		<interceptor name="authority" class="action.AuthorityInterceptor"></interceptor> 
+    		<!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
+    		<interceptor-stack name="defaultinter"> 
+      			<interceptor-ref name="authority"></interceptor-ref> 
+      			<interceptor-ref name="defaultStack"></interceptor-ref> 
+    		</interceptor-stack> 
+  		</interceptors>
+  		
+		<default-interceptor-ref name="defaultinter"></default-interceptor-ref>
 
+		<global-results>
+			<result name="login">/public/LoginForm.jsp</result>
+		</global-results>
 		<action name="">
 			<result>/public/index.jsp</result>
 		</action>
@@ -16,13 +30,17 @@
 			<result name="error">/error</result>
 			<result name="none">/none</result>
 			<result name="input">/input</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
 		
 		<action name="register" class="action.UserRegisterAction">
 			<result name="success">/welcome</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="authority"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
 		
-		<action name="updatePassword" class="action.UserUpatePasswordAction">
+		<action name="updatePassword" class="action.UserUpdatePasswordAction">
 			<result name="success">/success</result>
 			<result name="error">/error</result>
 		</action>
@@ -30,6 +48,8 @@
 		<action name="*">
 			<result>/public/{1}.jsp</result>
 		</action>
+		
+		
 	</package>
 
 </struts>

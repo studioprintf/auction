@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import com.opensymphony.xwork2.Action;
 
 import pojo.User;
-import service.UserManager;
+import service.UserManagerImpl;
 
 /** 
  * @author Lucifer 
@@ -25,7 +25,7 @@ public class UserUpdatePasswordAction implements Action,SessionAware {
 	private String confirmPassword;
 	private User user;
 	private Map<String, Object> session;
-	private UserManager userManager;
+	private UserManagerImpl userManager;
 	
 	public String getOldPassword() {
 		return oldPassword;
@@ -66,32 +66,35 @@ public class UserUpdatePasswordAction implements Action,SessionAware {
 	}
 
 
-	public UserManager getUserManager() {
+	public UserManagerImpl getUserManager() {
 		return userManager;
 	}
 
 
-	public void setUserManager(UserManager userManager) {
+	public void setUserManager(UserManagerImpl userManager) {
 		this.userManager = userManager;
 	}
 
 
 	@Override
-	public void setSession(Map<String, Object> arg0) {
+	public void setSession(Map<String, Object> session) {
 		// TODO Auto-generated method stub
-		
+		this.session = session;
 	}
 
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		int user_id = (int) session.get("USER_ID");
-		if(user_id==0){
-			return ERROR;
-		}
+//		int user_id = (int) session.get("USER_ID");
+//		if(user_id==0){
+//			return ERROR;
+//		}
+		user = new User();
+		System.out.println(session.get("USER_NAME"));
 		if(newPassword.equals(confirmPassword)&&!oldPassword.equals(newPassword)){
-			user.setUser_id(user_id);
+//			user.setUser_id(user_id);
 			user.setUser_password(newPassword);
+			user.setUser_name(session.get("USER_NAME").toString());
 			if(userManager.updateUserPW(user)){
 				return SUCCESS;
 			}

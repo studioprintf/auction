@@ -43,7 +43,6 @@ public class UserRegisterAction implements Action {
 
 	public String execute() throws Exception {
 		User user = new User();
-		System.out.println(getUser_name());
 		user.setUser_name(user_name);
 		user.setUser_password(user_password);
 		user.setRegister_time(new Timestamp(new Date().getTime()));
