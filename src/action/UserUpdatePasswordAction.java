@@ -85,14 +85,9 @@ public class UserUpdatePasswordAction implements Action,SessionAware {
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-//		int user_id = (int) session.get("USER_ID");
-//		if(user_id==0){
-//			return ERROR;
-//		}
 		user = new User();
-		System.out.println(session.get("USER_NAME"));
 		if(newPassword.equals(confirmPassword)&&!oldPassword.equals(newPassword)){
-//			user.setUser_id(user_id);
+			user.setUser_id((int)session.get("USER_ID"));
 			user.setUser_password(newPassword);
 			user.setUser_name(session.get("USER_NAME").toString());
 			if(userManager.updateUserPW(user)){

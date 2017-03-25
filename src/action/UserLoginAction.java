@@ -61,20 +61,19 @@ public class UserLoginAction implements Action,SessionAware{
 	
 	public String execute() throws Exception
     {
-		if(session.get("USER_NAME")!=null)
-			return "exist";
 		user = new User();
         ServletActionContext.getResponse().setContentType(contentType);
         user.setUser_name(user_name);
         user.setUser_password(user_password);
         user.setSign_ip(ServletActionContext.getRequest().getRemoteAddr());
         user.setSign_time(new Timestamp(new Date().getTime()));
-        if(userManager.login(user).equals("success")){
+        String result = userManager.login(user);
+        if(result.equals("success")){
         	session.put("USER_NAME", user_name);
         	session.put("USER_ID", user.getUser_id());
         	return SUCCESS;
         }
-        else if(userManager.login(user).equals("error"))
+        else if(result.equals("error"))
         	return ERROR;
         else
         	return NONE;
