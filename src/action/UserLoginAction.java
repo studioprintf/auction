@@ -74,6 +74,7 @@ public class UserLoginAction implements Action,SessionAware{
     {
 		checkImage.toLowerCase();
 		if(!checkImage.equals(session.get("checkCode"))){
+			session.remove("checkCode");
 			return "codeError";
 		}
 		session.remove("checkCode");

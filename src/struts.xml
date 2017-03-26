@@ -35,7 +35,7 @@
 		</action>
 
 		<action name="login" class="action.UserLoginAction">
-			<result name="success">welcome</result>
+			<result name="success">/public/welcome.jsp</result>
 			<result name="error">error</result>
 			<result name="none">none</result>
 			<result name="input">input</result>
