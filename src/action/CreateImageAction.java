@@ -92,7 +92,7 @@ public class CreateImageAction extends ActionSupport
     
     private Color randomColor(){
     	Random random = new Random();
-    	return new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256));
+    	return new Color(random.nextInt(128),random.nextInt(128),random.nextInt(128));
     }
 
     private void drawRands(Graphics g, String rands)

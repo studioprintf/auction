@@ -20,11 +20,22 @@ public class UserLoginAction implements Action,SessionAware{
 	private UserManagerImpl userManager;
 	private String user_name;
 	private String user_password;
+	private String checkImage;
 	private User user;
 	private Map<String, Object> session; 
 	
 	
-    public String getUser_name() {
+    public String getCheckImage() {
+		return checkImage;
+	}
+
+
+	public void setCheckImage(String checkImage) {
+		this.checkImage = checkImage;
+	}
+
+
+	public String getUser_name() {
 		return user_name;
 	}
 
@@ -61,7 +72,11 @@ public class UserLoginAction implements Action,SessionAware{
 	
 	public String execute() throws Exception
     {
-		System.out.println(session.get("checkCode"));
+		checkImage.toLowerCase();
+		if(!checkImage.equals(session.get("checkCode"))){
+			return "codeError";
+		}
+		session.remove("checkCode");
 		user = new User();
         ServletActionContext.getResponse().setContentType(contentType);
         user.setUser_name(user_name);
