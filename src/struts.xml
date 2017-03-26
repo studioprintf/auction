@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+
+    <package name="auction" namespace="/" extends="struts-default">
+
+
+        <interceptors>
+            <interceptor name="authority" class="action.user.AuthorityInterceptor"></interceptor>
+            <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
+            <interceptor-stack name="defaultinter">
+                <interceptor-ref name="authority"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <!--<default-interceptor-ref name="defaultinter"></default-interceptor-ref>-->
+
+
+        <!-- 配置默认欢迎页 -->
+        <default-action-ref name="index"></default-action-ref>
+
+
+        <global-results>
+            <result  name="login">/WEB-INF/login/login.jsp</result>
+            <result  name="none">/WEB-INF/none.jsp</result>
+        </global-results>
+
+
+        <!--直接访问地址dispatcher-->
+        <action name="">
+            <result type="dispatcher">/WEB-INF/index.jsp</result>
+        </action>
+        <action name="index">
+            <result type="dispatcher">/WEB-INF/index.jsp</result>
+        </action>
+        <action name="login">
+            <result type="dispatcher">/WEB-INF/login/login.jsp</result>
+        </action>
+        <action name="register">
+            <result type="dispatcher">/WEB-INF/register/register.jsp</result>
+        </action>
+        <action name="none">
+            <result type="dispatcher">/WEB-INF/none.jsp</result>
+        </action>
+
+
+        <!--登录操作-->
+        <action name="user_login" class="action.user.UserLoginAction">
+            <result name="success">/WEB-INF/login/login_succ.jsp</result>
+            <result name="error">/WEB-INF/login/login_error.jsp</result>
+            <result name="input">/WEB-INF/login/login_input.jsp</result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+
+
+        <!--注册操作-->
+        <action name="user_register" class="action.user.UserRegisterAction">
+            <result name="success">/WEB-INF/register/reg_succ.jsp</result>
+            <result name="error">/WEB-INF/register/reg_error.jsp</result>
+        </action>
+
+        <!--用户名是否存在-->
+        <action name="user_checkName" class="action.user.UserCheckNameAction">
+            <result type="stream" name="ajax_succ">
+                <param name="contentType">text/html</param>
+                <param name="inputStream">inputStream</param>
+            </result>
+        </action>
+
+        <!--更改密码-->
+        <action name="user_updatePassword" class="action.user.UserUpdatePasswordAction">
+            <result name="success">/success</result>
+            <result name="error">/error</result>
+        </action>
+
+
+        <action name="*">
+            <result>/WEB-INF/none.jsp</result>
+        </action>
+
+    </package>
+
+</struts>

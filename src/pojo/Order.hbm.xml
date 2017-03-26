@@ -1,0 +1,17 @@
+<?xml version="1.0" 	encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojo.Order">
+        <composite-id >  
+            <key-property name="order_id"></key-property>  
+            <key-property name="goods_id"></key-property>
+            <key-property name="user_id"></key-property>  
+     	</composite-id>
+        <property name="state" />
+        <property name="create_time" />
+        <property name="finish_time" />
+        <property name="price" />
+    </class>
+    
+</hibernate-mapping>

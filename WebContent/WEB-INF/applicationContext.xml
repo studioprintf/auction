@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"    
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+         xmlns:p="http://www.springframework.org/schema/p"  
+         xmlns:aop="http://www.springframework.org/schema/aop"   
+         xmlns:context="http://www.springframework.org/schema/context"  
+         xmlns:jee="http://www.springframework.org/schema/jee"  
+         xmlns:tx="http://www.springframework.org/schema/tx"  
+         xsi:schemaLocation="
+             http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd    
+             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd  
+             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd  
+             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+             http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd  
+             http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+     <!-- 数据库源定义 -->       
+	 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+        destroy-method="close">
+        <property name="driverClass">
+            <value>com.mysql.jdbc.Driver</value>
+        </property>
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/auction?useSSL=false</value>
+        </property>
+        <property name="user">
+            <value>auction</value>
+        </property>
+        <property name="password">
+            <value>auction</value>
+        </property>
+        <property name="maxPoolSize">
+            <value>80</value>
+        </property>
+        <property name="minPoolSize">
+            <value>1</value>
+        </property>
+        <property name="initialPoolSize">
+            <value>1</value>
+        </property>
+        <property name="maxIdleTime">
+            <value>20</value>
+        </property>
+    </bean>
+    
+    <!-- session工程接管 -->
+    <bean id="sessionFactory"
+        class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="mappingResources">
+            <list>
+                <value>pojo/User.hbm.xml</value>
+                <value>pojo/Auction.hbm.xml</value>
+                <value>pojo/Goods.hbm.xml</value>
+                <value>pojo/Goodsinfo.hbm.xml</value>
+                <value>pojo/Order.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="show_sql">true</prop>
+                <prop key="hibernate.jdbc.batch_size">20</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <!-- 操作异常转化为Spring的表达方式 -->  
+    
+    
+    <bean id="transactionManager"
+        class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    
+    <!-- DAO类注册 -->
+    <bean id="userDaoImpl" class="daoImpl.UserDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    
+    <bean id="orderDaoImpl" class="daoImpl.OrderDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    
+    <bean id="goodsinfoDaoImpl" class="daoImpl.GoodsinfoDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    
+    <bean id="goodsDaoImpl" class="daoImpl.GoodsDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    
+    <bean id="balance_logDaoImpl" class="daoImpl.Balance_logDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    
+    <bean id="auctionDaoImpl" class="daoImpl.AuctionDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    
+    <!-- service类注册 -->
+    <bean id="userManager" class="service.UserManagerImpl">
+        <property name="dao">
+            <ref bean="userDaoImpl" />
+        </property>
+    </bean>
+    
+    <!-- action类注册 -->
+    <bean id="loginAction" class="action.user.UserLoginAction">
+    	<property name="userManager">
+    		<ref bean="userManager"></ref>
+    	</property>
+    </bean>
+    
+    <bean id="registerAction" class="action.user.UserRegisterAction">
+    	<property name="userManager">
+    		<ref bean="userManager"></ref>
+    	</property>
+    </bean>
+    
+    <bean id="updatePasswordAction" class="action.user.UserUpdatePasswordAction">
+    	<property name="userManager">
+    		<ref bean="userManager"></ref>
+    	</property>
+    </bean>
+    
+    <aop:aspectj-autoproxy proxy-target-class="true" />
+
+    <aop:config  proxy-target-class="true">
+        <aop:advisor pointcut="execution(* service.*.*(..))" advice-ref="transactionAdvice" /> <!-- 配置哪些类的哪些方法参与事务 --> 
+    </aop:config>
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <!-- 配置事务传播特性 -->
+    <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="*" propagation="REQUIRED" rollback-for="java.lang.Exception" />
+        </tx:attributes>
+    </tx:advice>
+</beans>
