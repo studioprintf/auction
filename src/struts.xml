@@ -26,6 +26,14 @@
 			<interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
 
+		<action name="createImageAction" class="action.CreateImageAction">
+				<result name="success" type="stream">
+					<param name="contentType">image/jpeg</param>
+					<param name="inputName">inputStream</param>
+				</result>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+
 		<action name="login" class="action.UserLoginAction">
 			<result name="success">welcome</result>
 			<result name="error">error</result>

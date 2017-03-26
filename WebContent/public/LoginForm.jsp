@@ -16,6 +16,9 @@
 		<tr>
 			<td>Password:<input type="password" name = "user_password"/></td>
 		</tr>
+		<tr>
+			<td> <img src="createImageAction" onclick="this.src='createImageAction.action?'+ Math.random()" title="点击图片刷新验证码"/><br></td>
+		</tr>
 		<tr align="center">
 			<td colspan="2"><input type="submit" value="Login"/></td>
 		</tr>

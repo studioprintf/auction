@@ -61,6 +61,7 @@ public class UserLoginAction implements Action,SessionAware{
 	
 	public String execute() throws Exception
     {
+		System.out.println(session.get("checkCode"));
 		user = new User();
         ServletActionContext.getResponse().setContentType(contentType);
         user.setUser_name(user_name);
