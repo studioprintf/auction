@@ -23,10 +23,10 @@
             <value>jdbc:mysql://localhost:3306/auction?useSSL=false</value>
         </property>
         <property name="user">
-            <value>root</value>
+            <value>auction</value>
         </property>
         <property name="password">
-            <value>wobuhuiwangji</value>
+            <value>auction</value>
         </property>
         <property name="maxPoolSize">
             <value>80</value>

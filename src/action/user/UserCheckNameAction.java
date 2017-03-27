@@ -14,7 +14,11 @@ import java.io.UnsupportedEncodingException;
  * Created by Dymond on 2017/3/25.
  */
 public class UserCheckNameAction extends ActionSupport implements ModelDriven<User> {
-    private User user = new User();
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private User user = new User();
     private UserManager userManager = new UserManagerImpl();
     private InputStream inputStream;
 
@@ -22,9 +26,9 @@ public class UserCheckNameAction extends ActionSupport implements ModelDriven<Us
         return inputStream;
     }
 
-    //检验用户昵称是否存在
+    //妫�楠岀敤鎴锋樀绉版槸鍚﹀瓨鍦�
     public String checkName() throws UnsupportedEncodingException {
-        System.out.println("进入ajax检验");
+        System.out.println("杩涘叆ajax妫�楠�");
         String user_name = user.getUser_name();
         if (userManager.findUserByName(user_name) == null) {
             inputStream = new ByteArrayInputStream("1".getBytes("UTF-8"));
