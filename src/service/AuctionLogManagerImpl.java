@@ -4,32 +4,31 @@ import java.util.List;
 
 import org.hibernate.HibernateException;
 
-/** 
- * @author Lucifer 
- * @date 2017Äê3ÔÂ20ÈÕ ÏÂÎç9:19:57 
- * @version 1.0 
- * @parameter  
- * @since  
- * @return  
+/**
+ * @author Lucifer
+ * @version 1.0
+ * @date 2017ï¿½ï¿½3ï¿½ï¿½20ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½9:19:57
+ * @parameter
+ * @return
  */
 public class AuctionLogManagerImpl implements AuctionLogManager {
 
-	@Override
-	public List<?> getAuctionLog() throws HibernateException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public List<?> getAuctionLog() throws HibernateException {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public List<?> getUserAuciton() throws HibernateException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public List<?> getUserAuciton() throws HibernateException {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public List<?> getUserSuccess() throws HibernateException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public List<?> getUserSuccess() throws HibernateException {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 }

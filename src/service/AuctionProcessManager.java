@@ -7,20 +7,20 @@ import org.hibernate.HibernateException;
 import pojo.Goods;
 import pojo.Goodsinfo;
 
-/** 
- * @author Lucifer 
- * @date 2017Äê3ÔÂ20ÈÕ ÏÂÎç8:50:31 
- * @version 1.0 
- * @parameter  
- * @since  
- * @return
- * ÅÄÂôÁ÷³Ì¹ÜÀí  
+/**
+ * @author Lucifer
+ * @version 1.0
+ * @date 2017ï¿½ï¿½3ï¿½ï¿½20ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½8:50:31
+ * @parameter
+ * @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½
  */
 public interface AuctionProcessManager {
-	//·¢²¼ÅÄÂô
-	public boolean onSale(Goods goods,Goodsinfo goodsInfo) throws HibernateException;
-	//²ÎÓëÅÄÂô
-	public boolean joinAuction(Goods goods) throws HibernateException;
-	//²é¿´¾ºÅÄÁÐ±í
-	public List<?> getAuctionList(Goods goods) throws HibernateException;
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public boolean onSale(Goods goods, Goodsinfo goodsInfo) throws HibernateException;
+
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public boolean joinAuction(Goods goods) throws HibernateException;
+
+    //ï¿½é¿´ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+    public List<?> getAuctionList(Goods goods) throws HibernateException;
 }

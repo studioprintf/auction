@@ -4,21 +4,23 @@ import java.util.List;
 
 import org.hibernate.HibernateException;
 
-/** 
- * ÅÄÂô¼ÍÂ¼¹ÜÀí
- * @author Lucifer 
- * @date 2017Äê3ÔÂ20ÈÕ ÏÂÎç9:11:34 
- * @version 1.0 
- * @parameter  
- * @since  
- * @return  
+/**
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+ *
+ * @author Lucifer
+ * @version 1.0
+ * @date 2017ï¿½ï¿½3ï¿½ï¿½20ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½9:11:34
+ * @parameter
+ * @return
  */
 public interface AuctionLogManager {
-	//²é¿´³ö¼Û¼ÍÂ¼
-	public List<?> getAuctionLog() throws HibernateException;
-	//²é¿´ÓÃ»§·¢²¼µÄÅÄÂô
-	public List<?> getUserAuciton() throws HibernateException;
-	//ÓÃ»§²é¿´µÃ±êµÄÅÄÂô
-	public List<?> getUserSuccess() throws HibernateException;
-	
+    //ï¿½é¿´ï¿½ï¿½ï¿½Û¼ï¿½Â¼
+    public List<?> getAuctionLog() throws HibernateException;
+
+    //ï¿½é¿´ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public List<?> getUserAuciton() throws HibernateException;
+
+    //ï¿½Ã»ï¿½ï¿½é¿´ï¿½Ã±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public List<?> getUserSuccess() throws HibernateException;
+
 }

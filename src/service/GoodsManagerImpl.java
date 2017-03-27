@@ -10,63 +10,62 @@ import daoImpl.GoodsinfoDaoImpl;
 import pojo.Goods;
 import pojo.Goodsinfo;
 
-/** 
- * @author Lucifer 
- * @date 2017Äê3ÔÂ16ÈÕ ÏÂÎç8:33:53 
- * @version 1.0 
- * @parameter  
- * @since  
- * @return  
+/**
+ * @author Lucifer
+ * @version 1.0
+ * @date 2017ï¿½ï¿½3ï¿½ï¿½16ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½8:33:53
+ * @parameter
+ * @return
  */
 @Service
 public class GoodsManagerImpl implements GoodsManager {
-	private GoodsDaoImpl goodsDao;
-	private GoodsinfoDaoImpl goodsInfoDao;
-	
-	public GoodsDaoImpl getGoodsDao() {
-		return goodsDao;
-	}
+    private GoodsDaoImpl goodsDao;
+    private GoodsinfoDaoImpl goodsInfoDao;
 
-	public void setGoodsDao(GoodsDaoImpl goodsDao) {
-		this.goodsDao = goodsDao;
-	}
+    public GoodsDaoImpl getGoodsDao() {
+        return goodsDao;
+    }
 
-	public GoodsinfoDaoImpl getGoodsInfoDao() {
-		return goodsInfoDao;
-	}
+    public void setGoodsDao(GoodsDaoImpl goodsDao) {
+        this.goodsDao = goodsDao;
+    }
 
-	public void setGoodsInfoDao(GoodsinfoDaoImpl goodsInfoDao) {
-		this.goodsInfoDao = goodsInfoDao;
-	}
+    public GoodsinfoDaoImpl getGoodsInfoDao() {
+        return goodsInfoDao;
+    }
 
-	@Override
-	public List<?> searchGoods(Goodsinfo goodsinfo) throws HibernateException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public void setGoodsInfoDao(GoodsinfoDaoImpl goodsInfoDao) {
+        this.goodsInfoDao = goodsInfoDao;
+    }
 
-	@Override
-	public boolean updateGoodsInfo(Goods goods) throws HibernateException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public List<?> searchGoods(Goodsinfo goodsinfo) throws HibernateException {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public List<?> getGoodsInfo(Goods goods) throws HibernateException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public boolean updateGoodsInfo(Goods goods) throws HibernateException {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	@Override
-	public List<?> getOnSaleGoods() throws HibernateException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public List<?> getGoodsInfo(Goods goods) throws HibernateException {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public boolean deleteGoods(Goods goods) throws HibernateException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public List<?> getOnSaleGoods() throws HibernateException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public boolean deleteGoods(Goods goods) throws HibernateException {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
 }

@@ -7,32 +7,31 @@ import org.hibernate.HibernateException;
 import pojo.Goods;
 import pojo.Goodsinfo;
 
-/** 
- * @author Lucifer 
- * @date 2017Äê3ÔÂ20ÈÕ ÏÂÎç9:20:48 
- * @version 1.0 
- * @parameter  
- * @since  
- * @return  
+/**
+ * @author Lucifer
+ * @version 1.0
+ * @date 2017ï¿½ï¿½3ï¿½ï¿½20ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½9:20:48
+ * @parameter
+ * @return
  */
 public class AuctionProcessManagerImpl implements AuctionProcessManager {
 
-	@Override
-	public boolean onSale(Goods goods,Goodsinfo goodsinfo) throws HibernateException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public boolean onSale(Goods goods, Goodsinfo goodsinfo) throws HibernateException {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	@Override
-	public boolean joinAuction(Goods goods) throws HibernateException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public boolean joinAuction(Goods goods) throws HibernateException {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	@Override
-	public List<?> getAuctionList(Goods goods) throws HibernateException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public List<?> getAuctionList(Goods goods) throws HibernateException {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 }

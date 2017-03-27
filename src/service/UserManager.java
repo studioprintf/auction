@@ -6,28 +6,34 @@ import org.hibernate.HibernateException;
 
 import pojo.User;
 
-/** 
- * UserManagerµÄÒµÎñ½Ó¿Ú¶¨Òå£¬
- * 
- * 
- * @author Lucifer 
- * @date 2017Äê3ÔÂ15ÈÕ ÉÏÎç9:42:27 
- * @version 1.0 
- * @parameter  
- * @since  
- * @return  
+/**
+ * UserManagerï¿½ï¿½Òµï¿½ï¿½Ó¿Ú¶ï¿½ï¿½å£¬
+ *
+ * @author Lucifer
+ * @version 1.0
+ * @date 2017ï¿½ï¿½3ï¿½ï¿½15ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½9:42:27
+ * @parameter
+ * @return
  */
 public interface UserManager {
-	//µÇÂ½¹¦ÄÜ
-	public String login(User user) throws HibernateException;
-	//×¢²á¹¦ÄÜ
-	public boolean register(User user) throws HibernateException;
-	//²é¿´È«²¿ÓÃ»§
-	public List<User> getUsers() throws HibernateException;
-	//²é¿´ÓÃ»§×ÊÁÏ
-	public List<User> findUserInfo(User user) throws HibernateException;
-	//ÐÞ¸Ä¸öÈË×ÊÁÏ
-	public boolean updateUserInfo(User user) throws HibernateException;
-	//ÐÞ¸ÄÃÜÂë
-	public boolean updateUserPW(User user) throws HibernateException;
+    //ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½
+    public String login(User user) throws HibernateException;
+
+    //×¢ï¿½á¹¦ï¿½ï¿½
+    public boolean register(User user) throws HibernateException;
+
+    //ï¿½é¿´È«ï¿½ï¿½ï¿½Ã»ï¿½
+    public List<User> getUsers() throws HibernateException;
+
+    //ï¿½é¿´ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+    public List<User> findUserInfo(User user) throws HibernateException;
+
+    //ï¿½Þ¸Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public boolean updateUserInfo(User user) throws HibernateException;
+
+    //ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
+    public boolean updateUserPW(User user) throws HibernateException;
+
+    public User findUserByName(String userName) throws HibernateException;
+
 }
