@@ -2,7 +2,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8" %>
-
 <html>
 
 <head>
@@ -90,14 +89,14 @@
                                jvtipid="vdcodeSpt" maxlength="10" jvpattern="^.{1,10}$" jverrortip="请输入验证码"
                                autocomplete="off">
                         <div class="sj_yzm" style="display: none"></div>
-                        <i></i> <img id="captchaImg" name="checkImage" src="<s:url action="user_createImage"/>"
+                        <i></i> <img id="captchaImg" name="checkImage" src="<s:url action="user_createImage" />"
                                      class="yzm" alt="显示验证码" >
-                        <p id="refreshCaptchaAch" style="display: none">换一张</p>
+                        <p id="refreshCaptchaAch" onclick="return changeImg();">换一张</p>
                         <div class="box">
+
                         </div>
-                    </div>
-                    <input type="button" class="login" value="登录" id="loginSubmit"/>
-                    <a class="zhuce" href="/register">注册</a>
+                        <input type="button" class="login" value="登录" id="loginSubmit"/>
+                        <a class="zhuce" href="/register">注册</a>
                 </form>
 
 
@@ -105,7 +104,6 @@
         </div>
     </div>
 </div>
-
 
 
 

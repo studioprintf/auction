@@ -2,13 +2,10 @@
   Created by IntelliJ IDEA.
   User: Dymond
   Date: 2017/3/27
-  Time: 00:04
+  Time: 21:57
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html>
 
 <head>
@@ -36,15 +33,14 @@
 <body>
 <center>
     <div style='padding:30px;padding:36px 80px;border:1px solid #a9a9a9;background:#ffffff ; text-align:center; margin:20% auto; background-repeat: no-repeat; width:55%;'>
+        验证码错误
 
-        登录成功
-
-        <br/><a href='http://localhost:8080/index'>如果你的浏览器没反应，请点击这里...</a>
+        <br/><a href='http://localhost:8080/login'>如果你的浏览器没反应，请点击这里...</a>
         <script>
             var pgo = 0;
             function JumpUrl() {
                 if (pgo == 0) {
-                    location = 'http://localhost:8080/index';
+                    location = 'http://localhost:8080/login';
                     pgo = 1;
                 }
             }
@@ -54,3 +50,5 @@
 </center>
 </body>
 </html>
+
+
