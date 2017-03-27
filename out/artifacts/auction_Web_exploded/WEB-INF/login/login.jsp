@@ -1,6 +1,8 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8" %>
+
 <html>
 
 <head>
@@ -28,7 +30,7 @@
             <div class="z_top_nav">
                 <ul>
                     <li class="home">
-                        <a class="i-link" href="http://localhost:8080"><span>主站</span></a>
+                        <a class="i-link" href="http://localhost:8080/"><span>主站</span></a>
                     </li>
 
 
@@ -83,18 +85,19 @@
                     <div class="box">
                         <a href="/resetpwd" class="mima">忘记密码？&gt; </a>
                         <span style="line-height: 30px;" class="begin" id="vdcodeSpt">&nbsp;</span>
-                        <input id="vdCodeTxt" type="text" style="text-transform: uppercase;" placeholder="验证码"
-                               class="code jv-box-default" jvdefault="验证码" name="vdcode" jvcorrecttip=""
+                        <input id="checkImage" type="text" style="text-transform: uppercase;" placeholder="验证码"
+                               class="code jv-box-default" jvdefault="验证码" name="checkImage" jvcorrecttip=""
                                jvtipid="vdcodeSpt" maxlength="10" jvpattern="^.{1,10}$" jverrortip="请输入验证码"
                                autocomplete="off">
                         <div class="sj_yzm" style="display: none"></div>
-                        <i></i> <img id="captchaImg" src="" class="yzm" alt="" style="display: none">
+                        <i></i> <img id="captchaImg" name="checkImage" src="<s:url action="user_createImage"/>"
+                                     class="yzm" alt="显示验证码" >
                         <p id="refreshCaptchaAch" style="display: none">换一张</p>
                         <div class="box">
-
                         </div>
-                        <input type="button" class="login" value="登录" id="loginSubmit"/>
-                        <a class="zhuce" href="/register">注册</a>
+                    </div>
+                    <input type="button" class="login" value="登录" id="loginSubmit"/>
+                    <a class="zhuce" href="/register">注册</a>
                 </form>
 
 
@@ -103,17 +106,8 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    seajs.use("login-index");
-</script>
 
 
-<embed id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd"
-       type="application/thunder_download_plugin" height="0" width="0">
-    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
-        style="display: none;"></ul>
-    <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-    <ul class="bilibili-suggest"
-        style="top: 42px; left: 818.5px; display: none; min-width: 188px; max-width: 360px;"></ul>
+
 </body>
 </html>
