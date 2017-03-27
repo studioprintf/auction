@@ -4,18 +4,19 @@ import org.hibernate.HibernateException;
 
 import pojo.User;
 
-/** 
- * Óà¶î¹ÜÀíÄ£¿é
- * @author Lucifer 
- * @date 2017Äê3ÔÂ20ÈÕ ÏÂÎç9:17:17 
- * @version 1.0 
- * @parameter  
- * @since  
- * @return  
+/**
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
+ *
+ * @author Lucifer
+ * @version 1.0
+ * @date 2017ï¿½ï¿½3ï¿½ï¿½20ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½9:17:17
+ * @parameter
+ * @return
  */
 public interface BalanceManager {
-	//³äÖµ
-	public boolean recharge(User user,Double amount) throws HibernateException;
-	//ÌáÏÖ
-	public boolean reflect(User user,Double amount) throws HibernateException;
+    //ï¿½ï¿½Öµ
+    public boolean recharge(User user, Double amount) throws HibernateException;
+
+    //ï¿½ï¿½ï¿½ï¿½
+    public boolean reflect(User user, Double amount) throws HibernateException;
 }

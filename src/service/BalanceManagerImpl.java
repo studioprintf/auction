@@ -4,26 +4,25 @@ import org.hibernate.HibernateException;
 
 import pojo.User;
 
-/** 
- * @author Lucifer 
- * @date 2017Äê3ÔÂ20ÈÕ ÏÂÎç9:22:22 
- * @version 1.0 
- * @parameter  
- * @since  
- * @return  
+/**
+ * @author Lucifer
+ * @version 1.0
+ * @date 2017ï¿½ï¿½3ï¿½ï¿½20ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½9:22:22
+ * @parameter
+ * @return
  */
 public class BalanceManagerImpl implements BalanceManager {
 
-	@Override
-	public boolean recharge(User user, Double amount) throws HibernateException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public boolean recharge(User user, Double amount) throws HibernateException {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	@Override
-	public boolean reflect(User user, Double amount) throws HibernateException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public boolean reflect(User user, Double amount) throws HibernateException {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
 }

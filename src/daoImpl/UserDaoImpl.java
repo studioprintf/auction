@@ -47,6 +47,5 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
         getHibernateTemplate().update(user);
 
     }
-
-
 }
+
