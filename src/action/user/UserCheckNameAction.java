@@ -53,4 +53,8 @@ public class UserCheckNameAction extends ActionSupport implements ModelDriven<Us
         System.out.print("result=" + result);
         return result;
     }
+
+    public void setInputStream(InputStream inputStream) {
+        this.inputStream = inputStream;
+    }
 }

@@ -133,4 +133,7 @@ $(function () {
         }
     })
 })
+function changeImg(){
+    $("#captchaImg").attr("src","http://localhost:8080/user_createImage")
+}
 

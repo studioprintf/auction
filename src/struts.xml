@@ -54,6 +54,7 @@
             <result name="success">/WEB-INF/login/login_succ.jsp</result>
             <result name="error">/WEB-INF/login/login_error.jsp</result>
             <result name="input">/WEB-INF/login/login_input.jsp</result>
+            <result name="fail">/WEB-INF/login/login_fail.jsp</result>
             <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
 
@@ -78,6 +79,13 @@
             <result name="error">/error</result>
         </action>
 
+        <!--验证码-->
+        <action name="user_createImage" class="action.user.CreateImageAction">
+            <result type="stream" name="success">
+                <param name="contentType">image/jpeg</param>
+                <param name="inputStream">inputStream</param>
+            </result>
+        </action>
 
         <action name="*">
             <result>/WEB-INF/none.jsp</result>

@@ -35,12 +35,12 @@
     <div style='padding:30px;padding:36px 80px;border:1px solid #a9a9a9;background:#ffffff ; text-align:center; margin:20% auto; background-repeat: no-repeat; width:55%;'>
         密码错误，请重新输入
 
-        <br/><a href='${ctx}/login'>如果你的浏览器没反应，请点击这里...</a>
+        <br/><a href='http://localhost:8080/login'>如果你的浏览器没反应，请点击这里...</a>
         <script>
             var pgo = 0;
             function JumpUrl() {
                 if (pgo == 0) {
-                    location = '${ctx}/login';
+                    location = 'http://localhost:8080/login';
                     pgo = 1;
                 }
             }
