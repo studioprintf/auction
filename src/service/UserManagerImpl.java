@@ -53,9 +53,9 @@ public class UserManagerImpl implements UserManager {
     }
 
     @Override
-    public List<User> findUserInfo(User user) throws HibernateException {
+    public User findUserInfo(User user) throws HibernateException {
         // TODO Auto-generated method stub
-        return null;
+        return dao.findUserByName(user.getUser_name());
     }
 
     @Override
@@ -87,7 +87,6 @@ public class UserManagerImpl implements UserManager {
 
     @Override
     public User findUserByName(String userName) throws HibernateException {
-
         User userSql = dao.findUserByName(userName);
         return userSql;
     }

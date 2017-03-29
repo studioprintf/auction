@@ -7,31 +7,31 @@ import org.hibernate.HibernateException;
 import pojo.User;
 
 /**
- * UserManager��ҵ��ӿڶ��壬
+ * UserManager锟斤拷业锟斤拷涌诙锟斤拷澹�
  *
  * @author Lucifer
  * @version 1.0
- * @date 2017��3��15�� ����9:42:27
+ * @date 2017锟斤拷3锟斤拷15锟斤拷 锟斤拷锟斤拷9:42:27
  * @parameter
  * @return
  */
 public interface UserManager {
-    //��½����
+    //锟斤拷陆锟斤拷锟斤拷
     public String login(User user) throws HibernateException;
 
-    //ע�Ṧ��
+    //注锟结功锟斤拷
     public boolean register(User user) throws HibernateException;
 
-    //�鿴ȫ���û�
+    //锟介看全锟斤拷锟矫伙拷
     public List<User> getUsers() throws HibernateException;
 
-    //�鿴�û�����
-    public List<User> findUserInfo(User user) throws HibernateException;
+    //锟介看锟矫伙拷锟斤拷锟斤拷
+    public User findUserInfo(User user) throws HibernateException;
 
-    //�޸ĸ�������
+    //锟睫改革拷锟斤拷锟斤拷锟斤拷
     public boolean updateUserInfo(User user) throws HibernateException;
 
-    //�޸�����
+    //锟睫革拷锟斤拷锟斤拷
     public boolean updateUserPW(User user) throws HibernateException;
 
     public User findUserByName(String userName) throws HibernateException;
