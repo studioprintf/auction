@@ -10,7 +10,7 @@ public class Auction implements Serializable {
     private static final long serialVersionUID = 1L;
     private int auction_id;
     private int goods_id;
-    private Double price;
+    private double price;
     private int user_id;
     private Timestamp create_time;
 
@@ -30,11 +30,11 @@ public class Auction implements Serializable {
         this.goods_id = goods_id;
     }
 
-    public Double getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

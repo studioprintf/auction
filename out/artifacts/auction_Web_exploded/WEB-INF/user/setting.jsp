@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Dymond
-  Date: 2017/3/28
-  Time: 13:31
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
   Created by IntelliJ IDEA.
@@ -54,7 +48,7 @@
             <div class="user-top">
 
 
-                <a href="https://www.c5game.com/user.html">
+                <a href="/user/user">
                     欢迎您：${sessionScope.get("USER_NAME")}
                 </a>
 
@@ -83,7 +77,7 @@
             <li class=""><a href="/user/inventory.html">我的背包</a>
             </li>
             <li class="current">
-                <a href="/user.html">个人中心</a></li>
+                <a href="/user/user">个人中心</a></li>
         </ul>
     </div>
 </div>
@@ -112,16 +106,10 @@
                 </div>
 
                 <ul class="account-left-nav" id="yw1">
-                    <li class="nav1 active"><a href="/user.html">账户中心</a></li>
+                    <li class="nav1 active"><a href="/user/user">账户中心</a></li>
                     <li class="nav2"><a href="/user/sell.html">出售管理</a></li>
                     <li class="nav3"><a href="/user/purchase/purchase.html">求购管理</a></li>
-                    <li class="nav4"><a href="/user/inventory.html">我的背包</a></li>
-                    <li class="nav10"><a href="/user/game/index.html">STEAM游戏</a></li>
-                    <li class="nav5"><a href="/user/setting.html">账号设置</a></li>
-                    <li class="nav6"><a href="/user/message.html">联系客服</a></li>
-                    <li class="nav9"><a href="/user/message/notify.html">我的消息</a></li>
-                    <li class="nav7"><a href="/user/coupons.html">我的卡券</a></li>
-                    <li class="nav8"><a href="/user/code/index.html">激活码</a></li>
+                    <li class="nav5"><a href="#">账号设置</a></li>
                 </ul>
             </div>
         </div>
@@ -135,7 +123,7 @@
                 <div class="head-portrait clearfix">
 
                     <div class="text-center ft-white">
-                        <span>Dymond</span>
+                        <span>${user.user_name}</span>
                     </div>
 
 
@@ -179,7 +167,6 @@
                         <td class="tb-icon-balance"></td>
                         <td class="tb-class">账户余额</td>
                         <td class="tb-info">￥${user.balance}</td>
-                        <td class="tb-button"></td>
                     </tr>
 
 

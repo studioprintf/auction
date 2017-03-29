@@ -56,10 +56,13 @@ public class UserGetBalanceAction extends ActionSupport implements ModelDriven<U
     public String checkBalance() throws UnsupportedEncodingException {
 
         String user_name = user.getUser_name();
-        if (userManager.findUserByName(user_name) != null) {
-            inputStream = new ByteArrayInputStream("10000".getBytes("UTF-8"));
+        User userSql = userManager.findUserByName(user_name);
+        if ( userSql!= null){
+            System.out.println(userSql.getUser_name()+"  "+userSql.getSign_ip()+"  "+userSql.getBalance());
+            inputStream = new ByteArrayInputStream(String.valueOf(userSql.getBalance()).getBytes("UTF-8"));
+            return SUCCESS;
         }
-        return SUCCESS;
+        return NONE;
     }
 
     @Override

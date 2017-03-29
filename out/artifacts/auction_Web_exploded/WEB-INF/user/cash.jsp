@@ -99,13 +99,7 @@
                     <li class="nav1 active"><a href="/user/user">账户中心</a></li>
                     <li class="nav2"><a href="/user/sell">出售管理</a></li>
                     <li class="nav3"><a href="/user/purchase/purchase.html">求购管理</a></li>
-                    <li class="nav4"><a href="/user/inventory.html">我的背包</a></li>
-                    <li class="nav10"><a href="/user/game/index.html">STEAM游戏</a></li>
                     <li class="nav5"><a href="/user/setting.html">账号设置</a></li>
-                    <li class="nav6"><a href="/user/message.html">联系客服</a></li>
-                    <li class="nav9"><a href="/user/message/notify.html">我的消息</a></li>
-                    <li class="nav7"><a href="/user/coupons.html">我的卡券</a></li>
-                    <li class="nav8"><a href="/user/code/index.html">激活码</a></li>
                 </ul>
             </div>
         </div>

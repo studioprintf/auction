@@ -37,7 +37,4 @@ public interface UserManager {
     //根据用户名查找用户类
     public User findUserByName(String userName) throws HibernateException;
 
-    //根据用户名查找用户余额
-    public double getUserBalance(String userName) throws HibernateException;
-
 }

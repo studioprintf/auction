@@ -11,7 +11,7 @@ public class Balance_log implements Serializable {
     private int user_id;
     private String operation_type;
     private String operation_note;
-    private Double amount;
+    private double amount;
 
     public int getBalance_log_id() {
         return balance_log_id;
@@ -45,13 +45,11 @@ public class Balance_log implements Serializable {
         this.operation_note = operation_note;
     }
 
-    public Double getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(Double amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
-
-
 }
