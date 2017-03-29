@@ -46,7 +46,6 @@ public class UserCheckNameAction extends ActionSupport implements ModelDriven<Us
     @Override
     public String execute() throws Exception {
         String result = checkName();//return "ajax_succ";
-        System.out.print("result=" + result);
         return result;
     }
 

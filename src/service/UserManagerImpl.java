@@ -92,5 +92,11 @@ public class UserManagerImpl implements UserManager {
         return userSql;
     }
 
+    @Override
+    public double getUserBalance(String userName) throws HibernateException {
+        User userSql = dao.findUserByName(userName);
+        return userSql.getBalance();
+    }
+
 
 }

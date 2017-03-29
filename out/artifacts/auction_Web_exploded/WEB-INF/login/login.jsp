@@ -19,7 +19,7 @@
     <style></style>
     <link charset="utf-8" rel="stylesheet" href="/css/jquery-ui.css">
     <link charset="utf-8" rel="stylesheet" href="/css/white.css">
-    <script type="text/javascript" src="/js/jquery-3.2.0.min.js"></script>
+    <script  type="text/javascript" src="/js/jquery-3.2.0.min.js"></script>
     <script type="text/javascript" src="/js/login_reg.js"></script>
 </head>
 <body>
@@ -84,7 +84,7 @@
                     <div class="box">
                         <a href="/resetpwd" class="mima">忘记密码？&gt; </a>
                         <span style="line-height: 30px;" class="begin" id="vdcodeSpt">&nbsp;</span>
-                        <input id="checkImage" type="text" style="text-transform: uppercase;" placeholder="验证码"
+                        <input id="checkImage" type="text" style="text-transform: lowercase;" placeholder="验证码"
                                class="code jv-box-default" jvdefault="验证码" name="checkImage" jvcorrecttip=""
                                jvtipid="vdcodeSpt" maxlength="10" jvpattern="^.{1,10}$" jverrortip="请输入验证码"
                                autocomplete="off">

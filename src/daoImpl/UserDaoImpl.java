@@ -34,6 +34,8 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
             return null;
     }
 
+
+
     @Override
     public User findUserByName(String userName) throws HibernateException {
         List<?> list = getHibernateTemplate().find("Select U FROM User U WHERE U.user_name = ?", userName);
@@ -42,6 +44,8 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
         } else
             return null;
     }
+
+
 
     public void updateObject(User user) throws HibernateException {
         getHibernateTemplate().update(user);

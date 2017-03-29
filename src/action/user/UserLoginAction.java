@@ -13,6 +13,8 @@ import com.opensymphony.xwork2.Action;
 import pojo.User;
 import service.UserManagerImpl;
 
+import javax.servlet.http.Cookie;
+
 @Controller
 public class UserLoginAction implements Action, SessionAware {
 
@@ -23,7 +25,6 @@ public class UserLoginAction implements Action, SessionAware {
     private String checkImage;
     private User user;
     private Map<String, Object> session;
-
 
     public String getCheckImage() {
         return checkImage;
@@ -71,6 +72,8 @@ public class UserLoginAction implements Action, SessionAware {
     }
 
     public String execute() throws Exception {
+        if(session.get("USER_NAME")!=null && session.get("USER_ID")!=null)
+            return INPUT;
         checkImage.toLowerCase();
         if (!checkImage.equals(session.get("checkCode"))) {
             session.remove("checkCode");
@@ -87,6 +90,8 @@ public class UserLoginAction implements Action, SessionAware {
         if (result.equals("success")) {
             session.put("USER_NAME", user_name);
             session.put("USER_ID", user.getUser_id());
+            Cookie cookie = new Cookie("auction_user_name",user_name);
+
             return SUCCESS;
         } else if (result.equals("error"))
             return ERROR;
