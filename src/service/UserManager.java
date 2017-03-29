@@ -35,7 +35,7 @@ public interface UserManager {
     public boolean updateUserInfo(User user) throws HibernateException;
 
     //锟睫革拷锟斤拷锟斤拷
-    public boolean updateUserPW(User user) throws HibernateException;
+    public boolean updateUserPW(User user,String oldPassword) throws HibernateException;
 
     //根据用户名查找用户类
     public User findUserByName(String userName) throws HibernateException;

@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
   Created by IntelliJ IDEA.
@@ -37,6 +36,69 @@
             });
         })
 
+        function show_password_frame() {
+            $("#remote-dailog-modal").css('display', 'block');
+        }
+
+
+        function close_password_frame() {
+            $("#remote-dailog-modal").css('display', 'none')
+        }
+
+        $(document).ready(function () {
+            $("#submit_password").click(function () {
+                if ($("#oldPassword").val() == "") {
+
+                    alert("请输入旧密码！");
+                    return false;
+                }
+
+                if ($("#newPassword").val() == "") {
+                    alert("请输入新密码！");
+                    return false;
+                }
+                if ($("#newPassword").val() != $("#confirmPassword").val()) {
+                    alert("两次密码输入不一致！")
+                    return false;
+                }
+                if ($("#newPassword").val() == $("#oldPassword").val()) {
+                    alert("新旧密码不能相同！")
+                    return false;
+                }
+                var newPass = $("#newPassword").val();
+                var oldPass = $("#oldPassword").val();
+                $.ajax({
+                    type: "post",
+                    url: "/user/user_updatePassword",
+                    data: {
+                        "oldPassword": oldPass,
+                        "newPassword": newPass
+                    },
+                    datatype: "text",
+                    async: false,
+                    success: function (data) {
+
+                        if (data == "1") {
+                            alert("修改成功");
+                            close_password_frame();
+                        }
+                        else if (data == "0") {
+                            alert("原密码错误");
+                        }
+                        else alert(data);
+
+                    },
+                    error: function () {
+                        alert("服务器错误")
+                        return false;
+                    }
+
+
+                })
+
+
+            })
+        })
     </script>
 </head>
 <body class="" style="">
@@ -92,7 +154,8 @@
                 <div class="user-bg">
                     <div class="user-pic-name">
 
-                        <div class="user-name pull-left ml-10"><span class="name name-ellipsis">${sessionScope.get("USER_NAME")}</span></div>
+                        <div class="user-name pull-left ml-10"><span
+                                class="name name-ellipsis">${sessionScope.get("USER_NAME")}</span></div>
                     </div>
                     <div class="user-info-list">
                         账户余额 <span class="charge ft-orange ml-10"></span>
@@ -128,11 +191,13 @@
 
 
                 </div>
-                <form id="avatar-form" action="/api/setting/updateavatar.html" method="post" enctype="multipart/form-data">
+                <form id="avatar-form" action="/api/setting/updateavatar.html" method="post"
+                      enctype="multipart/form-data">
                     <input type="file" name="avatar" style="display: none;">
                 </form>
                 <table class="user-detail">
-                    <tbody><tr>
+                    <tbody>
+                    <tr>
                         <td class="tb-icon-id"></td>
                         <td class="tb-class">编号</td>
                         <td class="tb-info">${user.user_id}</td>
@@ -143,19 +208,21 @@
                         <td class="tb-class">用户名</td>
                         <td class="tb-info">${user.user_name}</td>
                         <td class="tb-button">
-                            <a data-toggle="modal" href="/user/setting" data-target="#remote-dailog-modal" class="btn-table remote-modal">修改密码</a>
+                            <a data-toggle="modal" data-target="#remote-dailog-modal"
+                               onclick="return show_password_frame();"
+                               class="btn-table remote-modal">修改密码</a>
                         </td>
                     </tr>
                     <%--<tr data-url="/api/setting/updatenickname.html">--%>
-                        <%--<td class="tb-icon-man"></td>--%>
-                        <%--<td class="tb-class">账号昵称</td>--%>
-                        <%--<td class="tb-info"><span id="nickname" class="nickname-normal">Dymond</span> <input id="nickname-input" class="input input-sm nickname-edit hide " type="text" placeholder="请输入新的昵称"></td>--%>
-                        <%--<td class="tb-button">--%>
-                            <%--<a class="btn-table nickname-normal" href="javascript:void(0);" id="nickname-edit" data-message="修改昵称需要5000积分,是否确定修改?">修改昵称</a>--%>
+                    <%--<td class="tb-icon-man"></td>--%>
+                    <%--<td class="tb-class">账号昵称</td>--%>
+                    <%--<td class="tb-info"><span id="nickname" class="nickname-normal">Dymond</span> <input id="nickname-input" class="input input-sm nickname-edit hide " type="text" placeholder="请输入新的昵称"></td>--%>
+                    <%--<td class="tb-button">--%>
+                    <%--<a class="btn-table nickname-normal" href="javascript:void(0);" id="nickname-edit" data-message="修改昵称需要5000积分,是否确定修改?">修改昵称</a>--%>
 
-                            <%--<a id="nickname-submit" href="javascript:void(0);" class="btn-table-submit nickname-edit hide">确定</a>--%>
-                            <%--<a id="nickname-cancel" href="javascript:void(0);" class="btn-table nickname-edit hide">取消</a>--%>
-                        <%--</td>--%>
+                    <%--<a id="nickname-submit" href="javascript:void(0);" class="btn-table-submit nickname-edit hide">确定</a>--%>
+                    <%--<a id="nickname-cancel" href="javascript:void(0);" class="btn-table nickname-edit hide">取消</a>--%>
+                    <%--</td>--%>
                     <%--</tr>--%>
                     <!--            <tr>-->
                     <!--                <td class="tb-icon-mail"></td>-->
@@ -168,10 +235,6 @@
                         <td class="tb-class">账户余额</td>
                         <td class="tb-info">￥${user.balance}</td>
                     </tr>
-
-
-
-
 
 
                     <tr>
@@ -192,8 +255,62 @@
                         <td class="tb-info">${user.register_time}</td>
                         <td></td>
                     </tr>
-                    </tbody></table>
+                    </tbody>
+                </table>
             </div>
         </div>
+    </div>
+</div>
+<div class="modal fade remote-dailog-modal in" id="remote-dailog-modal" tabindex="-1" role="dialog"
+     aria-labelledby="remote-dailog-modal" style="display: none; padding-right: 8px;"><!--block-->
+
+    <div class="modal-dialog ">
+        <div class="modal-middle">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                            onclick="return close_password_frame();">
+                        ×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        修改密码 </h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="post" id="password-form">
+                        <table class="binding-phone">
+                            <tbody>
+                            <tr>
+                                <td>当前密码：</td>
+                                <td>
+                                    <input name="oldPassword" id="oldPassword" type="password"> <span
+                                        class="ft-red"> * </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>新密码：</td>
+                                <td><input name="newPassword" id="newPassword" type="password"><span
+                                        class="ft-red"> * </span></td>
+                            </tr>
+                            <tr>
+                                <td>重复新密码：</td>
+                                <td><input name="confirmPassword" id="confirmPassword" type="password"><span
+                                        class="ft-red"> * </span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <button type="submit" id="submit_password" class="btn btn-yellow"
+                                            data-loading-text="请求中...">确定
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

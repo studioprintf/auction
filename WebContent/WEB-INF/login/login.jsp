@@ -74,7 +74,7 @@
                         <input style="margin-bottom: 0" id="userIdTxt" type="text" placeholder="用户名" name="user_name"
                                class="email ui-autocomplete-input" jvdefault="用户名" jvcorrecttip=""
                                jvtipid="userIdSpt" maxlength="50" jvpattern="^.{1,50}$" jverrortip="请输入注册时用的邮箱或者手机号呀"
-                               autocomplete="off">
+                               >
                     </div>
                     <div class="box">
                         <span id="userPwdTip" jvnormaltip="&amp;nbsp;">&nbsp;</span>

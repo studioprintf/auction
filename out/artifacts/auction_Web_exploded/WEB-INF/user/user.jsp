@@ -153,9 +153,6 @@
                         <a href="/user.html?type=1">
                             <li role="presentation" class="active">账户流水</li>
                         </a>
-                        <a href="/user.html?type=2">
-                            <li role="presentation" class="">积分流水</li>
-                        </a>
                         <li class="pull-right">
                             <div class="dropdown">
                                 <button type="button" class="btn dropdown-toggle" id="dropdownMenu1"

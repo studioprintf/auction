@@ -43,7 +43,7 @@ public class UserManagerImpl implements UserManager {
                 userSql.setSign_time(user.getSign_time());
                 user.setUser_id(userSql.getUser_id());
                 dao.updateObject(userSql);
-                System.out.println("ÓÃ»§" + userSql.getUser_name() + "µÇÂ½³É¹¦");
+                System.out.println("ï¿½Ã»ï¿½" + userSql.getUser_name() + "ï¿½ï¿½Â½ï¿½É¹ï¿½");
                 return "success";
             } else
                 return "error";
@@ -72,9 +72,12 @@ public class UserManagerImpl implements UserManager {
     }
 
     @Override
-    public boolean updateUserPW(User user) throws HibernateException {
+    public boolean updateUserPW(User user,String oldPassword) throws HibernateException {
         // TODO Auto-generated method stub
         User userSql = dao.findUser(user);
+        if (!userSql.getUser_password().equals(oldPassword))
+            return false;// å¯†ç é”™è¯¯
+
         userSql.setUser_password(user.getUser_password());
         try {
             dao.updateObject(userSql);
@@ -100,7 +103,7 @@ public class UserManagerImpl implements UserManager {
                 userSql.setSign_time(user.getSign_time());
                 user.setUser_id(userSql.getUser_id());
                 dao.updateObject(userSql);
-                System.out.println("¹ÜÀíÔ±" + userSql.getUser_name() + "µÇÂ½³É¹¦");
+                System.out.println("ï¿½ï¿½ï¿½ï¿½Ô±" + userSql.getUser_name() + "ï¿½ï¿½Â½ï¿½É¹ï¿½");
                 return "success";
             } else
                 return "error";
