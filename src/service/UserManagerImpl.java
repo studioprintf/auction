@@ -43,8 +43,7 @@ public class UserManagerImpl implements UserManager {
                 userSql.setSign_time(user.getSign_time());
                 user.setUser_id(userSql.getUser_id());
                 dao.updateObject(userSql);
-
-                System.out.println("ï¿½Ã»ï¿½" + userSql.getUser_name() + "ï¿½ï¿½Â½ï¿½É¹ï¿½");
+                System.out.println("ÓÃ»§" + userSql.getUser_name() + "µÇÂ½³É¹¦");
                 return "success";
             } else
                 return "error";
@@ -90,6 +89,24 @@ public class UserManagerImpl implements UserManager {
         User userSql = dao.findUserByName(userName);
         return userSql;
     }
+
+	@Override
+	public String adminLogin(User user) throws HibernateException {
+		// TODO Auto-generated method stub
+        User userSql = dao.findUser(user);
+        if (userSql != null)
+            if (userSql.getUser_password().equals(user.getUser_password())) {
+                userSql.setSign_ip(user.getSign_ip());
+                userSql.setSign_time(user.getSign_time());
+                user.setUser_id(userSql.getUser_id());
+                dao.updateObject(userSql);
+                System.out.println("¹ÜÀíÔ±" + userSql.getUser_name() + "µÇÂ½³É¹¦");
+                return "success";
+            } else
+                return "error";
+        else
+            return "null";
+	}
 
 
 }

@@ -18,6 +18,9 @@ import pojo.User;
 public interface UserManager {
     //锟斤拷陆锟斤拷锟斤拷
     public String login(User user) throws HibernateException;
+    
+    //管理员登陆
+    public String adminLogin(User user) throws HibernateException;
 
     //注锟结功锟斤拷
     public boolean register(User user) throws HibernateException;
