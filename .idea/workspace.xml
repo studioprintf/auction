@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea2cd5e3-a27c-41d7-bf9f-ca876788e1ef" name="Default" comment="实现用户注销，增加个人中心界面，实现余额显示，个人资料显示">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/action/user/UserUpdateInfo.java" afterPath="$PROJECT_DIR$/src/action/user/UserUpdateInfo.java" />
-    </list>
+    <list default="true" id="ea2cd5e3-a27c-41d7-bf9f-ca876788e1ef" name="Default" comment="实现用户注销，增加个人中心界面，实现余额显示，个人资料显示" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -1041,7 +1038,7 @@
       <workItem from="1490602592163" duration="4299000" />
       <workItem from="1490621931205" duration="4189000" />
       <workItem from="1490629370609" duration="616000" />
-      <workItem from="1490631613844" duration="45021000" />
+      <workItem from="1490631613844" duration="45197000" />
     </task>
     <task id="LOCAL-00001" summary="fix bugs">
       <created>1490628888442</created>
@@ -1054,7 +1051,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54125000" />
+    <option name="totallyTimeSpent" value="54301000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
