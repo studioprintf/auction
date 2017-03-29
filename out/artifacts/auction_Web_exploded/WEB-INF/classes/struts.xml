@@ -6,13 +6,17 @@
 <struts>
     <constant name="struts.i18n.encoding" value="UTF-8"></constant>
 
-    <package name="auction" namespace="/" extends="struts-default">
+    <package name="user_action" namespace="/" extends="struts-default">
 
 
         <interceptors>
+        	<!-- 用户权限拦截器，判断session中的USER_ID和USER_NAME -->
             <interceptor name="authority" class="action.user.AuthorityInterceptor"></interceptor>
+            <!-- 管理员权限拦截器，判断session中ADMIN是否为TRUE -->
+            <interceptor name="adminAuthority" class="action.admin.AdminAuthority"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="defaultinter">
+                <interceptor-ref name="defaultStack"></interceptor-ref>
                 <interceptor-ref name="authority"></interceptor-ref>
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
@@ -49,7 +53,7 @@
         </action>
 
 
-        <!--登录操作-->
+        <!--用户登录操作-->
         <action name="user_login" class="action.user.UserLoginAction">
             <result name="success">/WEB-INF/login/login_succ.jsp</result>
             <result name="error">/WEB-INF/login/login_error.jsp</result>
@@ -58,7 +62,15 @@
             <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
 
-
+		<!-- 管理员登陆操作 -->
+		<action name="admin_login" class="action.admin.AdminLoginAction">
+            <result name="success">/WEB-INF/login/login_succ.jsp</result>
+            <result name="error">/WEB-INF/login/login_error.jsp</result>
+            <result name="input">/WEB-INF/login/login_input.jsp</result>
+            <result name="fail">/WEB-INF/login/login_fail.jsp</result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		
         <!--注册操作-->
         <action name="user_register" class="action.user.UserRegisterAction">
             <result name="success">/WEB-INF/register/reg_succ.jsp</result>
@@ -86,6 +98,10 @@
                 <param name="inputStream">inputStream</param>
             </result>
         </action>
+        
+        <action name="admin_getUser" class="action.admin.AdminGetUser">
+        	<result name="success"></result>
+        </action>
 
         <!--注销-->
         <action name="user_logout" class="action.user.UserExitAction">
@@ -104,7 +120,7 @@
 
 
     <!---            个人中心             -->
-    <package name="user" namespace="/user" extends="auction">
+    <package name="user" namespace="/user" extends="user_action">
         <global-results>
             <result type="redirect" name="input">
                 <param name="location">/login</param>
@@ -145,19 +161,22 @@
         <!--充值操作-->
         <action name="user_recharge" class="action.user.UserRechargeAction">
             <result name="success"></result>
-            <interceptor-ref name="authority"></interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
 
         <!--提现操作-->
         <action name="user_withdrawals" class="action.user.UserWithdrawalsAction">
             <result name="success"></result>
-            <interceptor-ref name="authority"></interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
         
         <!--更改密码操作-->
         <action name="user_updatePassword" class="action.user.UserUpdatePasswordAction">
-            <result name="success"></result>
-            <interceptor-ref name="authority"></interceptor-ref>
+            <result type="stream" name="success">
+                <param name="contentType">text/html</param>
+                <param name="inputStream">inputStream</param>
+            </result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
 
 
@@ -165,7 +184,7 @@
         <!--资料修改操作-->
         <action name="user_updateInfo" class="action.user.UserUpdateInfo">
             <result name="success"></result>
-            <interceptor-ref name="authority"></interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
         
 

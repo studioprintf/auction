@@ -1,5 +1,7 @@
 package action.user;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -21,10 +23,10 @@ import service.UserManagerImpl;
 public class UserUpdatePasswordAction implements Action, SessionAware {
     private String oldPassword;
     private String newPassword;
-    private String confirmPassword;
     private User user;
     private Map<String, Object> session;
     private UserManagerImpl userManager;
+    private InputStream inputStream;
 
     public String getOldPassword() {
         return oldPassword;
@@ -46,15 +48,6 @@ public class UserUpdatePasswordAction implements Action, SessionAware {
     }
 
 
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
-
     public User getUser() {
         return user;
     }
@@ -74,6 +67,13 @@ public class UserUpdatePasswordAction implements Action, SessionAware {
         this.userManager = userManager;
     }
 
+    public InputStream getInputStream() {
+        return inputStream;
+    }
+
+    public void setInputStream(InputStream inputStream) {
+        this.inputStream = inputStream;
+    }
 
     @Override
     public void setSession(Map<String, Object> session) {
@@ -84,19 +84,20 @@ public class UserUpdatePasswordAction implements Action, SessionAware {
     @Override
     public String execute() throws Exception {
         // TODO Auto-generated method stub
+        if(oldPassword.equals(newPassword))//非法提交
+            return NONE;
         user = new User();
-        if (newPassword.equals(confirmPassword) && !oldPassword.equals(newPassword)) {
-            user.setUser_id((int) session.get("USER_ID"));
-            user.setUser_password(newPassword);
-            user.setUser_name(session.get("USER_NAME").toString());
-            if (userManager.updateUserPW(user)) {
-                return SUCCESS;
-            } else {
-                return ERROR;
-            }
+        user.setUser_id((int) session.get("USER_ID"));
+        user.setUser_password(newPassword);
+        user.setUser_name(session.get("USER_NAME").toString());
+        if (userManager.updateUserPW(user,oldPassword)) {
+            inputStream = new ByteArrayInputStream("1".getBytes());
+        } else {
+            inputStream = new ByteArrayInputStream("0".getBytes());
         }
-        return ERROR;
+        return SUCCESS;
     }
+
 
 
 }

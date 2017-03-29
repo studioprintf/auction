@@ -16,6 +16,7 @@
             <interceptor name="adminAuthority" class="action.admin.AdminAuthority"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="defaultinter">
+                <interceptor-ref name="defaultStack"></interceptor-ref>
                 <interceptor-ref name="authority"></interceptor-ref>
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
@@ -119,7 +120,7 @@
 
 
     <!---            个人中心             -->
-    <package name="user" namespace="/user" extends="auction">
+    <package name="user" namespace="/user" extends="user_action">
         <global-results>
             <result type="redirect" name="input">
                 <param name="location">/login</param>
@@ -160,19 +161,22 @@
         <!--充值操作-->
         <action name="user_recharge" class="action.user.UserRechargeAction">
             <result name="success"></result>
-            <interceptor-ref name="authority"></interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
 
         <!--提现操作-->
         <action name="user_withdrawals" class="action.user.UserWithdrawalsAction">
             <result name="success"></result>
-            <interceptor-ref name="authority"></interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
         
         <!--更改密码操作-->
         <action name="user_updatePassword" class="action.user.UserUpdatePasswordAction">
-            <result name="success"></result>
-            <interceptor-ref name="authority"></interceptor-ref>
+            <result type="stream" name="success">
+                <param name="contentType">text/html</param>
+                <param name="inputStream">inputStream</param>
+            </result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
 
 
@@ -180,7 +184,7 @@
         <!--资料修改操作-->
         <action name="user_updateInfo" class="action.user.UserUpdateInfo">
             <result name="success"></result>
-            <interceptor-ref name="authority"></interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
         
 

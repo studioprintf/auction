@@ -14,9 +14,7 @@ import java.io.UnsupportedEncodingException;
  * Created by Dymond on 2017/3/25.
  */
 public class UserCheckNameAction extends ActionSupport implements ModelDriven<User> {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private User user = new User();
     private UserManager userManager = new UserManagerImpl();

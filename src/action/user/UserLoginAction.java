@@ -13,7 +13,6 @@ import com.opensymphony.xwork2.Action;
 import pojo.User;
 import service.UserManagerImpl;
 
-import javax.servlet.http.Cookie;
 
 @Controller
 public class UserLoginAction implements Action, SessionAware {
@@ -90,7 +89,6 @@ public class UserLoginAction implements Action, SessionAware {
         if (result.equals("success")) {
             session.put("USER_NAME", user_name);
             session.put("USER_ID", user.getUser_id());
-            Cookie cookie = new Cookie("auction_user_name",user_name);
 
             return SUCCESS;
         } else if (result.equals("error"))

@@ -2,8 +2,7 @@ package action.user;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
-import org.apache.struts2.dispatcher.HttpParameters;
+import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.stereotype.Controller;
 import pojo.User;
@@ -17,10 +16,11 @@ import java.util.Map;
  */
 
 @Controller
-public class UserInfoAction extends ActionSupport implements Action,SessionAware {
+public class UserInfoAction implements Action,SessionAware,RequestAware {
     private User user;
     private UserManagerImpl userManager;
     private Map<String, Object> session;
+    private Map<String,Object> request;
 
     public User getUser() {
         return user;
@@ -48,10 +48,14 @@ public class UserInfoAction extends ActionSupport implements Action,SessionAware
         String user_name = (String) session.get("USER_NAME");
         if(user_name ==null)
             return NONE;
-
         User userSql = userManager.findUserByName(user_name);
-        ActionContext atx = ActionContext.getContext();
-        atx.put("user",userSql);
+        request.put("user",userSql);
         return SUCCESS;
+    }
+
+
+    @Override
+    public void setRequest(Map<String, Object> request) {
+        this.request = request;
     }
 }
