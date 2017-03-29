@@ -11,12 +11,12 @@ public class Goods implements Serializable {
     private int goods_id;
     private int create_user;
     private String state;
-    private Double reserve_price;
-    private Double limit;
+    private double reserve_price;
+    private double limit;
     private Timestamp create_time;
     private Timestamp start_time;
     private Timestamp final_time;
-    private Double final_price;
+    private double final_price;
 
     public int getGoods_id() {
         return goods_id;
@@ -42,20 +42,8 @@ public class Goods implements Serializable {
         this.state = state;
     }
 
-    public Double getReserve_price() {
-        return reserve_price;
-    }
-
-    public void setReserve_price(Double reserve_price) {
-        this.reserve_price = reserve_price;
-    }
-
-    public Double getLimit() {
-        return limit;
-    }
-
-    public void setLimit(Double limit) {
-        this.limit = limit;
+    public void setFinal_price(double final_price) {
+        this.final_price = final_price;
     }
 
     public Timestamp getCreate_time() {
@@ -78,16 +66,33 @@ public class Goods implements Serializable {
         return final_time;
     }
 
+    public double getFinal_price() {
+        return final_price;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public double getReserve_price() {
+        return reserve_price;
+    }
+
+    public void setReserve_price(double reserve_price) {
+        this.reserve_price = reserve_price;
+    }
+
+    public double getLimit() {
+        return limit;
+    }
+
+    public void setLimit(double limit) {
+        this.limit = limit;
+    }
+
     public void setFinal_time(Timestamp final_time) {
         this.final_time = final_time;
     }
 
-    public Double getFinal_price() {
-        return final_price;
-    }
-
-    public void setFinal_price(Double final_price) {
-        this.final_price = final_price;
-    }
 
 }

@@ -129,11 +129,51 @@
         </property>
     </bean>
 
+
+
+    <bean id="checkNameAction" class="action.user.UserCheckNameAction">
+        <property name="userManager">
+            <ref bean="userManager"></ref>
+        </property>
+    </bean>
+
+    <bean id="getBalanceAction" class="action.user.UserGetBalanceAction">
+        <property name="userManager">
+            <ref bean="userManager"></ref>
+        </property>
+    </bean>
+
+    <!--<bean id="rechargeAction" class="action.user.UserRechargeAction">-->
+        <!--<property name="userManager">-->
+            <!--<ref bean="userManager"></ref>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<bean id="withdrawalsAction" class="action.user.UserWithdrawalsAction">-->
+        <!--<property name="userManager">-->
+            <!--<ref bean="userManager"></ref>-->
+        <!--</property>-->
+    <!--</bean>-->
+
     <bean id="updatePasswordAction" class="action.user.UserUpdatePasswordAction">
         <property name="userManager">
             <ref bean="userManager"></ref>
         </property>
     </bean>
+
+    <bean id="updateInfoAction" class="action.user.UserUpdateInfo">
+        <property name="userManager">
+            <ref bean="userManager"></ref>
+        </property>
+    </bean>
+
+    <bean id="userInfoAction" class="action.user.UserInfoAction">
+        <property name="userManager">
+            <ref bean="userManager"></ref>
+        </property>
+    </bean>
+
+
 
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 

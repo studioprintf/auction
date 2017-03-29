@@ -11,7 +11,7 @@ public class User {
     private Timestamp register_time;
     private Timestamp sign_time;
     private String sign_ip;
-    private Double balance;
+    private double balance;
 
     public int getUser_id() {
         return user_id;
@@ -77,13 +77,11 @@ public class User {
         this.sign_ip = sign_ip;
     }
 
-    public Double getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(Double balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
-
-
 }

@@ -102,11 +102,90 @@
         	<result name="success"></result>
         </action>
 
+        <!--注销-->
+        <action name="user_logout" class="action.user.UserExitAction">
+            <result type="redirect" name="success">
+                <param name="location">/index</param>
+            </result>
+        </action>
+
+
         <action name="*">
             <result>/WEB-INF/none.jsp</result>
         </action>
 
+
     </package>
 
+
+    <!---            个人中心             -->
+    <package name="user" namespace="/user" extends="auction">
+        <global-results>
+            <result type="redirect" name="input">
+                <param name="location">/login</param>
+            </result>
+        </global-results>
+
+
+        <action name="user">
+            <result type="dispatcher" >/WEB-INF/user/user.jsp</result>
+            <interceptor-ref name="authority"></interceptor-ref>
+        </action>
+        <action name="payment">
+            <result type="dispatcher" >/WEB-INF/user/payment.jsp</result>
+            <interceptor-ref name="authority"></interceptor-ref>
+        </action>
+        <action name="cash">
+            <result type="dispatcher" >/WEB-INF/user/cash.jsp</result>
+            <interceptor-ref name="authority"></interceptor-ref>
+        </action>
+
+        <!--获取用户资料并转入个人资料页面-->
+        <action name="setting" class="action.user.UserInfoAction">
+            <result type="dispatcher" name="success">/WEB-INF/user/setting.jsp</result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+
+
+
+        <!--获取用户余额-->
+        <action name="user_getBalance" class="action.user.UserGetBalanceAction">
+            <result type="stream" name="success">
+                <param name="contentType">text/html</param>
+                <param name="inputStream">inputStream</param>
+            </result>
+        </action>
+
+        
+        <!--充值操作-->
+        <action name="user_recharge" class="action.user.UserRechargeAction">
+            <result name="success"></result>
+            <interceptor-ref name="authority"></interceptor-ref>
+        </action>
+
+        <!--提现操作-->
+        <action name="user_withdrawals" class="action.user.UserWithdrawalsAction">
+            <result name="success"></result>
+            <interceptor-ref name="authority"></interceptor-ref>
+        </action>
+        
+        <!--更改密码操作-->
+        <action name="user_updatePassword" class="action.user.UserUpdatePasswordAction">
+            <result name="success"></result>
+            <interceptor-ref name="authority"></interceptor-ref>
+        </action>
+
+
+        
+        <!--资料修改操作-->
+        <action name="user_updateInfo" class="action.user.UserUpdateInfo">
+            <result name="success"></result>
+            <interceptor-ref name="authority"></interceptor-ref>
+        </action>
+        
+
+
+
+    </package>
 
 </struts>

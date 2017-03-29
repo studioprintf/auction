@@ -14,7 +14,7 @@ public class Order implements Serializable {
     private String state;
     private Timestamp create_time;
     private Timestamp finish_time;
-    private Double price;
+    private double price;
 
     public int getOrder_id() {
         return order_id;
@@ -64,13 +64,11 @@ public class Order implements Serializable {
         this.finish_time = finish_time;
     }
 
-    public Double getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
-
-
 }

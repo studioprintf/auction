@@ -42,7 +42,7 @@
             var pgo = 0;
             function JumpUrl() {
                 if (pgo == 0) {
-                    location = 'https://localhost:8080/index';
+                    location = 'http://localhost:8080/index';
                     pgo = 1;
                 }
             }
