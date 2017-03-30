@@ -116,6 +116,15 @@
         </property>
     </bean>
 
+    <bean id="AuctionProcessManager" class="service.AuctionProcessManagerImpl">
+        <property name="goodsDao">
+            <ref bean="goodsDaoImpl"></ref>
+        </property>
+        <property name="goodsinfoDao">
+            <ref bean="goodsinfoDaoImpl"></ref>
+        </property>
+    </bean>
+
     <!-- action类注册 -->
     <bean id="loginAction" class="action.user.UserLoginAction">
         <property name="userManager">
@@ -173,7 +182,12 @@
         </property>
     </bean>
 
-
+    <!--拍卖流程action注册-->
+    <bean id="OnsaleAction" class="action.seller.SellerOnSaleAction">
+        <property name="auctionProcessManager">
+            <ref bean="AuctionProcessManager"></ref>
+        </property>
+    </bean>
 
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 

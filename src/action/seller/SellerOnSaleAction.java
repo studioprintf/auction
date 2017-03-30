@@ -3,6 +3,7 @@ package action.seller;
 import action.BaseAction;
 import pojo.Goods;
 import pojo.Goodsinfo;
+import service.AuctionProcessManagerImpl;
 
 import java.sql.Timestamp;
 import java.util.Calendar;
@@ -29,6 +30,16 @@ public class SellerOnSaleAction extends BaseAction{
     private String goods_image5;
     private String goods_image6;
     private Goodsinfo goodsinfo;
+
+    private AuctionProcessManagerImpl auctionProcessManager;
+
+    public AuctionProcessManagerImpl getAuctionProcessManager() {
+        return auctionProcessManager;
+    }
+
+    public void setAuctionProcessManager(AuctionProcessManagerImpl auctionProcessManager) {
+        this.auctionProcessManager = auctionProcessManager;
+    }
 
     public String getGoods_title() {
         return goods_title;
@@ -200,6 +211,9 @@ public class SellerOnSaleAction extends BaseAction{
                 }
             }
         }
-        return null;
+        if(auctionProcessManager.onSale(goods,goodsinfo))
+            return SUCCESS;
+        else
+            return ERROR;
     }
 }
