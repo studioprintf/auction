@@ -1,6 +1,7 @@
 package action.user;
 
 import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 
@@ -89,7 +90,8 @@ public class UserLoginAction implements Action, SessionAware {
         if (result.equals("success")) {
             session.put("USER_NAME", user_name);
             session.put("USER_ID", user.getUser_id());
-
+            System.out.printf(user.getSign_time().toString());
+            System.out.printf(Calendar.getInstance().getTime().toString());
             return SUCCESS;
         } else if (result.equals("error"))
             return ERROR;
