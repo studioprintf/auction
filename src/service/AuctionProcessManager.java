@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.hibernate.HibernateException;
 
+import pojo.Auction;
 import pojo.Goods;
 import pojo.Goodsinfo;
+import pojo.User;
 
 /**
  * @author Lucifer
@@ -19,10 +21,11 @@ public interface AuctionProcessManager {
     public boolean onSale(Goods goods, Goodsinfo goodsInfo) throws HibernateException;
 
     //参加拍卖
-    public boolean joinAuction(Goods goods) throws HibernateException;
+    public boolean joinAuction(User user, Goods goods, Auction auction) throws HibernateException;
 
     //获取拍卖列表
     public List<?> getAuctionList(Goods goods) throws HibernateException;
 
-    //缴纳保证金
+    //检查保证金
+    public Boolean checkMargin(User user,Goods goods) throws HibernateException;
 }

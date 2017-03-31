@@ -133,6 +133,9 @@
         <property name="goodsinfoDao">
             <ref bean="goodsinfoDaoImpl"></ref>
         </property>
+        <property name="auctionDao">
+            <ref bean="auctionDaoImpl"></ref>
+        </property>
     </bean>
 
     <!-- action类注册 -->
@@ -198,6 +201,7 @@
             <ref bean="AuctionProcessManager"></ref>
         </property>
     </bean>
+
 
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
