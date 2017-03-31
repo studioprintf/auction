@@ -13,8 +13,6 @@ import java.util.Date;
  * Created by DTLuc on 2017/3/30.
  */
 public class SellerOnSaleAction extends BaseAction{
-    private int create_user;
-    private String state;
     private double reserve_price;
     private double limit;
     private Timestamp start_time;
@@ -111,22 +109,6 @@ public class SellerOnSaleAction extends BaseAction{
 
     public void setGoodsinfo(Goodsinfo goodsinfo) {
         this.goodsinfo = goodsinfo;
-    }
-
-    public int getCreate_user() {
-        return create_user;
-    }
-
-    public void setCreate_user(int create_user) {
-        this.create_user = create_user;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
     }
 
     public double getReserve_price() {
