@@ -90,5 +90,4 @@ public class AuctionProcessManagerImpl implements AuctionProcessManager {
             return true;
         return false;
     }
-
 }

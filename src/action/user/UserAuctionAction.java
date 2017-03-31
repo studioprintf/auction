@@ -104,7 +104,6 @@ public class UserAuctionAction implements Action, SessionAware{
             return SUCCESS;
         return ERROR;
     }
-
     @Override
     public void setSession(Map<String, Object> map) {
         this.seesion = map;

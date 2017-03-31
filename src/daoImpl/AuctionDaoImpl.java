@@ -35,6 +35,6 @@ public class AuctionDaoImpl extends HibernateDaoSupport implements AuctionDao {
     @Override
     public Boolean saveLog(Auction auction) throws HibernateException {
         getHibernateTemplate().save(auction);
-        return null;
+        return true;
     }
 }

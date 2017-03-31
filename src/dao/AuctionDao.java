@@ -16,4 +16,5 @@ public interface AuctionDao {
     List<?> findMaxLog(Goods goods) throws HibernateException;
     //存入竞拍记录
     Boolean saveLog(Auction auction) throws HibernateException;
+
 }

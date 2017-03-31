@@ -28,4 +28,5 @@ public interface AuctionProcessManager {
 
     //检查保证金
     public Boolean checkMargin(User user,Goods goods) throws HibernateException;
+
 }
