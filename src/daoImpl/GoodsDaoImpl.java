@@ -35,7 +35,7 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements GoodsDao {
     public List<?> searchGoods(Goods goods) throws HibernateException {
         // TODO Auto-generated method stub
         List<?> result;
-        result = getHibernateTemplate().find("FROM Goods G WHERE G.create_user = ?0", goods.getCreate_user());
+        result = getHibernateTemplate().find("FROM Goods G WHERE G.create_user = ?0", goods.getGoods_id());
         return result;
     }
 

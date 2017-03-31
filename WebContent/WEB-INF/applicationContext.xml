@@ -116,6 +116,16 @@
         </property>
     </bean>
 
+    <bean id="GoodsManager" class="service.GoodsManagerImpl">
+        <property name="goodsDao">
+            <ref bean="goodsDaoImpl"></ref>
+        </property>
+        <property name="goodsInfoDao">
+            <ref bean="goodsinfoDaoImpl"></ref>
+        </property>
+
+    </bean>
+
     <bean id="AuctionProcessManager" class="service.AuctionProcessManagerImpl">
         <property name="goodsDao">
             <ref bean="goodsDaoImpl"></ref>
