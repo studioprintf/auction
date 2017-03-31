@@ -12,6 +12,15 @@ public class User {
     private Timestamp sign_time;
     private String sign_ip;
     private double balance;
+    private double frozen_amount;
+
+    public double getFrozen_amount() {
+        return frozen_amount;
+    }
+
+    public void setFrozen_amount(double frozen_amount) {
+        this.frozen_amount = frozen_amount;
+    }
 
     public int getUser_id() {
         return user_id;

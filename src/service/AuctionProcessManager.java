@@ -15,12 +15,14 @@ import pojo.Goodsinfo;
  * @return �������̹���
  */
 public interface AuctionProcessManager {
-    //��������
+    //商品上架
     public boolean onSale(Goods goods, Goodsinfo goodsInfo) throws HibernateException;
 
-    //��������
+    //参加拍卖
     public boolean joinAuction(Goods goods) throws HibernateException;
 
-    //�鿴�����б�
+    //获取拍卖列表
     public List<?> getAuctionList(Goods goods) throws HibernateException;
+
+    //缴纳保证金
 }
