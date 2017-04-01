@@ -14,4 +14,6 @@ public interface GoodsDao {
     public List<?> searchGoods(Goods goods) throws HibernateException;
 
     public boolean updateGoods(Goods goods) throws HibernateException;
+
+    public List<?> searchGoodsHour() throws  HibernateException;
 }

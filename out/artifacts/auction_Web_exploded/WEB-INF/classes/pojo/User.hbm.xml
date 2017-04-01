@@ -16,6 +16,7 @@
         <property name="sign_time"/>
         <property name="sign_ip"/>
         <property name="balance"/>
+        <property name="frozen_amount"/>
     </class>
 
 </hibernate-mapping>
