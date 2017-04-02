@@ -85,7 +85,7 @@
                         else if (data == "0") {
                             alert("原密码错误");
                         }
-                        else alert(data);
+                        else alert("服务器错误");
 
                     },
                     error: function () {

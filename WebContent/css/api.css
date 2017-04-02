@@ -1,0 +1,55 @@
+.magicpen-box {
+    border: 1px solid #d3dae3;
+    background-color: #ffffff;
+}
+
+.magicpen-title {
+	background-color: #f6f8fb;
+	height: 49px;
+    border-bottom: 1px solid #d3dae3;
+	line-height: 48px;
+	color: #3c4141;
+	font-size: 16px;
+	padding-left: 10px;
+}
+
+.magicpen-title .shenbi-close {
+	background: url(//img.alicdn.com/tps/i3/TB1FIqIIXXXXXbTXXXX3pcaFFXX-25-25.png) no-repeat;
+	float: right;
+	height: 25px;
+	margin: 10px 10px 0 0;
+	width: 25px;
+	display: none;
+}
+
+.magicpen-title .shenbi-update {
+	float: right;
+	color: #14aee4;
+	margin-right: 10px;
+	text-decoration: none;
+}
+
+.magicpen-pob {
+	position: fixed;
+
+}
+.magicpen-pob .magicpen-title .shenbi-close {
+	display: inline-block;
+	*display: inline;
+	*zoom:1;
+}
+
+.magicpen-pob .magicpen-title .shenbi-update {
+	display: none !important;
+}
+
+.shenbi-fix-box {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background: #000;
+	opacity: 0.5;
+	top: 0;
+	left: 0;
+	filter:alpha(opacity=50);
+}

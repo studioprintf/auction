@@ -85,11 +85,6 @@
             </result>
         </action>
 
-        <!--更改密码-->
-        <action name="user_updatePassword" class="action.user.UserUpdatePasswordAction">
-            <result name="success">/success</result>
-            <result name="error">/error</result>
-        </action>
 
         <!--验证码-->
         <action name="user_createImage" class="action.user.CreateImageAction">
@@ -186,8 +181,13 @@
             <result name="success"></result>
             <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
-        
 
+    </package>
+
+    <package name="auction" namespace="/auction" extends="user_action">
+        <action name="publish">
+            <result>/WEB-INF/auction/publish.jsp</result>
+        </action>
 
 
     </package>
