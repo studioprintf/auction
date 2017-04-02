@@ -172,7 +172,7 @@ public class UserCreateGoodsAction implements Action, SessionAware {
         Goodsinfo goodsinfo = new Goodsinfo();
         goods.setCreate_user(user_id);
         goods.setReserve_price(reserve_price);
-        goods.setLimit(limit);
+        goods.setLimit_price(limit);
         goods.setStart_time(start_time);
         goods.setFinal_time(final_time);
         goods.setCreate_time(new Timestamp(new Date().getTime()));

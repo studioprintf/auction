@@ -170,7 +170,7 @@ public class SellerOnSaleAction extends BaseAction{
         goods.setCreate_user(Integer.parseInt(session.get("USER_ID").toString()));
         goods.setState("等待");
         goods.setReserve_price(reserve_price);
-        goods.setLimit(limit);
+        goods.setLimit_price(limit);
         goods.setCreate_time(nowTime);
         goods.setStart_time(start_time);
         goods.setFinal_time(final_time);

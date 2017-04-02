@@ -1,16 +1,12 @@
 package listener;
 
-import daoImpl.AuctionDaoImpl;
-import daoImpl.GoodsDaoImpl;
-import daoImpl.OrderDaoImpl;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 import pojo.Goods;
 import service.GoodsManagerImpl;
 
 import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
-import java.util.Date;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -19,57 +15,33 @@ import java.util.TimerTask;
  * Created by DTLuc on 2017/4/1.
  */
 
-@WebListener
-public class AuctionListener implements ServletContextListener {
-    private AuctionDaoImpl auctionDao;
-    private OrderDaoImpl orderDao;
-    private GoodsDaoImpl goodsDao;
-    private List<?> onTimeGoods;
+public class AuctionListener {
+    static private GoodsManagerImpl goodsManager;
+    static private Goods goods;
 
-    public GoodsDaoImpl getGoodsDao() {
-        return goodsDao;
-    }
+    static public void run(ServletContext context){
 
-    public void setGoodsDao(GoodsDaoImpl goodsDao) {
-        this.goodsDao = goodsDao;
-    }
-
-    public List<?> getOnTimeGoods() {
-        return onTimeGoods;
-    }
-
-    public void setOnTimeGoods(List<?> onTimeGoods) {
-        this.onTimeGoods = onTimeGoods;
-    }
-
-    public AuctionDaoImpl getAuctionDao() {
-        return auctionDao;
-    }
-
-    public void setAuctionDao(AuctionDaoImpl auctionDao) {
-        this.auctionDao = auctionDao;
-    }
-
-    public OrderDaoImpl getOrderDao() {
-        return orderDao;
-    }
-
-    public void setOrderDao(OrderDaoImpl orderDao) {
-        this.orderDao = orderDao;
-    }
-
-    public void contextInitialized(ServletContextEvent sce){
-        ServletContext context = sce.getServletContext();
-        System.out.printf("AuctionListener启动");
-        Integer cacheTime = 1000 * 3;
+        SimpleDateFormat dateformatAll= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        System.out.println("AuctionListener启动");
+        goodsManager = WebApplicationContextUtils.getRequiredWebApplicationContext(context).getBean(GoodsManagerImpl.class);
+        Integer cacheTime = 500;
         Timer timer = new Timer();
-        // (TimerTask task, long delay, long period)任务，延迟时间，多久执行
+        // (TimerTask task, long delay, long period)任务，延迟时间，多久执行一次
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                System.out.println(new Date());
+                List<?> goodsList = (List<?>) context.getAttribute("onSaleList");
+                for(int i = 0; i < goodsList.size();i++){
+                    goods = (Goods) goodsList.get(i);
+                    System.out.println(dateformatAll.format(goods.getStart_time()));
+                    System.out.println(dateformatAll.format(new Timestamp(System.currentTimeMillis())));
+                    if(dateformatAll.format(goods.getStart_time()).equals(dateformatAll.format(new Timestamp(System.currentTimeMillis())))) {
+                        goods.setState("在售");
+                        goodsManager.updateGoodsInfo(goods);
+                        goodsList.remove(i);
+                    }
+                }
             }
-        }, 1000, cacheTime);
+        }, 1000*10, cacheTime);
     }
-
 }

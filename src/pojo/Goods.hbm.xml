@@ -11,7 +11,7 @@
         <property name="create_user"/>
         <property name="state"/>
         <property name="reserve_price"/>
-        <property name="limit"/>
+        <property name="limit_price"/>
         <property name="create_time"/>
         <property name="start_time"/>
         <property name="final_time"/>

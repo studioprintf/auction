@@ -103,7 +103,7 @@ public class UserManagerImpl implements UserManager {
                 userSql.setSign_time(user.getSign_time());
                 user.setUser_id(userSql.getUser_id());
                 dao.updateObject(userSql);
-                System.out.println("����Ա" + userSql.getUser_name() + "��½�ɹ�");
+                System.out.println("用户" + userSql.getUser_name() + "登陆成功");
                 return "success";
             } else
                 return "error";

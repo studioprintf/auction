@@ -22,6 +22,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
     }
 
     public List<User> getUsers() throws HibernateException {
+        System.out.printf("Test");
         List<User> users = getHibernateTemplate().loadAll(User.class);
         return users;
     }

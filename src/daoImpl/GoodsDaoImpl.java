@@ -37,7 +37,7 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements GoodsDao {
     public List<?> searchGoods(Goods goods) throws HibernateException {
         // TODO Auto-generated method stub
         List<?> result;
-        result = getHibernateTemplate().find("FROM Goods G WHERE G.create_user = ?0", goods.getGoods_id());
+        result = getHibernateTemplate().find("FROM Goods G WHERE G.create_user = ?0", goods.getCreate_user());
         return result;
     }
 
@@ -45,6 +45,7 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements GoodsDao {
     public boolean updateGoods(Goods goods) throws HibernateException {
         // TODO Auto-generated method stub
         try {
+//            goods = (Goods) getHibernateTemplate().find("SELECT G FROM Goods G WHERE G.goods_id = ?0", goods.getGoods_id()).get(0);
             getHibernateTemplate().update(goods);
             return true;
         } catch (HibernateException e) {
@@ -59,10 +60,21 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements GoodsDao {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(nowTime);
         calendar.add(Calendar.HOUR,1);
-//        List<?> result = getHibernateTemplate().find("SELECT Goods G WHERE G.final_time >= ?0 AND G.final_time <= ?1",
-//                new Timestamp[]{nowTime,new Timestamp(calendar.getTime().getTime())});
-//        List<?> result = getHibernateTemplate().find("FROM Goods G WHERE G.final_time >= ?0",nowTime);
-        List<Goods> result = getHibernateTemplate().loadAll(Goods.class);
+        Timestamp final_time = new Timestamp(calendar.getTime().getTime());
+        List<?> result = getHibernateTemplate().find("FROM Goods G WHERE G.final_time >= ?0 AND G.final_time <= ?1",
+                new Timestamp[]{nowTime,final_time});
+        return result;
+    }
+
+    @Override
+    public List<?> searchOnsaleGoodsHour() throws HibernateException {
+        Timestamp nowTime = new Timestamp(System.currentTimeMillis());
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(nowTime);
+        calendar.add(Calendar.HOUR,1);
+        Timestamp final_time = new Timestamp(calendar.getTime().getTime());
+        List<?> result = getHibernateTemplate().find("FROM Goods G WHERE G.start_time >= ?0 AND G.start_time <= ?1",
+                new Timestamp[]{nowTime,final_time});
         return result;
     }
 

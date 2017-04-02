@@ -67,7 +67,7 @@ public class AuctionProcessManagerImpl implements AuctionProcessManager {
             return false;
         Auction auction1Sql = (Auction) auctionDao.findMaxLog(goods).get(0);
         //获取拍卖记录中的最高价记录
-        if(auction.getPrice()>auction1Sql.getPrice()&&(auction.getPrice()-goods.getReserve_price())%goods.getLimit()==0) {
+        if(auction.getPrice()>auction1Sql.getPrice()&&(auction.getPrice()-goods.getReserve_price())%goods.getLimit_price()==0) {
             //出价是否大于最高价且出价是否为涨幅的整数倍
             auction.setUser_id(user.getUser_id());
             auction.setCreate_time(new Timestamp(System.currentTimeMillis()));

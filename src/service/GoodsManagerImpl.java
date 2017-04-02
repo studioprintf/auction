@@ -47,6 +47,7 @@ public class GoodsManagerImpl implements GoodsManager {
     @Override
     public boolean updateGoodsInfo(Goods goods) throws HibernateException {
         // TODO Auto-generated method stub
+        goodsDao.updateGoods(goods);
         return false;
     }
 
