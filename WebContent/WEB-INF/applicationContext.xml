@@ -52,7 +52,7 @@
                 <value>pojo/Auction.hbm.xml</value>
                 <value>pojo/Goods.hbm.xml</value>
                 <value>pojo/Goodsinfo.hbm.xml</value>
-                <value>pojo/Order.hbm.xml</value>
+                <value>pojo/User_order.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -79,7 +79,7 @@
         </property>
     </bean>
 
-    <bean id="orderDaoImpl" class="daoImpl.OrderDaoImpl">
+    <bean id="orderDaoImpl" class="daoImpl.User_orderDaoImpl">
         <property name="sessionFactory">
             <ref bean="sessionFactory"/>
         </property>

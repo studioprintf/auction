@@ -1,10 +1,8 @@
 package listener;
 
-import daoImpl.GoodsDaoImpl;
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import pojo.Goods;
-import pojo.Order;
+import pojo.User_order;
 import service.AuctionProcessManagerImpl;
 import service.GoodsManagerImpl;
 
@@ -19,7 +17,7 @@ import java.util.TimerTask;
  */
  public class OrderListener {
     private static Goods goods;
-    private static Order order;
+    private static User_order order;
     private static GoodsManagerImpl goodsManager;
     private static AuctionProcessManagerImpl auctionProcessManager;
 //    private static
@@ -44,6 +42,7 @@ import java.util.TimerTask;
                         goods.setState("结束");  //商品状态修改为结束
                         goodsManager.updateGoodsInfo(goods);  //更新商品信息
                         auctionProcessManager.createOrder(goods);  //调用业务类进行创建新订单
+                        finish_goods.remove(i);
                     }
                 }
             }

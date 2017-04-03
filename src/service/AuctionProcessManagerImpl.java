@@ -6,7 +6,7 @@ import java.util.List;
 import daoImpl.AuctionDaoImpl;
 import daoImpl.GoodsDaoImpl;
 import daoImpl.GoodsinfoDaoImpl;
-import daoImpl.OrderDaoImpl;
+import daoImpl.User_orderDaoImpl;
 import org.hibernate.HibernateException;
 
 import pojo.*;
@@ -22,13 +22,13 @@ public class AuctionProcessManagerImpl implements AuctionProcessManager {
     private GoodsDaoImpl goodsDao;
     private GoodsinfoDaoImpl goodsinfoDao;
     private AuctionDaoImpl auctionDao;
-    private OrderDaoImpl orderDao;
+    private User_orderDaoImpl orderDao;
 
-    public OrderDaoImpl getOrderDao() {
+    public User_orderDaoImpl getOrderDao() {
         return orderDao;
     }
 
-    public void setOrderDao(OrderDaoImpl orderDao) {
+    public void setOrderDao(User_orderDaoImpl orderDao) {
         this.orderDao = orderDao;
     }
 
@@ -105,14 +105,14 @@ public class AuctionProcessManagerImpl implements AuctionProcessManager {
             return false;
         Auction auctionMax = (Auction) auctionList.get(0);
         System.out.println(auctionMax.getPrice());
-        Order order = new Order();
+        User_order order = new User_order();
         order.setGoods_id(goods.getGoods_id());
         order.setCreate_time(new Timestamp(System.currentTimeMillis()));
-        order.setFinish_time(new Timestamp(System.currentTimeMillis()));
         order.setPrice(auctionMax.getPrice());
         order.setUser_id(auctionMax.getUser_id());
         order.setState("已下单");
         orderDao.saveOrder(order);
+        System.out.println("成功创建订单");
         return true;
     }
 }
