@@ -45,7 +45,6 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements GoodsDao {
     public boolean updateGoods(Goods goods) throws HibernateException {
         // TODO Auto-generated method stub
         try {
-//            goods = (Goods) getHibernateTemplate().find("SELECT G FROM Goods G WHERE G.goods_id = ?0", goods.getGoods_id()).get(0);
             getHibernateTemplate().update(goods);
             return true;
         } catch (HibernateException e) {

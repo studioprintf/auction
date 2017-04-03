@@ -5,11 +5,11 @@
 
 <hibernate-mapping>
     <class name="pojo.Auction">
-        <composite-id>
-            <key-property name="auction_id"></key-property>
-            <key-property name="goods_id"></key-property>
-            <key-property name="price"></key-property>
-        </composite-id>
+        <id name="auction_id">
+            <generator class="increment"/>
+        </id>
+        <property name="goods_id"/>
+        <property name="price"/>
         <property name="user_id"/>
         <property name="create_time"/>
     </class>

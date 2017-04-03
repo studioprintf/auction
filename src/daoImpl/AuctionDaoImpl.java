@@ -28,7 +28,9 @@ public class AuctionDaoImpl extends HibernateDaoSupport implements AuctionDao {
 
     @Override
     public List<?> findMaxLog(Goods goods) throws HibernateException {
-        List<?> result = getHibernateTemplate().find("SELECT max(A.price) FROM Auction A WHERE A.goods_id = ?0",goods.getGoods_id());
+        List<?> result = getHibernateTemplate().find(
+                "FROM Auction AU WHERE AU.goods_id = ?0 AND AU.price = (SELECT max(A.price) FROM Auction A WHERE A.goods_id = ?0)",
+                goods.getGoods_id());
         return result;
     }
 

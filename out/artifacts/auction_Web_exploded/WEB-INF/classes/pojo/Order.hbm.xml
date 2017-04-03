@@ -5,11 +5,11 @@
 
 <hibernate-mapping>
     <class name="pojo.Order">
-        <composite-id>
-            <key-property name="order_id"></key-property>
-            <key-property name="goods_id"></key-property>
-            <key-property name="user_id"></key-property>
-        </composite-id>
+        <id name="order_id">
+            <generator class="increment"/>
+        </id>
+        <property name="goods_id"></property>
+        <property name="user_id"></property>
         <property name="state"/>
         <property name="create_time"/>
         <property name="finish_time"/>

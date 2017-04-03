@@ -136,6 +136,9 @@
         <property name="auctionDao">
             <ref bean="auctionDaoImpl"></ref>
         </property>
+        <property name="orderDao">
+            <ref bean="orderDaoImpl"></ref>
+        </property>
     </bean>
 
     <!-- action类注册 -->

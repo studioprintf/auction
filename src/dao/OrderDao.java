@@ -1,5 +1,8 @@
 package dao;
 
-public interface OrderDao {
+import org.hibernate.HibernateException;
+import pojo.Order;
 
+public interface OrderDao {
+    boolean saveOrder(Order order) throws HibernateException;
 }

@@ -3,11 +3,10 @@ package pojo;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class Order implements Serializable {
+public class Order {
     /**
      *
      */
-    private static final long serialVersionUID = 1L;
     private int order_id;
     private int goods_id;
     private int user_id;
