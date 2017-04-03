@@ -375,6 +375,20 @@
 <script type="text/javascript" src="/js/wangEditor.min.js"></script>
 <script type="text/javascript">
     var editor = new wangEditor('editor');
+
+    var user_name = ${sessionScope.get("USER_NAME")};
+
+    //upload
+    editor.config.uploadImgUrl = '/auction/uploadImg';
+    editor.config.uploadImgFileName = 'upload';
+    editor.config.uploadParams = {
+        'user_name' : user_name
+    };
+    editor.config.uploadHeaders={
+        'Accept' : 'text/x-json',
+        'Content-Type':'multipart/form-data'
+    }
+
     editor.create();
 </script>
 

@@ -188,13 +188,11 @@
         <action name="publish">
             <result>/WEB-INF/auction/publish.jsp</result>
         </action>
-        <action name="decorate">
-            <result>/WEB-INF/auction/decorate.jsp</result>
+
+        <action name="uploadImg" class="action.auction.UploadImgAction">
+            <result name="success"></result>
         </action>
 
-        <!--<action name="auction_publish" class="action.auction.imageUploadAction">-->
-
-        <!--</action>-->
     </package>
 
 </struts>

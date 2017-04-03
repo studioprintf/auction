@@ -189,6 +189,9 @@
             <result>/WEB-INF/auction/publish.jsp</result>
         </action>
 
+        <action name="uploadImg" class="action.auction.UploadImgAction">
+            <result name="success"></result>
+        </action>
 
     </package>
 

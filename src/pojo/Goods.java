@@ -1,18 +1,16 @@
 package pojo;
 
-import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class Goods implements Serializable {
+public class Goods {
     /**
      *
      */
-    private static final long serialVersionUID = 1L;
     private int goods_id;
     private int create_user;
     private String state;
     private double reserve_price;
-    private double limit;
+    private double limit_price;
     private Timestamp create_time;
     private Timestamp start_time;
     private Timestamp final_time;
@@ -42,8 +40,20 @@ public class Goods implements Serializable {
         this.state = state;
     }
 
-    public void setFinal_price(double final_price) {
-        this.final_price = final_price;
+    public double getReserve_price() {
+        return reserve_price;
+    }
+
+    public void setReserve_price(double reserve_price) {
+        this.reserve_price = reserve_price;
+    }
+
+    public double getLimit_price() {
+        return limit_price;
+    }
+
+    public void setLimit_price(double limit_price) {
+        this.limit_price = limit_price;
     }
 
     public Timestamp getCreate_time() {
@@ -66,33 +76,15 @@ public class Goods implements Serializable {
         return final_time;
     }
 
-    public double getFinal_price() {
-        return final_price;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public double getReserve_price() {
-        return reserve_price;
-    }
-
-    public void setReserve_price(double reserve_price) {
-        this.reserve_price = reserve_price;
-    }
-
-    public double getLimit() {
-        return limit;
-    }
-
-    public void setLimit(double limit) {
-        this.limit = limit;
-    }
-
     public void setFinal_time(Timestamp final_time) {
         this.final_time = final_time;
     }
 
+    public double getFinal_price() {
+        return final_price;
+    }
 
+    public void setFinal_price(double final_price) {
+        this.final_price = final_price;
+    }
 }

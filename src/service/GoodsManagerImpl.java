@@ -47,13 +47,16 @@ public class GoodsManagerImpl implements GoodsManager {
     @Override
     public boolean updateGoodsInfo(Goods goods) throws HibernateException {
         // TODO Auto-generated method stub
+        goodsDao.updateGoods(goods);
         return false;
     }
 
     @Override
-    public List<?> getGoodsInfo(Goods goods) throws HibernateException {
+    public Goodsinfo getGoodsInfo(Goods goods) throws HibernateException {
         // TODO Auto-generated method stub
-        return null;
+        goods = (Goods) goodsDao.searchGoods(goods).get(0);
+        Goodsinfo goodsinfo = goodsInfoDao.findGoodsInfo(goods);
+        return goodsinfo;
     }
 
     @Override

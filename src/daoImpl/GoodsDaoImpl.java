@@ -4,6 +4,8 @@ import org.hibernate.HibernateException;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.List;
 
 import dao.GoodsDao;
@@ -43,12 +45,37 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements GoodsDao {
     public boolean updateGoods(Goods goods) throws HibernateException {
         // TODO Auto-generated method stub
         try {
+//            goods = (Goods) getHibernateTemplate().find("SELECT G FROM Goods G WHERE G.goods_id = ?0", goods.getGoods_id()).get(0);
             getHibernateTemplate().update(goods);
             return true;
         } catch (HibernateException e) {
             // TODO: handle exception
         }
         return false;
+    }
+
+    @Override
+    public List<?> searchGoodsHour() throws HibernateException {
+        Timestamp nowTime = new Timestamp(System.currentTimeMillis());
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(nowTime);
+        calendar.add(Calendar.HOUR,1);
+        Timestamp final_time = new Timestamp(calendar.getTime().getTime());
+        List<?> result = getHibernateTemplate().find("FROM Goods G WHERE G.final_time >= ?0 AND G.final_time <= ?1",
+                new Timestamp[]{nowTime,final_time});
+        return result;
+    }
+
+    @Override
+    public List<?> searchOnsaleGoodsHour() throws HibernateException {
+        Timestamp nowTime = new Timestamp(System.currentTimeMillis());
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(nowTime);
+        calendar.add(Calendar.HOUR,1);
+        Timestamp final_time = new Timestamp(calendar.getTime().getTime());
+        List<?> result = getHibernateTemplate().find("FROM Goods G WHERE G.start_time >= ?0 AND G.start_time <= ?1",
+                new Timestamp[]{nowTime,final_time});
+        return result;
     }
 
 }

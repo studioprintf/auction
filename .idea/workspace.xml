@@ -2,61 +2,75 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea2cd5e3-a27c-41d7-bf9f-ca876788e1ef" name="Default" comment="实现用户注销，增加个人中心界面，实现余额显示，个人资料显示">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/fonts/icomoon.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/fonts/icomoon.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/fonts/icomoon.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/fonts/icomoon.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/fonts/icomoon.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/fonts/icomoon.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/auction/publish.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/410.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/api.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/commit.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/css.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/dropdown.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/editor-iframe.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/editor.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/entry.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/help.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/helper.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/index2.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/modules.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/p_c2c_20110728_header-min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/pop.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/scss.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/simple_inline.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/struct.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/tpl.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/wangEditor.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/warning.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/fonts/icomoon.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/js/wangEditor.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/auction/publish.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/410.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/api.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/commit.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/css.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/dropdown.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/editor-iframe.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/editor.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/entry.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/help.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/helper.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/index2.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/modules.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/p_c2c_20110728_header-min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/pop.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/scss.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/simple_inline.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/struct.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/tpl.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/wangEditor.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/css/warning.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/fonts/icomoon.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/js/wangEditor.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/action/BaseAction.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/action/auction/UploadImgAction.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/action/seller/SellerOnSaleAction.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/action/user/UserGetGoodsAction.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/listener/AuctionListener$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/listener/AuctionListener.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/listener/GoodsListener$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/listener/GoodsListener.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/listener/OrderListener$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/listener/OrderListener.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/action/seller/SellerOnSaleAction-validation.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/action/BaseAction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/action/auction/UploadImgAction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/action/seller/SellerOnSaleAction-validation.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/action/seller/SellerOnSaleAction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/action/user/UserGetGoodsAction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/listener/AuctionListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/listener/GoodsListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/listener/OrderListener.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/hibernate.cfg.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/hibernate.cfg.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/action/user/UserAuctionAction.class" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/action/user/UserAuctionAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/action/user/UserCreateGoodsAction.class" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/action/user/UserCreateGoodsAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/action/user/UserLoginAction.class" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/action/user/UserLoginAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/dao/AuctionDao.class" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/dao/AuctionDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/dao/GoodsDao.class" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/dao/GoodsDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/dao/GoodsinfoDao.class" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/dao/GoodsinfoDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/daoImpl/AuctionDaoImpl.class" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/daoImpl/AuctionDaoImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/daoImpl/GoodsDaoImpl.class" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/daoImpl/GoodsDaoImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/daoImpl/GoodsinfoDaoImpl.class" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/daoImpl/GoodsinfoDaoImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/daoImpl/UserDaoImpl.class" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/daoImpl/UserDaoImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/pojo/Goods.class" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/pojo/Goods.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/pojo/User.class" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/pojo/User.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/service/AuctionProcessManager.class" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/service/AuctionProcessManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/service/AuctionProcessManagerImpl.class" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/service/AuctionProcessManagerImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/service/GoodsManager.class" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/service/GoodsManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/service/GoodsManagerImpl.class" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/service/GoodsManagerImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/service/UserManagerImpl.class" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/service/UserManagerImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/applicationContext.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/auction/publish.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/auction/publish.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/applicationContext.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/auction/publish.jsp" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/auction/publish.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/action/user/UserUpdatePasswordAction-validation.xml" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/action/user/UserUpdatePasswordAction-validation.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/pojo/Goods.hbm.xml" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/pojo/Goods.hbm.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/pojo/User.hbm.xml" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/pojo/User.hbm.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/struts.xml" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/classes/struts.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/user/setting.jsp" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/user/setting.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/out/artifacts/auction_Web_exploded/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/action/user/UserAuctionAction.java" afterPath="$PROJECT_DIR$/src/action/user/UserAuctionAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/action/user/UserCreateGoodsAction.java" afterPath="$PROJECT_DIR$/src/action/user/UserCreateGoodsAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/action/user/UserLoginAction.java" afterPath="$PROJECT_DIR$/src/action/user/UserLoginAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/action/user/UserUpdatePasswordAction-validation.xml" afterPath="$PROJECT_DIR$/src/action/user/UserUpdatePasswordAction-validation.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dao/AuctionDao.java" afterPath="$PROJECT_DIR$/src/dao/AuctionDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dao/GoodsDao.java" afterPath="$PROJECT_DIR$/src/dao/GoodsDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dao/GoodsinfoDao.java" afterPath="$PROJECT_DIR$/src/dao/GoodsinfoDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/daoImpl/AuctionDaoImpl.java" afterPath="$PROJECT_DIR$/src/daoImpl/AuctionDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/daoImpl/GoodsDaoImpl.java" afterPath="$PROJECT_DIR$/src/daoImpl/GoodsDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/daoImpl/GoodsinfoDaoImpl.java" afterPath="$PROJECT_DIR$/src/daoImpl/GoodsinfoDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/daoImpl/UserDaoImpl.java" afterPath="$PROJECT_DIR$/src/daoImpl/UserDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pojo/Goods.hbm.xml" afterPath="$PROJECT_DIR$/src/pojo/Goods.hbm.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pojo/Goods.java" afterPath="$PROJECT_DIR$/src/pojo/Goods.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pojo/User.hbm.xml" afterPath="$PROJECT_DIR$/src/pojo/User.hbm.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pojo/User.java" afterPath="$PROJECT_DIR$/src/pojo/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/service/AuctionProcessManager.java" afterPath="$PROJECT_DIR$/src/service/AuctionProcessManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/service/AuctionProcessManagerImpl.java" afterPath="$PROJECT_DIR$/src/service/AuctionProcessManagerImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/service/GoodsManager.java" afterPath="$PROJECT_DIR$/src/service/GoodsManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/service/GoodsManagerImpl.java" afterPath="$PROJECT_DIR$/src/service/GoodsManagerImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/service/UserManagerImpl.java" afterPath="$PROJECT_DIR$/src/service/UserManagerImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/struts.xml" afterPath="$PROJECT_DIR$/src/struts.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -79,18 +93,18 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
+            <state relative-caret-position="161">
+              <caret line="182" column="17" lean-forward="true" selection-start-line="182" selection-start-column="17" selection-end-line="182" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setting.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="setting.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/user/setting.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="175">
-              <caret line="31" column="34" lean-forward="true" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+              <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -99,51 +113,43 @@
       <file leaf-file-name="publish.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/auction/publish.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="382" column="34" lean-forward="true" selection-start-line="382" selection-start-column="34" selection-end-line="382" selection-end-column="34" />
+            <state relative-caret-position="221">
+              <caret line="382" column="47" lean-forward="true" selection-start-line="382" selection-start-column="47" selection-end-line="382" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoodsDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/daoImpl/GoodsDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="146">
+              <caret line="66" column="5" lean-forward="true" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuctionListener.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/listener/AuctionListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="71">
+              <caret line="26" column="32" lean-forward="true" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UploadImgAction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/action/auction/UploadImgAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="310">
+              <caret line="23" column="48" lean-forward="true" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
               <folding>
-                <element signature="n#style#0;n#a#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#em#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#em#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#1;n#li#0;n#ul#0;n#div#0;n#div#1;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#1;n#li#1;n#ul#0;n#div#0;n#div#1;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#1;n#li#2;n#ul#0;n#div#0;n#div#1;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#1;n#li#3;n#ul#0;n#div#0;n#div#1;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#1;n#li#4;n#ul#0;n#div#0;n#div#1;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#1;n#li#0;n#ul#0;n#div#1;n#div#1;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#em#0;n#span#0;n#li#0;n#ul#0;n#div#1;n#div#1;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#em#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#1;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#em#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#iframe#0;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#iframe#1;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#em#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#em#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#2;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#em#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#1;n#tr#2;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#em#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#384#385#0" expanded="true" />
+                <element signature="e#416#417#0" expanded="true" />
+                <element signature="e#508#509#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -152,7 +158,7 @@
       <file leaf-file-name="login_reg.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/js/login_reg.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1227">
+            <state relative-caret-position="465">
               <caret line="32" column="39" lean-forward="false" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
               <folding />
             </state>
@@ -181,25 +187,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="saved_resource(13)" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/css/saved_resource(13)">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="10" lean-forward="false" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Goods.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pojo/Goods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-30">
-              <caret line="56" column="19" lean-forward="false" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
-              <folding>
-                <element signature="e#1235#1236#0" expanded="true" />
-                <element signature="e#1268#1269#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="540">
+              <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -209,9 +202,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Jsp File" />
         <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -261,7 +254,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/action/UserRegisterAction.java" />
         <option value="$PROJECT_DIR$/src/action/user/UserSearchAction.java" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/login/login_error.jsp" />
@@ -310,8 +302,9 @@
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/auction/decorate.jsp" />
         <option value="$PROJECT_DIR$/WebContent/js/editorConfig.jsp" />
         <option value="$PROJECT_DIR$/WebContent/js/editorConfig.js" />
-        <option value="$PROJECT_DIR$/WebContent/WEB-INF/auction/publish.jsp" />
+        <option value="$PROJECT_DIR$/src/action/auction/UploadImgAction.java" />
         <option value="$PROJECT_DIR$/src/struts.xml" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/auction/publish.jsp" />
       </list>
     </option>
   </component>
@@ -324,13 +317,13 @@
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
-    <option name="FILTER_DEBUG" value="true" />
+    <option name="FILTER_INFO" value="false" />
+    <option name="FILTER_DEBUG" value="false" />
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1663" />
-    <option name="y" value="-140" />
+    <option name="x" value="1615" />
+    <option name="y" value="-65" />
     <option name="width" value="1280" />
     <option name="height" value="773" />
   </component>
@@ -368,8 +361,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -545,12 +536,58 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="seller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auction-SSH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auction-SSH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="action" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auction-SSH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auction-SSH" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="action" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1088,6 +1125,7 @@
       <workItem from="1490631613844" duration="56830000" />
       <workItem from="1490833786957" duration="3930000" />
       <workItem from="1490953771714" duration="30442000" />
+      <workItem from="1491152241298" duration="6562000" />
     </task>
     <task id="LOCAL-00001" summary="fix bugs">
       <created>1490628888442</created>
@@ -1100,22 +1138,22 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100306000" />
+    <option name="totallyTimeSpent" value="106868000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1663" y="-140" width="1280" height="773" extended-state="0" />
+    <frame x="1615" y="-65" width="1280" height="773" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.496875" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2940341" sideWeight="0.50625" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2940341" sideWeight="0.509375" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2940341" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2940341" sideWeight="0.490625" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1123,7 +1161,6 @@
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1134,6 +1171,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1188,43 +1226,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/action/user/UserUpdateInfo-validation.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/action/user/UserUpdateInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/Balance_logDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/action/user/CreateImageAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/action/user/UserExitAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/action/user/UserCreateGoodsAction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1402,7 +1403,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1417,20 +1417,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml" />
     <entry file="file://$PROJECT_DIR$/src/action/user/UserLoginAction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="97">
@@ -1445,10 +1435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
           <caret line="84" column="20" lean-forward="false" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
-          <folding>
-            <element signature="e#1754#1755#0" expanded="false" />
-            <element signature="e#1792#1793#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1464,7 +1450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="37" column="60" lean-forward="false" selection-start-line="37" selection-start-column="60" selection-end-line="37" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1480,7 +1465,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1500,14 +1484,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/js/kissy.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/js/kissy.jsp" />
     <entry file="file://$PROJECT_DIR$/WebContent/js/jquery-3.2.0.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1518,14 +1495,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/js/seed.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1590">
-          <caret line="106" column="19" lean-forward="false" selection-start-line="106" selection-start-column="19" selection-end-line="106" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/js/seed.js" />
     <entry file="file://$PROJECT_DIR$/WebContent/css/saved_resource(13)">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1536,47 +1506,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pojo/Goods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <caret line="56" column="19" lean-forward="false" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
-          <folding>
-            <element signature="e#1235#1236#0" expanded="true" />
-            <element signature="e#1268#1269#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/auction/editor/decorate.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="540">
+          <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/js/decorate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3915">
-          <caret line="261" column="23" lean-forward="false" selection-start-line="261" selection-start-column="21" selection-end-line="261" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/auction/decorate.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5295">
-          <caret line="353" column="35" lean-forward="true" selection-start-line="353" selection-start-column="35" selection-end-line="353" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/js/editorConfig.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/auction/editor/decorate.jsp" />
+    <entry file="file://$PROJECT_DIR$/WebContent/js/decorate.js" />
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/auction/decorate.jsp" />
+    <entry file="file://$PROJECT_DIR$/WebContent/js/editorConfig.jsp" />
     <entry file="file://$PROJECT_DIR$/WebContent/js/wangEditor.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1587,22 +1526,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/js/editorConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/js/login_reg.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1227">
-          <caret line="32" column="39" lean-forward="false" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/js/editorConfig.js" />
     <entry file="file://$PROJECT_DIR$/WebContent/css/index2.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1611,54 +1535,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/auction/publish.jsp">
+    <entry file="file://$PROJECT_DIR$/src/action/seller/SellerOnSaleAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="382" column="34" lean-forward="true" selection-start-line="382" selection-start-column="34" selection-end-line="382" selection-end-column="34" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#em#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#em#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#1;n#li#0;n#ul#0;n#div#0;n#div#1;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#1;n#li#1;n#ul#0;n#div#0;n#div#1;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#1;n#li#2;n#ul#0;n#div#0;n#div#1;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#1;n#li#3;n#ul#0;n#div#0;n#div#1;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#1;n#li#4;n#ul#0;n#div#0;n#div#1;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#1;n#li#0;n#ul#0;n#div#1;n#div#1;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#em#0;n#span#0;n#li#0;n#ul#0;n#div#1;n#div#1;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#em#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#1;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#em#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#iframe#0;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#iframe#1;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#em#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#em#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#2;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#em#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#1;n#tr#2;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#em#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1415">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1667,8 +1548,37 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
+        <state relative-caret-position="161">
+          <caret line="182" column="17" lean-forward="true" selection-start-line="182" selection-start-column="17" selection-end-line="182" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/action/BaseAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/action/auction/UploadImgAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="23" column="48" lean-forward="true" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
+            <element signature="e#416#417#0" expanded="true" />
+            <element signature="e#508#509#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/js/login_reg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="32" column="39" lean-forward="false" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -1676,7 +1586,31 @@
     <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/user/setting.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
-          <caret line="31" column="34" lean-forward="true" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+          <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/auction/publish.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="382" column="47" lean-forward="true" selection-start-line="382" selection-start-column="47" selection-end-line="382" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/daoImpl/GoodsDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="66" column="5" lean-forward="true" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/listener/AuctionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="26" column="32" lean-forward="true" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
           <folding />
         </state>
       </provider>

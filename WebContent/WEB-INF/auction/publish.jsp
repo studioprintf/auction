@@ -380,10 +380,14 @@
 
     //upload
     editor.config.uploadImgUrl = '/auction/uploadImg';
+    editor.config.uploadImgFileName = 'upload';
     editor.config.uploadParams = {
         'user_name' : user_name
     };
-
+    editor.config.uploadHeaders={
+        'Accept' : 'text/x-json',
+        'Content-Type':'multipart/form-data'
+    }
 
     editor.create();
 </script>
