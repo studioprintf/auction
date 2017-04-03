@@ -2,7 +2,6 @@ package listener;
 
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import pojo.Goods;
-import pojo.User_order;
 import service.AuctionProcessManagerImpl;
 import service.GoodsManagerImpl;
 
@@ -17,7 +16,6 @@ import java.util.TimerTask;
  */
  public class OrderListener {
     private static Goods goods;
-    private static User_order order;
     private static GoodsManagerImpl goodsManager;
     private static AuctionProcessManagerImpl auctionProcessManager;
 //    private static

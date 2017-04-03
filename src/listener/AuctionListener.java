@@ -21,8 +21,6 @@ public class AuctionListener {
     static private Goods goods;
 
     static public void run(ServletContext context){
-
-        SimpleDateFormat dateformatAll= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println("AuctionListener启动");
         goodsManager = WebApplicationContextUtils.getRequiredWebApplicationContext(context).getBean(GoodsManagerImpl.class);
         Integer cacheTime = 500;
