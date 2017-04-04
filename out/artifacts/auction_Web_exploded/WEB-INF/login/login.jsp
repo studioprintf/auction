@@ -21,6 +21,12 @@
     <link charset="utf-8" rel="stylesheet" href="/css/white.css">
     <script  type="text/javascript" src="/js/jquery-3.2.0.min.js"></script>
     <script type="text/javascript" src="/js/login_reg.js"></script>
+    <script type="text/javascript">
+        function changeImg(){
+            $("#captchaImg").attr("src","http://localhost:8080/user_createImage?flu="+Math.random().toString(10));
+        }
+    </script>
+
 </head>
 <body>
 <div class="z_top_container">
@@ -89,14 +95,15 @@
                                jvtipid="vdcodeSpt" maxlength="10" jvpattern="^.{1,10}$" jverrortip="请输入验证码"
                                autocomplete="off">
                         <div class="sj_yzm" style="display: none"></div>
-                        <i></i> <img id="captchaImg" name="checkImage" src="<s:url action="user_createImage" />"
+                        <i></i> <img id="captchaImg" name="checkImage" src="${pageContext.request.contextPath}/user_createImage"
                                      class="yzm" alt="显示验证码" >
-                        <p id="refreshCaptchaAch" onclick="return changeImg();">换一张</p>
+                        <p id="refreshCaptchaAch" onclick="changeImg();">换一张</p>
                         <div class="box">
 
                         </div>
                         <input type="button" class="login" value="登录" id="loginSubmit"/>
                         <a class="zhuce" href="/register">注册</a>
+                    </div>
                 </form>
 
 

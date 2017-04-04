@@ -40,8 +40,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/wangEditor.min.css">
 
 
-
-
+</head>
 </head>
 <body data-spm="7873970">
 
@@ -163,47 +162,51 @@
                                  control_classpath="xsell/modules/multi_img/index" control_id="multiMedia.image">
                                 <ul class="image-list">
                                     <li data-media="image" aria-label="宝贝主图: 按Enter键打开图片空间选择图片，按Esc退出弹层">
-                                        <div class="operate"><i class="icon iconfont icon-sortleft toleft"
+                                        <div class="operate" id="operate0"><i class="icon iconfont icon-sortleft toleft"
                                                                 title="左移"></i><i
                                                 class="icon iconfont icon-sortright toright" title="右移"></i><i
                                                 class="icon iconfont icon-remove del" title="删除"></i></div>
-                                        <div class="preview"><a title="上传图片" tabindex="0" class="upload-tip"
+                                        <div class="preview" id="preview0"><a title="上传图片" tabindex="1" class="upload-tip"
                                                                 style="display: inline;"><i
                                                 class="icon iconfont icon-tianjia"></i></a></div>
                                         <span class="info"><em>*</em>宝贝主图</span></li>
+
                                     <li data-media="image" aria-label="宝贝主图: 按Enter键打开图片空间选择图片，按Esc退出弹层">
-                                        <div class="operate"><i class="icon iconfont icon-sortleft toleft"
+                                        <div class="operate" id="operate1"><i class="icon iconfont icon-sortleft toleft"
                                                                 title="左移"></i><i
                                                 class="icon iconfont icon-sortright toright" title="右移"></i><i
                                                 class="icon iconfont icon-remove del" title="删除"></i></div>
-                                        <div class="preview"><a title="上传图片" tabindex="0" class="upload-tip"
+                                        <div class="preview" id="preview1"><a title="上传图片" tabindex="2" class="upload-tip"
+                                                                style="display: inline;"><i
+                                                class="icon iconfont icon-tianjia"></i></a></div>
+                                    </li>
+
+                                    <li data-media="image" aria-label="宝贝主图: 按Enter键打开图片空间选择图片，按Esc退出弹层">
+                                        <div class="operate" id="operate2"><i class="icon iconfont icon-sortleft toleft"
+                                                                title="左移"></i><i
+                                                class="icon iconfont icon-sortright toright" title="右移"></i><i
+                                                class="icon iconfont icon-remove del" title="删除"></i></div>
+                                        <div class="preview" id="preview2"><a title="上传图片" tabindex="3" class="upload-tip"
+                                                                style="display: inline;"><i
+                                                class="icon iconfont icon-tianjia"></i></a></div>
+                                    </li>
+
+
+                                    <li data-media="image" aria-label="宝贝主图: 按Enter键打开图片空间选择图片，按Esc退出弹层">
+                                        <div class="operate" id="operate3"><i class="icon iconfont icon-sortleft toleft"
+                                                                title="左移"></i><i
+                                                class="icon iconfont icon-sortright toright" title="右移"></i><i
+                                                class="icon iconfont icon-remove del" title="删除"></i></div>
+                                        <div class="preview" id="preview3"><a title="上传图片" tabindex="4" class="upload-tip"
                                                                 style="display: inline;"><i
                                                 class="icon iconfont icon-tianjia"></i></a></div>
                                     </li>
                                     <li data-media="image" aria-label="宝贝主图: 按Enter键打开图片空间选择图片，按Esc退出弹层">
-                                        <div class="operate"><i class="icon iconfont icon-sortleft toleft"
+                                        <div class="operate" id="operate4"><i class="icon iconfont icon-sortleft toleft"
                                                                 title="左移"></i><i
                                                 class="icon iconfont icon-sortright toright" title="右移"></i><i
                                                 class="icon iconfont icon-remove del" title="删除"></i></div>
-                                        <div class="preview"><a title="上传图片" tabindex="0" class="upload-tip"
-                                                                style="display: inline;"><i
-                                                class="icon iconfont icon-tianjia"></i></a></div>
-                                    </li>
-                                    <li data-media="image" aria-label="宝贝主图: 按Enter键打开图片空间选择图片，按Esc退出弹层">
-                                        <div class="operate"><i class="icon iconfont icon-sortleft toleft"
-                                                                title="左移"></i><i
-                                                class="icon iconfont icon-sortright toright" title="右移"></i><i
-                                                class="icon iconfont icon-remove del" title="删除"></i></div>
-                                        <div class="preview"><a title="上传图片" tabindex="0" class="upload-tip"
-                                                                style="display: inline;"><i
-                                                class="icon iconfont icon-tianjia"></i></a></div>
-                                    </li>
-                                    <li data-media="image" aria-label="宝贝主图: 按Enter键打开图片空间选择图片，按Esc退出弹层">
-                                        <div class="operate"><i class="icon iconfont icon-sortleft toleft"
-                                                                title="左移"></i><i
-                                                class="icon iconfont icon-sortright toright" title="右移"></i><i
-                                                class="icon iconfont icon-remove del" title="删除"></i></div>
-                                        <div class="preview"><a title="上传图片" tabindex="0" class="upload-tip"
+                                        <div class="preview" id="preview4"><a title="上传图片" tabindex="5" class="upload-tip"
                                                                 style="display: inline;"><i
                                                 class="icon iconfont icon-tianjia"></i></a></div>
                                         <span class="info">宝贝白底图</span></li>
@@ -365,28 +368,29 @@
 </div>
 
 
-<!-- from vmcommon -->
+<!--图片上传隐藏域  using Ajax-->
+<form id="uploadForm" enctype="multipart/form-data">
+<input type="file" name="fileToUpload" id="fileToUpload" onchange="fileSelected();" style="display:none;" multiple="multiple">
+</form>
+<!---->
 
-<!-- end vmcommon -->
 
 <div style="padding:25px 0px"></div>
 
 <script type="text/javascript" src="/js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="/js/upload_reg.js"></script>
 <script type="text/javascript" src="/js/wangEditor.min.js"></script>
 <script type="text/javascript">
     var editor = new wangEditor('editor');
 
-    var user_name = ${sessionScope.get("USER_NAME")};
+    //var user_name = "${sessionScope.get("USER_NAME")}";
+    var user_name = "dymond";
 
     //upload
     editor.config.uploadImgUrl = '/auction/uploadImg';
-    editor.config.uploadImgFileName = 'upload';
+    editor.config.uploadImgFileName = 'publishImg';
     editor.config.uploadParams = {
-        'user_name' : user_name
-    };
-    editor.config.uploadHeaders={
-        'Accept' : 'text/x-json',
-        'Content-Type':'multipart/form-data'
+        'user_name' : user_name,
     }
 
     editor.create();

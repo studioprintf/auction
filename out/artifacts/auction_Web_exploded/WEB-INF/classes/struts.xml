@@ -5,6 +5,7 @@
 
 <struts>
     <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+    <constant name="struts.multipart.maxSize" value="9000000"/>
 
     <package name="user_action" namespace="/" extends="struts-default">
 
@@ -184,14 +185,39 @@
 
     </package>
 
+
+    <!--      商品发布     -->
     <package name="auction" namespace="/auction" extends="user_action">
+
+        
+
         <action name="publish">
             <result>/WEB-INF/auction/publish.jsp</result>
         </action>
 
+        <!--富媒体编辑框架上传图片-->
         <action name="uploadImg" class="action.auction.UploadImgAction">
-            <result name="success"></result>
+            <result type="stream" name="success">
+                <param name="contentType">text/html</param>
+                <param name="inputStream">inputStream</param>
+            </result>
+
+            <!--<interceptor-ref name="fileUpload">-->
+                <!--<param name="maximumSize">52428800</param>-->
+            <!--</interceptor-ref>-->
         </action>
+
+        <!--封面橱窗图片上传-->
+        <action name="uploadWindowImg" class="action.auction.UploadImgAction">
+            <result type="stream" name="success">
+                <param name="contentType">text/html</param>
+                <param name="inputStream">inputStream</param>
+            </result>
+            <!--<interceptor-ref name="fileUpload">-->
+                <!--<param name="maximumSize">25165824</param>-->
+            <!--</interceptor-ref>-->
+        </action>
+
 
     </package>
 

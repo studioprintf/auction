@@ -40,8 +40,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/wangEditor.min.css">
 
 
-
-
+</head>
 </head>
 <body data-spm="7873970">
 
@@ -130,7 +129,7 @@
 
 
 <div id="page" control_type="root">
-    <div data-spm="1998855314" id="main"><h1>1. 宝贝基本信息</h1>
+    <div data-spm="1998855314" id="main"><h1>1. 商品基本信息</h1>
         <div class="struct rootStruct" control_type="struct" control_classpath="xsell/modules/struct/index"
              id="itemBasic">
             <table class="showbar">
@@ -163,63 +162,56 @@
                                  control_classpath="xsell/modules/multi_img/index" control_id="multiMedia.image">
                                 <ul class="image-list">
                                     <li data-media="image" aria-label="宝贝主图: 按Enter键打开图片空间选择图片，按Esc退出弹层">
-                                        <div class="operate"><i class="icon iconfont icon-sortleft toleft"
+                                        <div class="operate" id="operate0"><i class="icon iconfont icon-sortleft toleft"
                                                                 title="左移"></i><i
                                                 class="icon iconfont icon-sortright toright" title="右移"></i><i
                                                 class="icon iconfont icon-remove del" title="删除"></i></div>
-                                        <div class="preview"><a title="上传图片" tabindex="0" class="upload-tip"
+                                        <div class="preview" id="preview0"><a title="上传图片" tabindex="1" class="upload-tip"
                                                                 style="display: inline;"><i
                                                 class="icon iconfont icon-tianjia"></i></a></div>
                                         <span class="info"><em>*</em>宝贝主图</span></li>
+
                                     <li data-media="image" aria-label="宝贝主图: 按Enter键打开图片空间选择图片，按Esc退出弹层">
-                                        <div class="operate"><i class="icon iconfont icon-sortleft toleft"
+                                        <div class="operate" id="operate1"><i class="icon iconfont icon-sortleft toleft"
                                                                 title="左移"></i><i
                                                 class="icon iconfont icon-sortright toright" title="右移"></i><i
                                                 class="icon iconfont icon-remove del" title="删除"></i></div>
-                                        <div class="preview"><a title="上传图片" tabindex="0" class="upload-tip"
+                                        <div class="preview" id="preview1"><a title="上传图片" tabindex="2" class="upload-tip"
+                                                                style="display: inline;"><i
+                                                class="icon iconfont icon-tianjia"></i></a></div>
+                                    </li>
+
+                                    <li data-media="image" aria-label="宝贝主图: 按Enter键打开图片空间选择图片，按Esc退出弹层">
+                                        <div class="operate" id="operate2"><i class="icon iconfont icon-sortleft toleft"
+                                                                title="左移"></i><i
+                                                class="icon iconfont icon-sortright toright" title="右移"></i><i
+                                                class="icon iconfont icon-remove del" title="删除"></i></div>
+                                        <div class="preview" id="preview2"><a title="上传图片" tabindex="3" class="upload-tip"
+                                                                style="display: inline;"><i
+                                                class="icon iconfont icon-tianjia"></i></a></div>
+                                    </li>
+
+
+                                    <li data-media="image" aria-label="宝贝主图: 按Enter键打开图片空间选择图片，按Esc退出弹层">
+                                        <div class="operate" id="operate3"><i class="icon iconfont icon-sortleft toleft"
+                                                                title="左移"></i><i
+                                                class="icon iconfont icon-sortright toright" title="右移"></i><i
+                                                class="icon iconfont icon-remove del" title="删除"></i></div>
+                                        <div class="preview" id="preview3"><a title="上传图片" tabindex="4" class="upload-tip"
                                                                 style="display: inline;"><i
                                                 class="icon iconfont icon-tianjia"></i></a></div>
                                     </li>
                                     <li data-media="image" aria-label="宝贝主图: 按Enter键打开图片空间选择图片，按Esc退出弹层">
-                                        <div class="operate"><i class="icon iconfont icon-sortleft toleft"
+                                        <div class="operate" id="operate4"><i class="icon iconfont icon-sortleft toleft"
                                                                 title="左移"></i><i
                                                 class="icon iconfont icon-sortright toright" title="右移"></i><i
                                                 class="icon iconfont icon-remove del" title="删除"></i></div>
-                                        <div class="preview"><a title="上传图片" tabindex="0" class="upload-tip"
-                                                                style="display: inline;"><i
-                                                class="icon iconfont icon-tianjia"></i></a></div>
-                                    </li>
-                                    <li data-media="image" aria-label="宝贝主图: 按Enter键打开图片空间选择图片，按Esc退出弹层">
-                                        <div class="operate"><i class="icon iconfont icon-sortleft toleft"
-                                                                title="左移"></i><i
-                                                class="icon iconfont icon-sortright toright" title="右移"></i><i
-                                                class="icon iconfont icon-remove del" title="删除"></i></div>
-                                        <div class="preview"><a title="上传图片" tabindex="0" class="upload-tip"
-                                                                style="display: inline;"><i
-                                                class="icon iconfont icon-tianjia"></i></a></div>
-                                    </li>
-                                    <li data-media="image" aria-label="宝贝主图: 按Enter键打开图片空间选择图片，按Esc退出弹层">
-                                        <div class="operate"><i class="icon iconfont icon-sortleft toleft"
-                                                                title="左移"></i><i
-                                                class="icon iconfont icon-sortright toright" title="右移"></i><i
-                                                class="icon iconfont icon-remove del" title="删除"></i></div>
-                                        <div class="preview"><a title="上传图片" tabindex="0" class="upload-tip"
+                                        <div class="preview" id="preview4"><a title="上传图片" tabindex="5" class="upload-tip"
                                                                 style="display: inline;"><i
                                                 class="icon iconfont icon-tianjia"></i></a></div>
                                         <span class="info">宝贝白底图</span></li>
                                 </ul>
-                                <a href="#"></a></div>
-                            <div class="multivideo-wrap" control_type="multi_video"
-                                 control_classpath="xsell/modules/multi_video/index" control_id="multiMedia.imageVideo">
-                                <ul class="video-list">
-                                    <li data-media="video">
-                                        <div class="operate"><i class="icon iconfont icon-remove del" title="删除"></i>
-                                        </div>
-                                        <div class="preview"><a href="javascript:;" title="上传主图视频" class="upload-tip"
-                                                                style="display: inline;"><i
-                                                class="icon iconfont icon-meitikuwubiaoqianbanv1105"></i></a></div>
-                                        <span class="info"><em style="display: none;">*</em>主图视频</span></li>
-                                </ul>
+
                             </div>
                         </div>
 
@@ -271,20 +263,19 @@
                 </tbody>
             </table>
         </div>
-        <h1>4. 宝贝其他信息</h1>
+        <h1>2. 竞拍设定</h1>
         <div class="struct rootStruct" control_type="struct" control_classpath="xsell/modules/struct/index"
              id="otherInfomation">
             <table class="showbar">
                 <tbody>
                 <tr>
-                    <td class="bar"><em style="display: none;">*<em></em></em><label for="subStockType"
-                                                                                     style="display: inline;">库存计数</label>
+                    <td class="bar"><em style="display: inline;">*<em></em></em><label for="subStockType"
+                                                                                     style="display: inline;">起拍价格</label>
                     </td>
                     <td>
                         <div class="checkbox-wrap" control_type="radio" control_classpath="xsell/modules/radio/index"
-                             control_id="subStockType"><label><input type="radio"
-                                                                     aria-label="库存计数:单选，左右方向键切换选项，空格键选中当前项，当前项买家拍下减库存"
-                                                                     name="radio21" value="1" checked="checked">买家拍下减库存</label><label><input
+                             control_id="subStockType"><label><input type="text"
+                                                                     name="reserve_price" id="reserve_price" checked="checked">买家拍下减库存</label><label><input
                                 type="radio" aria-label="库存计数:单选，左右方向键切换选项，空格键选中当前项，当前项买家付款减库存" name="radio21"
                                 value="0">买家付款减库存</label><a target="_blank" class="info help"><i
                                 class="icon iconfont icon-questioncircle"></i></a></div>
@@ -292,7 +283,7 @@
                 </tr>
                 <tr>
                     <td class="bar"><em style="display: inline;">*<em></em></em><label for="startTime.startType"
-                                                                                       style="display: inline;">上架时间</label>
+                                                                                       style="display: inline;">结束时间</label>
                     </td>
                     <td>
                         <div class="checkbox-wrap" control_type="radio" control_classpath="xsell/modules/radio/index"
@@ -337,7 +328,7 @@
         <h1></h1>
         <div id="commit" control_type="commit_sell" control_classpath="xsell/modules/commit_sell/index"
              control_id="commitBtn" class="floatbar rootStruct">
-            <button class="blue" type="button">发 布</button>
+            <button class="blue" type="button" onclick="publishSubmit();">发 布</button>
             <div class="draft"><span class="new-tip">new</span>
                 <button type="button">保存草稿</button>
                 <div class="floatbox box1" style="display: none;">
@@ -365,28 +356,40 @@
 </div>
 
 
-<!-- from vmcommon -->
 
-<!-- end vmcommon -->
+
+<!--图片上传隐藏域  using Ajax-->
+<form id="uploadForm" enctype="multipart/form-data">
+<input type="file" name="fileToUpload" id="fileToUpload" accept="image/gif, image/jpeg ,image/png" onchange="fileSelected();" style="display:none;" multiple="multiple"/>
+</form>
+
+
+<form id="submitForm">
+<input type="hidden" id="img0" name="img0" value=""/>
+<input type="hidden" id="img1" name="img1" value=""/>
+<input type="hidden" id="img2" name="img2"  value=""/>
+<input type="hidden" id="img3" name="img3"  value=""/>
+<input type="hidden" id="img4" name="img4"  value=""/>
+</form>
+<!---->
+
 
 <div style="padding:25px 0px"></div>
 
 <script type="text/javascript" src="/js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="/js/upload_reg.js"></script>
 <script type="text/javascript" src="/js/wangEditor.min.js"></script>
 <script type="text/javascript">
     var editor = new wangEditor('editor');
 
-    var user_name = ${sessionScope.get("USER_NAME")};
+    //var user_name = "${sessionScope.get("USER_NAME")}";
+    var user_name = "dymond";
 
     //upload
     editor.config.uploadImgUrl = '/auction/uploadImg';
-    editor.config.uploadImgFileName = 'upload';
+    editor.config.uploadImgFileName = 'publishImg';
     editor.config.uploadParams = {
-        'user_name' : user_name
-    };
-    editor.config.uploadHeaders={
-        'Accept' : 'text/x-json',
-        'Content-Type':'multipart/form-data'
+        'user_name' : user_name,
     }
 
     editor.create();

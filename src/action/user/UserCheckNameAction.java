@@ -26,7 +26,6 @@ public class UserCheckNameAction extends ActionSupport implements ModelDriven<Us
 
     //妫�楠岀敤鎴锋樀绉版槸鍚﹀瓨鍦�
     public String checkName() throws UnsupportedEncodingException {
-        System.out.println("杩涘叆ajax妫�楠�");
         String user_name = user.getUser_name();
         if (userManager.findUserByName(user_name) == null) {
             inputStream = new ByteArrayInputStream("1".getBytes("UTF-8"));
