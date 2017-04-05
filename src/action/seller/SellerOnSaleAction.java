@@ -162,20 +162,8 @@ public class SellerOnSaleAction extends BaseAction{
             //判断结束时间是否在开始时间之后的一个小时
             return ERROR;
         }
-
-        System.out.println(getReserve_price());
-        System.out.println(getGoods_title());
-        System.out.println(getGoods_describe());
-        System.out.println(getGoods_image1());
-        System.out.println(getLimit());
-        System.out.println(getStart());
-        System.out.println(getEnd());
-
-
-
         goods = new Goods();
-//        goods.setCreate_user(Integer.parseInt(session.get("USER_ID").toString()));
-        goods.setCreate_user(1);
+        goods.setCreate_user(Integer.parseInt(session.get("USER_ID").toString()));
         goods.setState("等待");
         goods.setReserve_price(reserve_price);
         goods.setLimit_price(limit);
