@@ -116,7 +116,7 @@
         </property>
     </bean>
 
-    <bean id="GoodsManager" class="service.GoodsManagerImpl">
+    <bean id="goodsManager" class="service.GoodsManagerImpl">
         <property name="goodsDao">
             <ref bean="goodsDaoImpl"></ref>
         </property>
@@ -126,7 +126,7 @@
 
     </bean>
 
-    <bean id="AuctionProcessManager" class="service.AuctionProcessManagerImpl">
+    <bean id="auctionProcessManager" class="service.AuctionProcessManagerImpl">
         <property name="goodsDao">
             <ref bean="goodsDaoImpl"></ref>
         </property>
@@ -201,7 +201,7 @@
     <!--拍卖流程action注册-->
     <bean id="createGoods" class="action.seller.SellerOnSaleAction">
         <property name="auctionProcessManager">
-            <ref bean="AuctionProcessManager"></ref>
+            <ref bean="auctionProcessManager"></ref>
         </property>
     </bean>
 
