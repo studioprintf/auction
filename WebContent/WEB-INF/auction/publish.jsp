@@ -38,8 +38,16 @@
     <link charset="utf-8" href="${pageContext.request.contextPath}/css/simple_inline.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/wangEditor.min.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.skin.css"/>
+    <%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css"/>--%>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
 
 
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.0.min.js"></script>
+
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 </head>
 </head>
 <body data-spm="7873970">
@@ -132,7 +140,7 @@
     <div data-spm="1998855314" id="main"><h1>1. 商品基本信息</h1>
         <div class="struct rootStruct" control_type="struct" control_classpath="xsell/modules/struct/index"
              id="itemBasic">
-            <table class="showbar">
+            <table class="showbar" id="settings">
                 <tbody>
                 <tr>
                     <td class="bar"><em style="display: inline;">*<em></em></em><label for="title"
@@ -140,8 +148,8 @@
                     </td>
                     <td>
                         <div class="texbox title-box" control_type="title"
-                             control_classpath="xsell/modules/textbox/title" control_id="title" id="title">
-                            <div class="inputbox"><input id="title" type="text" aria-required="true"> <span
+                             control_classpath="xsell/modules/textbox/title" control_id="title" >
+                            <div class="inputbox"><input id="product_title" type="text" aria-required="true"> <span
                                     class="input-count"><strong>0</strong>/60</span></div>
                         </div>
                     </td>
@@ -209,7 +217,6 @@
                                         <div class="preview" id="preview4"><a title="上传图片" tabindex="5" class="upload-tip"
                                                                 style="display: inline;"><i
                                                 class="icon iconfont icon-tianjia"></i></a></div>
-                                        <span class="info">宝贝白底图</span></li>
                                 </ul>
 
                             </div>
@@ -269,88 +276,73 @@
             <table class="showbar">
                 <tbody>
                 <tr>
-                    <td class="bar"><em style="display: inline;">*<em></em></em><label for="subStockType"
+                    <td class="bar"><em style="display: inline;">*<em></em></em><label
                                                                                      style="display: inline;">起拍价格</label>
                     </td>
                     <td>
-                        <div class="checkbox-wrap" control_type="radio" control_classpath="xsell/modules/radio/index"
-                             control_id="subStockType"><label><input type="text"
-                                                                     name="reserve_price" id="reserve_price" checked="checked">买家拍下减库存</label><label><input
-                                type="radio" aria-label="库存计数:单选，左右方向键切换选项，空格键选中当前项，当前项买家付款减库存" name="radio21"
-                                value="0">买家付款减库存</label><a target="_blank" class="info help"><i
-                                class="icon iconfont icon-questioncircle"></i></a></div>
+                        <input type="text" name="reserve_price" id="reserve_price" />元
                     </td>
                 </tr>
                 <tr>
-                    <td class="bar"><em style="display: inline;">*<em></em></em><label for="startTime.startType"
+                    <td class="bar"><em style="display: inline;"><em></em></em><label
+                            style="display: inline;">加价幅度</label>
+                    </td>
+                    <td>
+                        <select id="limit" >
+                            <option value="1" selected="selected">1</option>
+                            <option value="10" >10</option>
+                            <option value="100">100</option>
+                            <option value="200">200</option>
+                            <option value="500">500</option>
+                            <option value="1000">1000</option>
+                        </select>元
+                    </td>
+                </tr>
+
+                <!--开始时间-->
+                <tr>
+                    <td class="bar"><em style="display: inline;">*<em></em></em><label
+                                                                                       style="display: inline;">开始时间</label>
+                    </td>
+                    <td>
+                        <div class="checkbox-wrap" control_type="radio" control_classpath="xsell/modules/radio/index"
+                             control_id="startTime" id="startTime"><label><input type="radio"
+                                                                                                     aria-label="上架时间:单选，左右方向键切换选项，空格键选中当前项，当前项立刻上架"
+                                                                                                     name="radio22"
+                                                                                                     value="0" id="radio22off"
+                                                                                                     checked="checked">立刻上架</label><label>
+                            <input
+                                type="radio" aria-label="上架时间:单选，左右方向键切换选项，空格键选中当前项，当前项定时上架" name="radio22" id="radio22on" value="1">定时上架</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="display: none" id="fixTime">
+                    <td class="bar"><em style="display: inline;">*<em></em></em><label
+                            style="display: inline;">上架时间</label>
+                    </td>
+                    <!--time picker-->
+                    <td>
+                        <input  type="text" value="" id="start_time" readonly class="form_datetime">
+                    </td>
+                </tr>
+
+                <!--结束时间-->
+                <tr>
+                    <td class="bar"><em style="display: inline;">*<em></em></em><label
                                                                                        style="display: inline;">结束时间</label>
                     </td>
                     <td>
-                        <div class="checkbox-wrap" control_type="radio" control_classpath="xsell/modules/radio/index"
-                             control_id="startTime.startType" id="startTime.startType"><label><input type="radio"
-                                                                                                     aria-label="上架时间:单选，左右方向键切换选项，空格键选中当前项，当前项立刻上架"
-                                                                                                     name="radio22"
-                                                                                                     value="0"
-                                                                                                     checked="checked">立刻上架</label><label><input
-                                type="radio" aria-label="上架时间:单选，左右方向键切换选项，空格键选中当前项，当前项定时上架" name="radio22" value="1">定时上架</label><label><input
-                                type="radio" aria-label="上架时间:单选，左右方向键切换选项，空格键选中当前项，当前项放入仓库" name="radio22" value="2">放入仓库</label>
-                        </div>
+                        <input  type="text" value="" ID="end_time" readonly class="form_datetime">
                     </td>
                 </tr>
-                <tr style="display: none;">
-                    <td class="bar"><em style="display: none;">*<em></em></em><label for="startTime.settingTime"
-                                                                                     style="display: none;">设定至</label>
-                    </td>
-                    <td>
-                        <div class="date-time-picker" control_type="date_time_picker"
-                             control_classpath="xsell/modules/date_time_picker/index" control_id="startTime.settingTime"
-                             style="display: none;"><input aria-label="选择时间，Enter键打开时间控件，ESC 退出时间控件。" type="text"
-                                                           class="J_dateInput date-input" placeholder="年-月-日 时:分:秒">
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="bar"><em style="display: none;">*<em></em></em><label for="promote"
-                                                                                     style="display: inline;">橱窗推荐</label>
-                    </td>
-                    <td>
-                        <div class="checkbox-wrap" control_type="checkbox"
-                             control_classpath="xsell/modules/checkbox/index" control_id="promote"><span data-value="1"><label><input
-                                aria-label="橱窗推荐" type="checkbox" name="checkbox23" value="1"
-                                checked="checked">是</label></span><a target="_blank" class="info help"><i
-                                class="icon iconfont icon-questioncircle"></i></a><span class="simple-inline info">您的橱窗使用情况：共【20】个，已用【0】个。</span>
-                        </div>
-                    </td>
-                </tr>
+
                 </tbody>
             </table>
         </div>
         <h1></h1>
         <div id="commit" control_type="commit_sell" control_classpath="xsell/modules/commit_sell/index"
              control_id="commitBtn" class="floatbar rootStruct">
-            <button class="blue" type="button" onclick="publishSubmit();">发 布</button>
-            <div class="draft"><span class="new-tip">new</span>
-                <button type="button">保存草稿</button>
-                <div class="floatbox box1" style="display: none;">
-                    <div>
-                        <div class="f-container">为当前草稿命名<input type="text">
-                            <button class="blue" type="button">确定</button>
-                        </div>
-                        <div class="kok"></div>
-                    </div>
-                </div>
-                <div class="floatbox box2" style="display: none;">
-                    <div>
-                        <div class="f-container">
-                            <header>您在当前类目下的草稿（0）</header>
-                            <ul></ul>
-                            <div class="f-pages" style="display: none;"><span>&lt;</span><span>&gt;</span></div>
-                        </div>
-                        <div class="kok"></div>
-                    </div>
-                </div>
-                <button type="button"><i class="icon iconfont icon-youjianguanli"></i><strong>0</strong></button>
-            </div>
+            <button class="blue" type="button" id="submitButton">发 布</button>
         </div>
     </div>
 </div>
@@ -376,23 +368,28 @@
 
 <div style="padding:25px 0px"></div>
 
-<script type="text/javascript" src="/js/jquery-3.2.0.min.js"></script>
+
 <script type="text/javascript" src="/js/upload_reg.js"></script>
 <script type="text/javascript" src="/js/wangEditor.min.js"></script>
 <script type="text/javascript">
-    var editor = new wangEditor('editor');
+    $("#start_time").datetimepicker({
+        format: "yyyy-mm-dd hh:ii:00",
+        autoclose: true,
+        todayBtn: true,
+        startDate: getdayTime(),
+        endDate: getDaysAfterTime(),
 
-    //var user_name = "${sessionScope.get("USER_NAME")}";
-    var user_name = "dymond";
+         minuteStep: 10
+    });
 
-    //upload
-    editor.config.uploadImgUrl = '/auction/uploadImg';
-    editor.config.uploadImgFileName = 'publishImg';
-    editor.config.uploadParams = {
-        'user_name' : user_name,
-    }
-
-    editor.create();
+    $("#end_time").datetimepicker({
+        format: "yyyy-mm-dd hh:ii:00",
+        autoclose: true,
+        todayBtn: true,
+        startDate: getdayTime(),
+        endDate: getDaysAfterTime(),
+         minuteStep: 10
+    });
 </script>
 
 </body>

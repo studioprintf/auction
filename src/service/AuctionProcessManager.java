@@ -4,10 +4,7 @@ import java.util.List;
 
 import org.hibernate.HibernateException;
 
-import pojo.Auction;
-import pojo.Goods;
-import pojo.Goodsinfo;
-import pojo.User;
+import pojo.*;
 
 /**
  * @author Lucifer
@@ -29,4 +26,6 @@ public interface AuctionProcessManager {
     //检查保证金
     public Boolean checkMargin(User user,Goods goods) throws HibernateException;
 
+    //生成订单
+    public Boolean createOrder(Goods goods) throws HibernateException;
 }

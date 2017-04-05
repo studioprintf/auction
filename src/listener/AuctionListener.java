@@ -1,5 +1,6 @@
 package listener;
 
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import pojo.Goods;
 import service.GoodsManagerImpl;
@@ -20,8 +21,6 @@ public class AuctionListener {
     static private Goods goods;
 
     static public void run(ServletContext context){
-
-        SimpleDateFormat dateformatAll= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println("AuctionListener启动");
         goodsManager = WebApplicationContextUtils.getRequiredWebApplicationContext(context).getBean(GoodsManagerImpl.class);
         Integer cacheTime = 500;
@@ -33,9 +32,8 @@ public class AuctionListener {
                 List<?> goodsList = (List<?>) context.getAttribute("onSaleList");
                 for(int i = 0; i < goodsList.size();i++){
                     goods = (Goods) goodsList.get(i);
-                    System.out.println(dateformatAll.format(goods.getStart_time()));
-                    System.out.println(dateformatAll.format(new Timestamp(System.currentTimeMillis())));
-                    if(dateformatAll.format(goods.getStart_time()).equals(dateformatAll.format(new Timestamp(System.currentTimeMillis())))) {
+//                    if(dateformatAll.format(goods.getStart_time()).equals(dateformatAll.format(new Timestamp(System.currentTimeMillis())))) {
+                    if(goods.getStart_time().before(new Timestamp(System.currentTimeMillis()))){
                         goods.setState("在售");
                         goodsManager.updateGoodsInfo(goods);
                         goodsList.remove(i);

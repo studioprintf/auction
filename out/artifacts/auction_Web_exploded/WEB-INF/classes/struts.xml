@@ -218,6 +218,12 @@
             <!--</interceptor-ref>-->
         </action>
 
+        <action name="createGoods" class="action.seller.SellerOnSaleAction">
+            <result type="redirect" name="success">
+                <param name="location">/index</param>
+            </result>
+            <result type="dispatcher" name="error">/WEB-INF/auction/publish.jsp?err=1</result>
+        </action>
 
     </package>
 
