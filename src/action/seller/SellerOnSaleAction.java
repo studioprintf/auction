@@ -7,7 +7,6 @@ import service.AuctionProcessManagerImpl;
 
 import java.sql.Timestamp;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by DTLuc on 2017/3/30.
@@ -15,9 +14,11 @@ import java.util.Date;
 public class SellerOnSaleAction extends BaseAction{
     private double reserve_price;
     private double limit;
-    private Timestamp start_time;
-    private Timestamp final_time;
+    private String start;//unformatted
+    private String end;//unformatted
     private Goods goods;
+
+
 
     private String goods_title;
     private String goods_describe;
@@ -26,7 +27,6 @@ public class SellerOnSaleAction extends BaseAction{
     private String goods_image3;
     private String goods_image4;
     private String goods_image5;
-    private String goods_image6;
     private Goodsinfo goodsinfo;
 
     private AuctionProcessManagerImpl auctionProcessManager;
@@ -95,13 +95,6 @@ public class SellerOnSaleAction extends BaseAction{
         this.goods_image5 = goods_image5;
     }
 
-    public String getGoods_image6() {
-        return goods_image6;
-    }
-
-    public void setGoods_image6(String goods_image6) {
-        this.goods_image6 = goods_image6;
-    }
 
     public Goodsinfo getGoodsinfo() {
         return goodsinfo;
@@ -127,21 +120,6 @@ public class SellerOnSaleAction extends BaseAction{
         this.limit = limit;
     }
 
-    public Timestamp getStart_time() {
-        return start_time;
-    }
-
-    public void setStart_time(Timestamp start_time) {
-        this.start_time = start_time;
-    }
-
-    public Timestamp getFinal_time() {
-        return final_time;
-    }
-
-    public void setFinal_time(Timestamp final_time) {
-        this.final_time = final_time;
-    }
 
     public Goods getGoods() {
         return goods;
@@ -151,9 +129,27 @@ public class SellerOnSaleAction extends BaseAction{
         this.goods = goods;
     }
 
+    public String getStart() {
+        return start;
+    }
+
+    public void setStart(String start) {
+        this.start = start;
+    }
+
+    public String getEnd() {
+        return end;
+    }
+
+    public void setEnd(String end) {
+        this.end = end;
+    }
+
     @Override
     public String execute() throws Exception {
         // TODO Auto-generated method stub
+        Timestamp start_time = Timestamp.valueOf(start);
+        Timestamp final_time = Timestamp.valueOf(end);
         Timestamp nowTime = new Timestamp(System.currentTimeMillis());
         //获取当前时间
         Calendar calendar = Calendar.getInstance();
@@ -166,8 +162,20 @@ public class SellerOnSaleAction extends BaseAction{
             //判断结束时间是否在开始时间之后的一个小时
             return ERROR;
         }
+
+        System.out.println(getReserve_price());
+        System.out.println(getGoods_title());
+        System.out.println(getGoods_describe());
+        System.out.println(getGoods_image1());
+        System.out.println(getLimit());
+        System.out.println(getStart());
+        System.out.println(getEnd());
+
+
+
         goods = new Goods();
-        goods.setCreate_user(Integer.parseInt(session.get("USER_ID").toString()));
+//        goods.setCreate_user(Integer.parseInt(session.get("USER_ID").toString()));
+        goods.setCreate_user(1);
         goods.setState("等待");
         goods.setReserve_price(reserve_price);
         goods.setLimit_price(limit);
@@ -175,6 +183,7 @@ public class SellerOnSaleAction extends BaseAction{
         goods.setStart_time(start_time);
         goods.setFinal_time(final_time);
 
+        goodsinfo = new Goodsinfo();
         goodsinfo.setGoods_title(getGoods_title());
         goodsinfo.setGoods_describe(getGoods_describe());
         goodsinfo.setGoods_image1(getGoods_image1());
@@ -186,9 +195,6 @@ public class SellerOnSaleAction extends BaseAction{
                     goodsinfo.setGoods_image2(getGoods_image2());
                     if (getGoods_image5() != null) {
                         goodsinfo.setGoods_image2(getGoods_image2());
-                        if (getGoods_image6() != null) {
-                            goodsinfo.setGoods_image2(getGoods_image2());
-                        }
                     }
                 }
             }

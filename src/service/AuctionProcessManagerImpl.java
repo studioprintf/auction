@@ -61,6 +61,7 @@ public class AuctionProcessManagerImpl implements AuctionProcessManager {
         // TODO Auto-generated method stub
         goodsDao.saveGoods(goods);
         goodsinfoDao.saveInfo(goodsinfo);
+
         return true;
     }
 

@@ -199,11 +199,14 @@
     </bean>
 
     <!--拍卖流程action注册-->
-    <bean id="OnsaleAction" class="action.seller.SellerOnSaleAction">
+    <bean id="createGoods" class="action.seller.SellerOnSaleAction">
         <property name="auctionProcessManager">
             <ref bean="AuctionProcessManager"></ref>
         </property>
     </bean>
+
+
+
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
     <aop:config proxy-target-class="true">
