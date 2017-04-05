@@ -199,6 +199,7 @@ public class SellerOnSaleAction extends BaseAction{
                 }
             }
         }
+        goods.setFinal_price(-1);
         if(auctionProcessManager.onSale(goods,goodsinfo))
             return SUCCESS;
         else

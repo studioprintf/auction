@@ -19,6 +19,7 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements GoodsDao {
         // TODO Auto-generated method stub
         try {
             getHibernateTemplate().save(goods);
+            System.out.println("存入成功");
             return true;
         } catch (HibernateException e) {
             // TODO: handle exception
