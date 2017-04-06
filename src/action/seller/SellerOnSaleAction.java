@@ -5,6 +5,8 @@ import pojo.Goods;
 import pojo.Goodsinfo;
 import service.AuctionProcessManagerImpl;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.sql.Timestamp;
 import java.util.Calendar;
 
@@ -28,6 +30,7 @@ public class SellerOnSaleAction extends BaseAction{
     private String goods_image4;
     private String goods_image5;
     private Goodsinfo goodsinfo;
+    private InputStream inputStream;
 
     private AuctionProcessManagerImpl auctionProcessManager;
 
@@ -145,64 +148,89 @@ public class SellerOnSaleAction extends BaseAction{
         this.end = end;
     }
 
+    public InputStream getInputStream() {
+        return inputStream;
+    }
+
+    public void setInputStream(InputStream inputStream) {
+        this.inputStream = inputStream;
+    }
+
     @Override
     public String execute() throws Exception {
         // TODO Auto-generated method stub
-        Timestamp start_time = Timestamp.valueOf(start);
-        Timestamp final_time = Timestamp.valueOf(end);
-        Timestamp nowTime = new Timestamp(System.currentTimeMillis());
+        Timestamp start_time;
+        Timestamp nowTime;
+        Timestamp final_time;
+
+        goods = new Goods();
+        goodsinfo = new Goodsinfo();
+
+        nowTime = new Timestamp(System.currentTimeMillis());
+        final_time = Timestamp.valueOf(end);
+
+        if(start.equals("0")) {//立刻上架
+            start_time = nowTime;
+            goods.setState("在售");
+        }else {//设定上架时间
+            start_time = Timestamp.valueOf(start);
+            goods.setState("等待");
+        }
+
+
+
         //获取当前时间
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(start_time);
         //将设置开始时间转成calendar
         calendar.add(Calendar.HOUR,1);
         //开始时间+1小时
+
         if(nowTime.after(start_time)||final_time.before(calendar.getTime())) {
             //判断开始时间是否在现在时间之后
             //判断结束时间是否在开始时间之后的一个小时
-            return ERROR;
-        }
-
-        System.out.println(getReserve_price());
-        System.out.println(getGoods_title());
-        System.out.println(getGoods_describe());
-        System.out.println(getGoods_image1());
-        System.out.println(getLimit());
-        System.out.println(getStart());
-        System.out.println(getEnd());
+            inputStream = new ByteArrayInputStream("时间戳校验失败".getBytes("UTF-8"));
+        } else {
 
 
-
-        goods = new Goods();
 //        goods.setCreate_user(Integer.parseInt(session.get("USER_ID").toString()));
-        goods.setCreate_user(1);
-        goods.setState("等待");
-        goods.setReserve_price(reserve_price);
-        goods.setLimit_price(limit);
-        goods.setCreate_time(nowTime);
-        goods.setStart_time(start_time);
-        goods.setFinal_time(final_time);
 
-        goodsinfo = new Goodsinfo();
-        goodsinfo.setGoods_title(getGoods_title());
-        goodsinfo.setGoods_describe(getGoods_describe());
-        goodsinfo.setGoods_image1(getGoods_image1());
-        if(getGoods_image2()!=null) {
-            goodsinfo.setGoods_image2(getGoods_image2());
-            if(getGoods_image3()!=null) {
+            goods.setCreate_user(1);
+            goods.setReserve_price(getReserve_price());
+            goods.setLimit_price(getLimit());
+            goods.setCreate_time(nowTime);
+            goods.setStart_time(start_time);
+            goods.setFinal_time(final_time);
+
+            System.out.println(goods.getCreate_user());
+            System.out.println(goods.getCreate_time());
+            System.out.println(goods.getReserve_price());
+            System.out.println(goods.getLimit_price());
+            System.out.println(goods.getStart_time());
+            System.out.println(goods.getFinal_price());
+            System.out.println(goods.getState());
+
+            goodsinfo.setGoods_title(getGoods_title());
+            goodsinfo.setGoods_describe(getGoods_describe());
+            goodsinfo.setGoods_image1(getGoods_image1());
+            if (getGoods_image2() != null) {
                 goodsinfo.setGoods_image2(getGoods_image2());
-                if (getGoods_image4() != null) {
+                if (getGoods_image3() != null) {
                     goodsinfo.setGoods_image2(getGoods_image2());
-                    if (getGoods_image5() != null) {
+                    if (getGoods_image4() != null) {
                         goodsinfo.setGoods_image2(getGoods_image2());
+                        if (getGoods_image5() != null) {
+                            goodsinfo.setGoods_image2(getGoods_image2());
+                        }
                     }
                 }
             }
+//            goods.setFinal_price(-1);
+            if (auctionProcessManager.onSale(goods, goodsinfo))
+                inputStream = new ByteArrayInputStream("1".getBytes("UTF-8"));
+            else
+                inputStream = new ByteArrayInputStream("服务器错误".getBytes("UTF-8"));
         }
-        goods.setFinal_price(-1);
-        if(auctionProcessManager.onSale(goods,goodsinfo))
-            return SUCCESS;
-        else
-            return ERROR;
+        return SUCCESS;
     }
 }

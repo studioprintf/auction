@@ -15,7 +15,6 @@
         <property name="goods_image3"/>
         <property name="goods_image4"/>
         <property name="goods_image5"/>
-        <property name="goods_image6"/>
     </class>
 
 </hibernate-mapping>

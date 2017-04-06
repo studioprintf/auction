@@ -15,7 +15,6 @@ public class Goodsinfo implements Serializable {
     private String goods_image3;
     private String goods_image4;
     private String goods_image5;
-    private String goods_image6;
 
     public int getGoods_id() {
         return goods_id;
@@ -81,13 +80,6 @@ public class Goodsinfo implements Serializable {
         this.goods_image5 = goods_image5;
     }
 
-    public String getGoods_image6() {
-        return goods_image6;
-    }
-
-    public void setGoods_image6(String goods_image6) {
-        this.goods_image6 = goods_image6;
-    }
 
 
 }

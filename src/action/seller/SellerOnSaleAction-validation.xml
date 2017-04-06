@@ -5,8 +5,7 @@
 <validators>
     <field name="reserve_price">
         <!-- 必须输入项 -->
-        <field-validator type="requiredstring">
-            <param name="trim">true</param>
+        <field-validator type="required">
             <message>必须输入底价</message>
         </field-validator>
         <!-- 底价必须符合表达式 -->
@@ -17,8 +16,7 @@
     </field>
     <field name="limit">
         <!-- 必须输入项 -->
-        <field-validator type="requiredstring">
-            <param name="trim">true</param>
+        <field-validator type="required">
             <message>必须输入涨幅</message>
         </field-validator>
         <!-- user_name必须符合表达式 -->
