@@ -32,9 +32,6 @@ import java.util.TimerTask;
                 List<?> finish_goods = (List<?>) context.getAttribute("GoodsList");
                 for(int i = 0;i < finish_goods.size();i++){
                     goods = (Goods) finish_goods.get(i);
-                    System.out.println(goods.getFinal_time());
-                    System.out.println(new Timestamp(System.currentTimeMillis()));
-                    System.out.println(goods.getFinal_time().before(new Timestamp(System.currentTimeMillis())));
                     if (goods.getFinal_time().before(new Timestamp(System.currentTimeMillis()))){  //结束时间是否在现在时间之后
                         System.out.println("商品："+goods.getGoods_id()+"到时");
                         goods.setState("结束");  //商品状态修改为结束

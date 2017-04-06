@@ -189,11 +189,13 @@ public class SellerOnSaleAction extends BaseAction{
         if(nowTime.after(start_time)||final_time.before(calendar.getTime())) {
             //判断开始时间是否在现在时间之后
             //判断结束时间是否在开始时间之后的一个小时
+
             inputStream = new ByteArrayInputStream("时间戳校验失败".getBytes("UTF-8"));
         } else {
 
 
 //        goods.setCreate_user(Integer.parseInt(session.get("USER_ID").toString()));
+
 
             goods.setCreate_user(1);
             goods.setReserve_price(getReserve_price());
@@ -202,13 +204,6 @@ public class SellerOnSaleAction extends BaseAction{
             goods.setStart_time(start_time);
             goods.setFinal_time(final_time);
 
-            System.out.println(goods.getCreate_user());
-            System.out.println(goods.getCreate_time());
-            System.out.println(goods.getReserve_price());
-            System.out.println(goods.getLimit_price());
-            System.out.println(goods.getStart_time());
-            System.out.println(goods.getFinal_price());
-            System.out.println(goods.getState());
 
             goodsinfo.setGoods_title(getGoods_title());
             goodsinfo.setGoods_describe(getGoods_describe());
