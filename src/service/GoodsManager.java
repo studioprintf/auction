@@ -6,6 +6,7 @@ import org.hibernate.HibernateException;
 
 import pojo.Goods;
 import pojo.Goodsinfo;
+import pojo.User;
 
 /**
  * @author Lucifer
@@ -29,4 +30,7 @@ public interface GoodsManager {
 
     //删除商品
     public boolean deleteGoods(Goods goods) throws HibernateException;
+
+    //用户在售商品
+    List<?> userOnSaleGoods(Goods goods) throws HibernateException;
 }

@@ -34,11 +34,21 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements GoodsDao {
     }
 
     @Override
-    public List<?> searchGoods(Goods goods) throws HibernateException {
+    public List<?> searchGoodsByUser(Goods goods) throws HibernateException {
         // TODO Auto-generated method stub
         List<?> result;
         result = getHibernateTemplate().find("FROM Goods G WHERE G.create_user = ?0", goods.getCreate_user());
         return result;
+    }
+
+    @Override
+    public List<?> fingGoodsInfo(Goods goods) throws HibernateException {
+        return getHibernateTemplate().find("FROM Goods G WHERE G.goods_id = ?0",goods.getGoods_id());
+    }
+
+    @Override
+    public List<?> searchOnSale() throws HibernateException {
+        return getHibernateTemplate().find("FROM Goods G WHERE G.state = '在售'");
     }
 
     @Override

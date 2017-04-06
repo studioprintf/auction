@@ -9,6 +9,7 @@ import daoImpl.GoodsDaoImpl;
 import daoImpl.GoodsinfoDaoImpl;
 import pojo.Goods;
 import pojo.Goodsinfo;
+import pojo.User;
 
 /**
  * @author Lucifer
@@ -54,7 +55,7 @@ public class GoodsManagerImpl implements GoodsManager {
     @Override
     public Goodsinfo getGoodsInfo(Goods goods) throws HibernateException {
         // TODO Auto-generated method stub
-        goods = (Goods) goodsDao.searchGoods(goods).get(0);
+        goods = (Goods) goodsDao.fingGoodsInfo(goods).get(0);
         Goodsinfo goodsinfo = goodsInfoDao.findGoodsInfo(goods);
         return goodsinfo;
     }
@@ -62,13 +63,19 @@ public class GoodsManagerImpl implements GoodsManager {
     @Override
     public List<?> getOnSaleGoods() throws HibernateException {
         // TODO Auto-generated method stub
-        return null;
+        List onSaleList = goodsDao.searchOnSale();
+        return onSaleList;
     }
 
     @Override
     public boolean deleteGoods(Goods goods) throws HibernateException {
         // TODO Auto-generated method stub
         return false;
+    }
+
+    @Override
+    public List<?> userOnSaleGoods(Goods good) throws HibernateException {
+        return goodsDao.searchGoodsByUser(good);
     }
 
 }

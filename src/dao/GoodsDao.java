@@ -11,7 +11,11 @@ public interface GoodsDao {
 
     List<?> getAll() throws HibernateException;
 
-    List<?> searchGoods(Goods goods) throws HibernateException;
+    List<?> searchGoodsByUser(Goods goods) throws HibernateException;
+
+    List<?> fingGoodsInfo(Goods goods) throws HibernateException;
+
+    List<?> searchOnSale() throws HibernateException;
 
     boolean updateGoods(Goods goods) throws HibernateException;
 

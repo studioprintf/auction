@@ -61,15 +61,20 @@ public class AuctionProcessManagerImpl implements AuctionProcessManager {
         // TODO Auto-generated method stub
         goodsDao.saveGoods(goods);
         goodsinfo.setGoods_id(goods.getGoods_id());
-        goodsinfoDao.saveInfo(goodsinfo);
+//        goodsinfoDao.saveInfo(goodsinfo);
+        saveInfo(goodsinfo);
+        return true;
+    }
 
+    private boolean saveInfo(Goodsinfo goodsinfo) throws HibernateException{
+        goodsinfoDao.saveInfo(goodsinfo);
         return true;
     }
 
     @Override
     public boolean joinAuction(User user, Goods goods, Auction auction) throws HibernateException {
         // TODO Auto-generated method stub
-        goods = (Goods) goodsDao.searchGoods(goods).get(0);
+        goods = (Goods) goodsDao.fingGoodsInfo(goods).get(0);
         //获取拍卖物品的信息
         if(!goods.getState().equals("在售"))
             //判断商品状态
