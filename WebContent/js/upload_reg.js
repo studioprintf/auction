@@ -29,11 +29,10 @@ $(function () {
                 return;
             }
             //待处理
-            // if (editor.$txt.formatText().length == 0) {
-            //     $(this).focus();
-            //     alert("请输入商品描述！");
-            //     return;
-            // }
+            if (editor.$txt.formatText().length < 17) {
+                alert("请输入大于16字的商品描述！");
+                return;
+            }
 
             if ($("#reserve_price").val() == "") {
                 alert("请填写起拍价格！");
@@ -46,19 +45,28 @@ $(function () {
                 return;
             }
 
-            if ($('input:radio[name="radio22on"]:checked').val() != null) {
+            if ($('input:radio[name="radio22"]:checked').val() == "1") {
                 if ($("#start_time").val() == "") {
                     $(this).focus();
                     alert("请选择上架时间！");
                     return;
                 }
 
-                //待处理
-                // if (getmm($("#start_time").val()) > getmm($("#end_time").val())) {
-                //     alert("结束时间不能晚于上架时间");
-                //     return;
-                // }
+                var start = $("#start_time").val().toString();
+                var end = $("#end_time").val().toString();
+                if (compareTime(start,end)) {
+                    alert("结束时间不能晚于上架时间");
+                    return;
+                }
 
+            } else {//立刻上架
+                var start = new Date().Format("yyyy-MM-dd hh:mm:ss").toString();
+                var end = $("#end_time").val().toString();
+                if (compareTime(start,end)) {
+                    alert("结束时间不能晚于当前时间");
+                    return;
+                }
+                $("#start_time").val("0");//0标注服务器处理
             }
             var msg = "确认资料填写无误吗？";
             if (confirm(msg) == true) {
@@ -73,19 +81,7 @@ $(function () {
                 var goods_image3 = $("#img2").val();
                 var goods_image4 = $("#img3").val();
                 var goods_image5 = $("#img4").val();
-                //
-                // alert(create_user);
-                // alert(reserve_price);
-                // alert(limit);
-                // alert(start);
-                // alert(end);
-                // alert(goods_title);
-                // alert(goods_describe);
-                // alert(goods_image1);
-                // alert(goods_image2);
-                // alert(goods_image3);
-                // alert(goods_image4);
-                // alert(goods_image5);
+
                 $.post(
                     "/auction/createGoods",
                     {
@@ -102,41 +98,14 @@ $(function () {
                         'goods_image5': goods_image5
 
                     },
-                    function(){
-                        alert("posted");
+                    function (data) {
+                        if (data == "1")
+                            window.location.href="/user/user";
+                        else
+                            alert("提交失败，" + data);
                     }
                 )
-                //
-                // $.ajax({
-                //     url: "/auction/createGoods",
-                //     type: "POST",
-                //     async: false,
-                //     data: {
-                //         'create_user': create_user,
-                //         'reserve_price': reserve_price,
-                //         'limit': limit,
-                //         'start_time': start_time,
-                //         'final_time': final_time,
-                //         'goods_title': goods_title,
-                //         'goods_describe': goods_describe,
-                //         'goods_image1': goods_image1,
-                //         'goods_image2': goods_image2,
-                //         'goods_image3': goods_image3,
-                //         'goods_image4': goods_image4,
-                //         'goods_image5': goods_image5
-                //
-                //     },
-                //     success: function (data) {
-                //         if (data == '1')
-                //             alert("商品发布成功");
-                //
-                //         else //0
-                //             alert("商品发布失败");
-                //     },
-                //     error: function () {
-                //         alert("服务器错误");
-                //     }
-                // })
+
                 return true;
             }
             else {
@@ -161,6 +130,7 @@ $(function () {
 
 
 $("#radio22on").click(function () {
+    $("#start_time").val("");
     $("#fixTime").css({
         'display': ''
     })
@@ -191,10 +161,19 @@ Date.prototype.Format = function (fmt) { //author: meizz
     return fmt;
 }
 
-function getdayTime() {
-    var date = new Date().Format("yyyy-MM-dd hh:mm:ss");
+function compareTime(start,end) {
+    var b= Date.parse(start.replace(/\-/g,"/"))>Date.parse(end.replace(/\-/g,"/"));
+    return b;
+}
+
+
+function getTenMinAfterTime() {
+    var datetime = new Date();//当前时间
+    var sec = parseInt(datetime.getTime()) + 10 * 1000 * 60;
+    // alert(sec);
+    var after = new Date(sec).Format("yyyy-MM-dd hh:mm:ss");
     // alert(date);
-    return date;
+    return after;
 }
 function getDaysAfterTime() {
     var datetime = new Date();
@@ -205,11 +184,6 @@ function getDaysAfterTime() {
     return after;
 }
 
-function getmm(val) {
-    var mm = new Date(val);
-    alert(mm);
-    return mm;
-}
 
 function fileSelected() {
     if ($("#fileToUpload").val() == "") {

@@ -280,7 +280,7 @@
                                                                                      style="display: inline;">起拍价格</label>
                     </td>
                     <td>
-                        <input type="text" name="reserve_price" id="reserve_price" />元
+                        <input type="text" id="reserve_price" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)"  />元
                     </td>
                 </tr>
                 <tr>
@@ -375,8 +375,8 @@
     $("#start_time").datetimepicker({
         format: "yyyy-mm-dd hh:ii:00",
         autoclose: true,
-        todayBtn: true,
-        startDate: getdayTime(),
+        todayBtn: false,
+        startDate: getTenMinAfterTime(),
         endDate: getDaysAfterTime(),
 
          minuteStep: 10
@@ -385,8 +385,8 @@
     $("#end_time").datetimepicker({
         format: "yyyy-mm-dd hh:ii:00",
         autoclose: true,
-        todayBtn: true,
-        startDate: getdayTime(),
+        todayBtn: false,
+        startDate: getTenMinAfterTime(),
         endDate: getDaysAfterTime(),
          minuteStep: 10
     });

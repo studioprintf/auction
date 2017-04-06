@@ -194,6 +194,9 @@
         <action name="publish">
             <result>/WEB-INF/auction/publish.jsp</result>
         </action>
+        <action name="pub_succ">
+            <result>/WEB-INF/auction/pub_succ.jsp</result>
+        </action>
 
         <!--富媒体编辑框架上传图片-->
         <action name="uploadImg" class="action.auction.UploadImgAction">
@@ -218,11 +221,12 @@
             <!--</interceptor-ref>-->
         </action>
 
+        <!--商品发布提交-->
         <action name="createGoods" class="action.seller.SellerOnSaleAction">
-            <result type="redirect" name="success">
-                <param name="location">/index</param>
+            <result type="stream" name="success">
+                <param name="contentType">text/html</param>
+                <param name="inputStream">inputStream</param>
             </result>
-            <result type="dispatcher" name="error">/WEB-INF/auction/publish.jsp?err=1</result>
         </action>
 
     </package>
