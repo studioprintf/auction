@@ -221,7 +221,7 @@ public class SellerOnSaleAction extends BaseAction{
                 }
             }
 //            goods.setFinal_price(-1);
-            if (auctionProcessManager.onSale(goods, goodsinfo))
+            if (auctionProcessManager.onSale(goods, goodsinfo)&&auctionProcessManager.saveInfo(goodsinfo))
                 inputStream = new ByteArrayInputStream("1".getBytes("UTF-8"));
             else
                 inputStream = new ByteArrayInputStream("服务器错误".getBytes("UTF-8"));

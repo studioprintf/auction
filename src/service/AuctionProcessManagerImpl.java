@@ -62,11 +62,11 @@ public class AuctionProcessManagerImpl implements AuctionProcessManager {
         goodsDao.saveGoods(goods);
         goodsinfo.setGoods_id(goods.getGoods_id());
 //        goodsinfoDao.saveInfo(goodsinfo);
-        saveInfo(goodsinfo);
+//        saveInfo(goodsinfo);
         return true;
     }
 
-    private boolean saveInfo(Goodsinfo goodsinfo) throws HibernateException{
+    public boolean saveInfo(Goodsinfo goodsinfo) throws HibernateException{
         goodsinfoDao.saveInfo(goodsinfo);
         return true;
     }
