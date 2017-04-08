@@ -3,6 +3,10 @@ package daoImpl;
 import java.util.List;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
@@ -14,8 +18,20 @@ import pojo.Goodsinfo;
 public class GoodsinfoDaoImpl extends HibernateDaoSupport implements GoodsinfoDao {
 
     @Override
-    public List<?> getGoodsInfo(Goodsinfo goodsinfo) throws HibernateException {
-        List<?> result = getHibernateTemplate().find("FROM Goodsinfo G WHERE G.goods_title like '%?%' ", goodsinfo.getGoods_title());
+    public List<?> getGoodsNum(String searchKey) throws HibernateException {
+        return getHibernateTemplate().find("SELECT COUNT(*) FROM Goodsinfo G WHERE G.goods_title like '%?0%'",searchKey);
+    }
+
+    @Override
+    public List<?> getGoodsInfo(String searchKey,int index) throws HibernateException {
+//        getHibernateTemplate().find("FROM Goodsinfo G WHERE G.goods_title like '%?0%' LIMIT ?1 , 10 " , new Object[]{searchKey,index*10});
+//        HQL不支持Limit
+        String hql = "FROM Goodsinfo G WHERE G.goods_title like '%?0%'";
+        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+        Query query = session.createQuery(hql).setParameter(0,searchKey);
+        query.setFirstResult(index*10);  //设置开始
+        query.setMaxResults(10);  //最大条目为10
+        List<?> result = query.list();
         return result;
     }
 

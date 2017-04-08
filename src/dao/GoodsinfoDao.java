@@ -8,9 +8,12 @@ import pojo.Goods;
 import pojo.Goodsinfo;
 
 public interface GoodsinfoDao {
-    public List<?> getGoodsInfo(Goodsinfo goodsinfo) throws HibernateException;
 
-    public Boolean saveInfo(Goodsinfo goodsinfo) throws HibernateException;
+    List<?> getGoodsNum(String searchKey) throws HibernateException;
 
-    public Goodsinfo findGoodsInfo(Goods goods) throws HibernateException;
+    List<?> getGoodsInfo(String searchKey,int index) throws HibernateException;
+
+    Boolean saveInfo(Goodsinfo goodsinfo) throws HibernateException;
+
+    Goodsinfo findGoodsInfo(Goods goods) throws HibernateException;
 }

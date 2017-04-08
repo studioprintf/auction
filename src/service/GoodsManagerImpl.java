@@ -40,9 +40,16 @@ public class GoodsManagerImpl implements GoodsManager {
     }
 
     @Override
-    public List<?> searchGoods(Goodsinfo goodsinfo) throws HibernateException {
+    public List<?> searchGoods(String searchKey,int index) throws HibernateException {
         // TODO Auto-generated method stub
-        return null;
+        int num = Integer.parseInt(goodsInfoDao.getGoodsNum(searchKey).get(0).toString());
+        if(num%10==0&&num/10<=index+1) //判断结果是否在最后一页完全显示且输入的页码是否比最大页码小
+            index = 0;
+        else if(num%10!=0&&num/10<=index+2)
+            index = 0;
+        List<?> result = goodsInfoDao.getGoodsInfo(searchKey,index);
+        index = num;
+        return result;
     }
 
     @Override

@@ -198,6 +198,12 @@
         </property>
     </bean>
 
+    <!--商品管理action注册-->
+    <bean id="userSearchGoods" class="action.user.UserSearchAction">
+        <property name="goodsManager">
+            <ref bean="goodsManager"></ref>
+        </property>
+    </bean>
     <!--拍卖流程action注册-->
     <bean id="createGoods" class="action.seller.SellerOnSaleAction">
         <property name="auctionProcessManager">

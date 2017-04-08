@@ -17,7 +17,7 @@ import pojo.User;
  */
 public interface GoodsManager {
     //搜索商品
-    public List<?> searchGoods(Goodsinfo goodsinfo) throws HibernateException;
+    public List<?> searchGoods(String searchKey,int index) throws HibernateException;
 
     //更新商品信息
     public boolean updateGoodsInfo(Goods goods) throws HibernateException;
