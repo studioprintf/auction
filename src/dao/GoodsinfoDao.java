@@ -13,7 +13,9 @@ public interface GoodsinfoDao {
 
     List<?> getGoodsInfo(String searchKey,int index) throws HibernateException;
 
-    Boolean saveInfo(Goodsinfo goodsinfo) throws HibernateException;
+    boolean saveInfo(Goodsinfo goodsinfo) throws HibernateException;
 
     Goodsinfo findGoodsInfo(Goods goods) throws HibernateException;
+
+    boolean updateInfo(Goodsinfo goodsinfo) throws HibernateException;
 }

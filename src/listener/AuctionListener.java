@@ -1,13 +1,11 @@
 package listener;
 
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import pojo.Goods;
 import service.GoodsManagerImpl;
 
 import javax.servlet.ServletContext;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -35,11 +33,13 @@ public class AuctionListener {
 //                    if(dateformatAll.format(goods.getStart_time()).equals(dateformatAll.format(new Timestamp(System.currentTimeMillis())))) {
                     if(goods.getStart_time().before(new Timestamp(System.currentTimeMillis()))){
                         goods.setState("在售");
-                        goodsManager.updateGoodsInfo(goods);
+                        goodsManager.updateGoodsState(goods);
                         goodsList.remove(i);
                     }
                 }
+                if(goodsList.size()==0)
+                    timer.cancel();
             }
-        }, 1000*10, cacheTime);
+        }, 1000, cacheTime);
     }
 }

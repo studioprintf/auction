@@ -19,9 +19,7 @@ public class GoodsListener implements ServletContextListener {
         System.out.println("GoodsListener启动");
         ServletContext context = sce.getServletContext();
         GoodsDaoImpl goodsDao = WebApplicationContextUtils.getRequiredWebApplicationContext(sce.getServletContext()).getBean(GoodsDaoImpl.class);
-        Integer cacheTime = 1000 * 60 * 10;
-        OrderListener.run(context);
-        AuctionListener.run(context);
+        Integer cacheTime = 1000 * 60 * 10; //每十分钟执行一次
         Timer timer = new Timer();
         // (TimerTask task, long delay, long period)任务，延迟时间，多久执行
         timer.schedule(new TimerTask() {
@@ -33,6 +31,8 @@ public class GoodsListener implements ServletContextListener {
                 System.out.println("将要上架的商品个数为"+onSaleList.size());
                 context.setAttribute("GoodsList",goodsList);
                 context.setAttribute("onSaleList",onSaleList);
+                OrderListener.run(context);
+                AuctionListener.run(context);
             }
         }, 1000, cacheTime);
     }

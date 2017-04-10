@@ -36,7 +36,7 @@ public class GoodsinfoDaoImpl extends HibernateDaoSupport implements GoodsinfoDa
     }
 
     @Override
-    public Boolean saveInfo(Goodsinfo goodsinfo) throws HibernateException {
+    public boolean saveInfo(Goodsinfo goodsinfo) throws HibernateException {
         // TODO Auto-generated method stub
         getHibernateTemplate().save(goodsinfo);
         return true;
@@ -48,6 +48,18 @@ public class GoodsinfoDaoImpl extends HibernateDaoSupport implements GoodsinfoDa
         if(result.size()!=0)
             return (Goodsinfo) result.get(0);
         return  null;
+    }
+
+    @Override
+    public boolean updateInfo(Goodsinfo goodsinfo) throws HibernateException {
+        try {
+            getHibernateTemplate().update(goodsinfo);
+            return true;
+        }
+        catch (HibernateException h){
+
+        }
+        return false;
     }
 
 }

@@ -17,19 +17,22 @@ import pojo.User;
  */
 public interface GoodsManager {
     //搜索商品
-    public List<?> searchGoods(String searchKey,int index) throws HibernateException;
+    List<?> searchGoods(String searchKey,int index) throws HibernateException;
+
+    //更新商品状态
+    boolean updateGoodsState(Goods goods) throws HibernateException;
 
     //更新商品信息
-    public boolean updateGoodsInfo(Goods goods) throws HibernateException;
+    boolean updateGoodsInfo(Goodsinfo goodsinfo) throws HibernateException;
 
     //获取商品信息
-    public Goodsinfo getGoodsInfo(Goods goods) throws HibernateException;
+    Goodsinfo getGoodsInfo(Goods goods) throws HibernateException;
 
     //获取在售商品
-    public List<?> getOnSaleGoods() throws HibernateException;
+    List<?> getOnSaleGoods() throws HibernateException;
 
     //删除商品
-    public boolean deleteGoods(Goods goods) throws HibernateException;
+    boolean deleteGoods(Goods goods) throws HibernateException;
 
     //用户在售商品
     List<?> userOnSaleGoods(Goods goods) throws HibernateException;

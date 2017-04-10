@@ -35,13 +35,15 @@ import java.util.TimerTask;
                     if (goods.getFinal_time().before(new Timestamp(System.currentTimeMillis()))){  //结束时间是否在现在时间之后
                         System.out.println("商品："+goods.getGoods_id()+"到时");
                         goods.setState("结束");  //商品状态修改为结束
-                        goodsManager.updateGoodsInfo(goods);  //更新商品信息
+                        goodsManager.updateGoodsState(goods);  //更新商品信息
                         auctionProcessManager.createOrder(goods);  //调用业务类进行创建新订单
                         finish_goods.remove(i);
                     }
                 }
+                if(finish_goods.size()==0)
+                    timer.cancel();
             }
 
-        }, 1000 * 10, cacheTime);
+        }, 1000, cacheTime);
     }
 }
