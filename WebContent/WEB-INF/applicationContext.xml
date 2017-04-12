@@ -205,12 +205,20 @@
         </property>
     </bean>
 
+    <bean id="getGoods" class="action.goods.UserGetGoodsAction">
+        <property name="goodsManager">
+            <ref bean="goodsManager"></ref>
+        </property>
+    </bean>
+
     <!--拍卖流程action注册-->
     <bean id="createGoods" class="action.seller.SellerOnSaleAction">
         <property name="auctionProcessManager">
             <ref bean="auctionProcessManager"></ref>
         </property>
     </bean>
+
+
 
 
 
