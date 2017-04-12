@@ -1,15 +1,13 @@
 package service;
 
-import java.util.List;
-
-import org.hibernate.HibernateException;
-import org.springframework.stereotype.Service;
-
 import daoImpl.GoodsDaoImpl;
 import daoImpl.GoodsinfoDaoImpl;
+import org.hibernate.HibernateException;
+import org.springframework.stereotype.Service;
 import pojo.Goods;
 import pojo.Goodsinfo;
-import pojo.User;
+
+import java.util.List;
 
 /**
  * @author Lucifer
@@ -69,9 +67,21 @@ public class GoodsManagerImpl implements GoodsManager {
     @Override
     public Goodsinfo getGoodsInfo(Goods goods) throws HibernateException {
         // TODO Auto-generated method stub
-        goods = (Goods) goodsDao.fingGoodsInfo(goods).get(0);
-        Goodsinfo goodsinfo = goodsInfoDao.findGoodsInfo(goods);
-        return goodsinfo;
+        List<?> list = goodsDao.fingGoodsInfo(goods);
+        if (!list.isEmpty()) {//修复越界
+            goods = (Goods) list.get(0);
+            Goodsinfo goodsinfo = goodsInfoDao.findGoodsInfo(goods);
+            return goodsinfo;
+        } else
+            return null;
+    }
+
+    public Goods getGoods(Goods goods) throws HibernateException {
+        List<?> list = goodsDao.fingGoodsInfo(goods);
+        if (!list.isEmpty()) {
+            return (Goods) list.get(0);
+        }
+        return null;
     }
 
     @Override

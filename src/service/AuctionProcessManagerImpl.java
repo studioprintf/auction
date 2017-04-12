@@ -76,13 +76,20 @@ public class AuctionProcessManagerImpl implements AuctionProcessManager {
         // TODO Auto-generated method stub
         goods = (Goods) goodsDao.fingGoodsInfo(goods).get(0);
         //获取拍卖物品的信息
-        if(!goods.getState().equals("在售"))
+        if(!goods.getState().equals("1"))
             //判断商品状态
             return false;
-        Auction auction1Sql = (Auction) auctionDao.findMaxLog(goods).get(0);
-        //获取拍卖记录中的最高价记录
-        if(auction.getPrice()>auction1Sql.getPrice()&&(auction.getPrice()-goods.getReserve_price())%goods.getLimit_price()==0) {
-            //出价是否大于最高价且出价是否为涨幅的整数倍
+
+        Auction auction1Sql;
+        List<?> list = auctionDao.findMaxLog(goods);
+        if(!list.isEmpty()) {//最高价不为空，解决越界问题
+            auction1Sql = (Auction) auctionDao.findMaxLog(goods).get(0);//获取最高价
+            if(!(auction.getPrice()>auction1Sql.getPrice())){//出价不大于最高价则出价失败
+                return false;
+            }
+        }
+        if((auction.getPrice()-goods.getReserve_price())%goods.getLimit_price()==0) {
+            //出价是否为涨幅的整数倍
             auction.setUser_id(user.getUser_id());
             auction.setCreate_time(new Timestamp(System.currentTimeMillis()));
             auctionDao.saveLog(auction);
@@ -94,6 +101,7 @@ public class AuctionProcessManagerImpl implements AuctionProcessManager {
     @Override
     public List<?> getAuctionList(Goods goods) throws HibernateException {
         // TODO Auto-generated method stub
+
         return null;
     }
 

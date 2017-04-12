@@ -171,10 +171,10 @@ public class SellerOnSaleAction extends BaseAction{
 
         if(start.equals("0")) {//立刻上架
             start_time = nowTime;
-            goods.setState("在售");
+            goods.setState("1");
         }else {//设定上架时间
             start_time = Timestamp.valueOf(start);
-            goods.setState("等待");
+            goods.setState("0");
         }
 
 

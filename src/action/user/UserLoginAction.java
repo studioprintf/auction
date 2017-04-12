@@ -1,22 +1,20 @@
 package action.user;
 
-import java.sql.Timestamp;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Map;
-
+import com.opensymphony.xwork2.Action;
 import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.stereotype.Controller;
-
-import com.opensymphony.xwork2.Action;
-
 import pojo.User;
 import service.UserManagerImpl;
 
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.Map;
+
 
 @Controller
-public class UserLoginAction implements Action, SessionAware {
+public class UserLoginAction implements Action, SessionAware, RequestAware {
 
     private String contentType = "text/html;charset=utf-8";
     private UserManagerImpl userManager;
@@ -25,6 +23,7 @@ public class UserLoginAction implements Action, SessionAware {
     private String checkImage;
     private User user;
     private Map<String, Object> session;
+    private Map<String, Object> request;
 
     public String getCheckImage() {
         return checkImage;
@@ -71,12 +70,22 @@ public class UserLoginAction implements Action, SessionAware {
         this.session = session;
     }
 
+    @Override
+    public void setRequest(Map<String, Object> arg1) {
+        this.request = arg1;
+    }
+
     public String execute() throws Exception {
-        if(session.get("USER_NAME")!=null && session.get("USER_ID")!=null)
+        if (session.get("USER_NAME") != null && session.get("USER_ID") != null) {
+            request.put("msg", "您已经登录");
+            request.put("url", "index");
             return INPUT;
+        }
         checkImage.toLowerCase();
         if (!checkImage.equals(session.get("checkCode"))) {
             session.remove("checkCode");
+            request.put("msg", "验证码错误，请重新输入");
+            request.put("url", "login");
             return "fail";
         }
         session.remove("checkCode");
@@ -91,8 +100,11 @@ public class UserLoginAction implements Action, SessionAware {
             session.put("USER_NAME", user_name);
             session.put("USER_ID", user.getUser_id());
             return SUCCESS;
-        } else if (result.equals("error"))
+        } else if (result.equals("error")) {
+            request.put("msg", "密码错误，请重新输入");
+            request.put("url", "login");
             return ERROR;
+        }
         else
             return NONE;
     }

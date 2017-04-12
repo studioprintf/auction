@@ -34,7 +34,7 @@ import java.util.TimerTask;
                     goods = (Goods) finish_goods.get(i);
                     if (goods.getFinal_time().before(new Timestamp(System.currentTimeMillis()))){  //结束时间是否在现在时间之后
                         System.out.println("商品："+goods.getGoods_id()+"到时");
-                        goods.setState("结束");  //商品状态修改为结束
+                        goods.setState("2");  //商品状态修改为结束
                         goodsManager.updateGoodsState(goods);  //更新商品信息
                         auctionProcessManager.createOrder(goods);  //调用业务类进行创建新订单
                         finish_goods.remove(i);

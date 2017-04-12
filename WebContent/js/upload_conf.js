@@ -100,7 +100,7 @@ $(function () {
                     },
                     function (data) {
                         if (data == "1")
-                            window.location.href="/user/user";
+                            window.location.href="/auction/pub_succ";
                         else
                             alert("提交失败，" + data);
                     }

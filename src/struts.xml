@@ -52,30 +52,33 @@
         <action name="none">
             <result type="dispatcher">/WEB-INF/none.jsp</result>
         </action>
+        <action name="error">
+            <result type="dispatcher">/WEB-INF/error.jsp</result>
+        </action>
 
 
         <!--用户登录操作-->
         <action name="user_login" class="action.user.UserLoginAction">
             <result name="success">/WEB-INF/login/login_succ.jsp</result>
-            <result name="error">/WEB-INF/login/login_error.jsp</result>
-            <result name="input">/WEB-INF/login/login_input.jsp</result>
-            <result name="fail">/WEB-INF/login/login_fail.jsp</result>
+            <result name="error">/WEB-INF/error.jsp</result>
+            <result name="input">/WEB-INF/error.jsp</result>
+            <result name="fail">/WEB-INF/error.jsp</result>
             <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
 
 		<!-- 管理员登陆操作 -->
 		<action name="admin_login" class="action.admin.AdminLoginAction">
             <result name="success">/WEB-INF/login/login_succ.jsp</result>
-            <result name="error">/WEB-INF/login/login_error.jsp</result>
-            <result name="input">/WEB-INF/login/login_input.jsp</result>
-            <result name="fail">/WEB-INF/login/login_fail.jsp</result>
+            <result name="error">/WEB-INF/error.jsp</result>
+            <result name="input">/WEB-INF/error.jsp</result>
+            <result name="fail">/WEB-INF/error.jsp</result>
             <interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
-		
+
         <!--注册操作-->
         <action name="user_register" class="action.user.UserRegisterAction">
             <result name="success">/WEB-INF/register/reg_succ.jsp</result>
-            <result name="error">/WEB-INF/register/reg_error.jsp</result>
+            <result name="error">/WEB-INF/error.jsp</result>
         </action>
 
         <!--用户名是否存在-->
@@ -94,7 +97,7 @@
                 <param name="inputStream">inputStream</param>
             </result>
         </action>
-        
+
         <action name="admin_getUser" class="action.admin.AdminGetUser">
         	<result name="success"></result>
         </action>
@@ -153,7 +156,7 @@
             </result>
         </action>
 
-        
+
         <!--充值操作-->
         <action name="user_recharge" class="action.user.UserRechargeAction">
             <result name="success"></result>
@@ -165,7 +168,7 @@
             <result name="success"></result>
             <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
-        
+
         <!--更改密码操作-->
         <action name="user_updatePassword" class="action.user.UserUpdatePasswordAction">
             <result type="stream" name="success">
@@ -176,7 +179,6 @@
         </action>
 
 
-        
         <!--资料修改操作-->
         <action name="user_updateInfo" class="action.user.UserUpdateInfo">
             <result name="success"></result>
@@ -186,10 +188,8 @@
     </package>
 
 
-    <!--      商品发布     -->
+    <!--      拍卖流程管理      -->
     <package name="auction" namespace="/auction" extends="user_action">
-
-        
 
         <action name="publish">
             <result>/WEB-INF/auction/publish.jsp</result>
@@ -227,6 +227,37 @@
                 <param name="contentType">text/html</param>
                 <param name="inputStream">inputStream</param>
             </result>
+        </action>
+
+        <!--竞拍出价-->
+        <action name="ToBids" class="action.auction.UserAuctionAction">
+            <result type="stream" name="success">
+                <param name="contentType">text/html</param>
+                <param name="inputStream">inputStream</param>
+            </result>
+        </action>
+
+        <!--获取出价记录-->
+        <!--<action name="GetShowBids" class="">-->
+            <!---->
+        <!--</action>-->
+
+    </package>
+
+
+    <!--商品管理-->
+    <package name="goods" namespace="/" extends="user_action">
+
+        <!--商品详情-->
+        <action name="item" class="action.goods.UserGetGoodsAction">
+            <result name="success">/WEB-INF/goods/item.jsp</result>
+            <result name="error">/WEB-INF/error.jsp</result>
+        </action>
+
+
+        <!--商品搜索-->
+        <action name="search" class="action.goods.UserSearchAction">
+            <result name="success">/WEB-INF/goods/search.jsp</result>
         </action>
 
     </package>

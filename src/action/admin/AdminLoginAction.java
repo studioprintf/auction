@@ -1,31 +1,31 @@
 package action.admin;
 
+import com.opensymphony.xwork2.Action;
+import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.interceptor.RequestAware;
+import org.apache.struts2.interceptor.SessionAware;
+import pojo.User;
+import service.UserManagerImpl;
+
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Map;
 
-import org.apache.struts2.ServletActionContext;
-import org.apache.struts2.interceptor.SessionAware;
-
-import com.opensymphony.xwork2.Action;
-
-import pojo.User;
-import service.UserManagerImpl;
-
 /** 
  * @author Lucifer 
- * @date 2017��3��29�� ����11:46:41 
+ * @date 2017��3��29�� ����11:46:41 
  * @version 1.0 
  * @parameter  
  * @since  
  * @return  
  */
-public class AdminLoginAction implements Action, SessionAware{
+public class AdminLoginAction implements Action, SessionAware, RequestAware {
 	private String user_name;
 	private String user_password;
     private String checkImage;
     private User user;
 	private Map<String, Object> session;
+	private Map<String, Object> request;
 	
 	private UserManagerImpl userManager;
 	
@@ -77,11 +77,18 @@ public class AdminLoginAction implements Action, SessionAware{
 	}
 
 	@Override
+	public void setRequest(Map<String, Object> arg1) {
+		this.request = arg1;
+	}
+
+	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		checkImage.toLowerCase();
         if (!checkImage.equals(session.get("checkCode"))) {
             session.remove("checkCode");
+			request.put("msg","验证码错误，请重新输入");
+			request.put("url","login");
             return "fail";
         }
         session.remove("checkCode");
@@ -95,11 +102,17 @@ public class AdminLoginAction implements Action, SessionAware{
             session.put("USER_NAME", user_name);
             session.put("USER_ID", user.getUser_id());
             session.put("AMDIN", "TRUE");
-            return SUCCESS;
-        } else if (result.equals("error"))
-            return ERROR;
-        else
-            return NONE;
+
+			return SUCCESS;
+		} else if (result.equals("error")) {
+			request.put("msg", "密码错误，请重新输入");
+			request.put("url", "login");
+			return ERROR;
+		} else {
+
+			return NONE;
+		}
 	}
+
 
 }

@@ -1,21 +1,22 @@
 package action.user;
 
-import java.sql.Timestamp;
-import java.util.Date;
-
-import org.springframework.stereotype.Controller;
-
 import com.opensymphony.xwork2.Action;
-
+import org.apache.struts2.interceptor.RequestAware;
+import org.springframework.stereotype.Controller;
 import pojo.User;
 import service.UserManagerImpl;
 
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.Map;
+
 @Controller
-public class UserRegisterAction implements Action {
+public class UserRegisterAction implements Action, RequestAware {
     private String user_name;
     private String user_password;
     private String user_email;
     private UserManagerImpl userManager;
+    private Map<String, Object> request;
 
     public UserManagerImpl getUserManager() {
         return userManager;
@@ -62,8 +63,14 @@ public class UserRegisterAction implements Action {
             return SUCCESS;
         } else {
             System.out.print("no");
+            request.put("msg", "注册失败");
+            request.put("url", "index");
             return ERROR;
         }
     }
 
+    @Override
+    public void setRequest(Map<String, Object> map) {
+        this.request = map;
+    }
 }

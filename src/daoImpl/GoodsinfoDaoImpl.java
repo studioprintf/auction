@@ -42,6 +42,8 @@ public class GoodsinfoDaoImpl extends HibernateDaoSupport implements GoodsinfoDa
         return true;
     }
 
+
+
     @Override
     public Goodsinfo findGoodsInfo(Goods goods) throws HibernateException {
         List<?> result = getHibernateTemplate().find("FROM Goodsinfo G WHERE G.goods_id = ?0",goods.getGoods_id());

@@ -32,7 +32,7 @@ public class AuctionListener {
                     goods = (Goods) goodsList.get(i);
 //                    if(dateformatAll.format(goods.getStart_time()).equals(dateformatAll.format(new Timestamp(System.currentTimeMillis())))) {
                     if(goods.getStart_time().before(new Timestamp(System.currentTimeMillis()))){
-                        goods.setState("在售");
+                        goods.setState("1");
                         goodsManager.updateGoodsState(goods);
                         goodsList.remove(i);
                     }
