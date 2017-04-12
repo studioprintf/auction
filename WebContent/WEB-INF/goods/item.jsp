@@ -395,6 +395,7 @@
 
 <script>
     var uid = ${Goods.goods_id};
+    var reverse_price= ${Goods.reserve_price};
     var _brand_id = 2;
     var limit = ${Goods.limit_price};
     var markupPrice = 30.00;
@@ -502,7 +503,7 @@
 
         })
 
-        var reverse_price = parseInt(${Goods.reverse_price});
+
 
         $("#ToBids").click(function () {
             var amt = $("#txt_amt").val();
@@ -516,6 +517,11 @@
 //                return;
 //            }
             amt = parseInt(amt);
+            reverse_price = parseInt(reverse_price);
+            if (!(amt>reverse_price)){
+                layer.msg("请输入大于底价的价格");
+                return;
+            }
             if (!((amt-reverse_price)%limit==0)) {
                 layer.msg("请输入加价幅度的整数倍的价格");
                 return;

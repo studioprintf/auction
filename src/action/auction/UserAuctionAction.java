@@ -13,6 +13,10 @@ import java.io.InputStream;
 import java.util.Map;
 
 /**
+ *
+ *
+ * *   出价
+ *
  * @author Lucifer
  * @version 1.0
  * @date 2017��3��15�� ����4:32:02
@@ -139,7 +143,7 @@ public class UserAuctionAction implements Action, SessionAware {
             if (auctionProcessManager.joinAuction(user, goods, auction)) {
                 inputStream = new ByteArrayInputStream("1".getBytes("UTF-8"));
             } else {
-//                inputStream = new ByteArrayInputStream("出价失败！".getBytes("UTF-8"));
+                inputStream = new ByteArrayInputStream("出价失败！".getBytes("UTF-8"));
             }
 //        }
         return SUCCESS;

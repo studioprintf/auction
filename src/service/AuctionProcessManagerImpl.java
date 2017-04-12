@@ -82,11 +82,20 @@ public class AuctionProcessManagerImpl implements AuctionProcessManager {
 
         Auction auction1Sql;
         List<?> list = auctionDao.findMaxLog(goods);
-        if(!list.isEmpty()) {//最高价不为空，解决越界问题
+
+        System.out.println("price:"+auction.getPrice()+"  reserve:"+goods.getReserve_price()+"  limit"+goods.getLimit_price());
+        //test
+
+        if(!list.isEmpty()) {//最高价不为空
             auction1Sql = (Auction) auctionDao.findMaxLog(goods).get(0);//获取最高价
             if(!(auction.getPrice()>auction1Sql.getPrice())){//出价不大于最高价则出价失败
+                System.out.print("err1");
                 return false;
             }
+        }
+        if (!(auction.getPrice()>goods.getReserve_price())){//判断出价是否大于底价
+            System.out.print("err2");
+            return false;
         }
         if((auction.getPrice()-goods.getReserve_price())%goods.getLimit_price()==0) {
             //出价是否为涨幅的整数倍
@@ -95,6 +104,7 @@ public class AuctionProcessManagerImpl implements AuctionProcessManager {
             auctionDao.saveLog(auction);
             return true;
         }
+        System.out.print("err3");
         return false;
     }
 
