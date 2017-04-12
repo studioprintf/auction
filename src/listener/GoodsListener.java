@@ -29,10 +29,14 @@ public class GoodsListener implements ServletContextListener {
                 List <?> onSaleList = goodsDao.searchOnsaleGoodsHour();
                 System.out.println("将要完成的商品个数为"+goodsList.size());
                 System.out.println("将要上架的商品个数为"+onSaleList.size());
-                context.setAttribute("GoodsList",goodsList);
-                context.setAttribute("onSaleList",onSaleList);
-                OrderListener.run(context);
-                AuctionListener.run(context);
+                if(goodsList.size()!=0) {
+                    context.setAttribute("GoodsList", goodsList);
+                    OrderListener.run(context);
+                }
+                if(onSaleList.size()!=0) {
+                    context.setAttribute("onSaleList", onSaleList);
+                    AuctionListener.run(context);
+                }
             }
         }, 1000, cacheTime);
     }

@@ -19,16 +19,16 @@ public class GoodsinfoDaoImpl extends HibernateDaoSupport implements GoodsinfoDa
 
     @Override
     public List<?> getGoodsNum(String searchKey) throws HibernateException {
-        return getHibernateTemplate().find("SELECT COUNT(*) FROM Goodsinfo G WHERE G.goods_title like '%?0%'",searchKey);
+        return getHibernateTemplate().find("SELECT COUNT(*) FROM Goodsinfo G WHERE G.goods_title like '%" + searchKey + "%' ");
     }
 
     @Override
     public List<?> getGoodsInfo(String searchKey,int index) throws HibernateException {
 //        getHibernateTemplate().find("FROM Goodsinfo G WHERE G.goods_title like '%?0%' LIMIT ?1 , 10 " , new Object[]{searchKey,index*10});
 //        HQL不支持Limit
-        String hql = "FROM Goodsinfo G WHERE G.goods_title like '%?0%'";
+        String hql = "FROM Goodsinfo G WHERE G.goods_title like '%" + searchKey + "%'";
         Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
-        Query query = session.createQuery(hql).setParameter(0,searchKey);
+        Query query = session.createQuery(hql);
         query.setFirstResult(index*10);  //设置开始
         query.setMaxResults(10);  //最大条目为10
         List<?> result = query.list();

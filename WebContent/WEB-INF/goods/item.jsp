@@ -1046,7 +1046,7 @@
         }
         $("#topsearch").click(function () {
 
-            location.href = "/Goods?key=" + encodeURIComponent($("#topkey").val());
+            location.href = "/search?searchKey=" + encodeURIComponent($("#topkey").val());
         })
 
         $("#topkey").keydown(function (e) {

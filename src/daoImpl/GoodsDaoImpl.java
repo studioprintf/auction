@@ -65,11 +65,11 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements GoodsDao {
 
     @Override
     public List<?> searchGoodsHour() throws HibernateException {
-        //查找在15分钟内结束的订单
+        //查找在10分钟内结束的订单
         Timestamp nowTime = new Timestamp(System.currentTimeMillis());
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(nowTime);
-        calendar.add(Calendar.MINUTE,15);
+        calendar.add(Calendar.MINUTE,10);
         Timestamp final_time = new Timestamp(calendar.getTime().getTime());
         List<?> result = getHibernateTemplate().find("FROM Goods G WHERE G.final_time >= ?0 AND G.final_time <= ?1",
                 new Timestamp[]{nowTime,final_time});
@@ -78,11 +78,11 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements GoodsDao {
 
     @Override
     public List<?> searchOnsaleGoodsHour() throws HibernateException {
-        //查找在15分钟内开始的订单
+        //查找在10分钟内开始的订单
         Timestamp nowTime = new Timestamp(System.currentTimeMillis());
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(nowTime);
-        calendar.add(Calendar.HOUR,15);
+        calendar.add(Calendar.MINUTE,10);
         Timestamp final_time = new Timestamp(calendar.getTime().getTime());
         List<?> result = getHibernateTemplate().find("FROM Goods G WHERE G.start_time >= ?0 AND G.start_time <= ?1",
                 new Timestamp[]{nowTime,final_time});
