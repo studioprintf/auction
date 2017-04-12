@@ -1,12 +1,10 @@
 package service;
 
-import java.util.List;
-
 import org.hibernate.HibernateException;
-
 import pojo.Goods;
 import pojo.Goodsinfo;
-import pojo.User;
+
+import java.util.List;
 
 /**
  * @author Lucifer
@@ -26,6 +24,9 @@ public interface GoodsManager {
     boolean updateGoodsInfo(Goodsinfo goodsinfo) throws HibernateException;
 
     //获取商品信息
+    Goods getGoods(Goods goods) throws HibernateException;
+
+    //获取商品详细信息
     Goodsinfo getGoodsInfo(Goods goods) throws HibernateException;
 
     //获取在售商品
@@ -36,4 +37,6 @@ public interface GoodsManager {
 
     //用户在售商品
     List<?> userOnSaleGoods(Goods goods) throws HibernateException;
+
+
 }

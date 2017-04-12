@@ -369,7 +369,7 @@
 <div style="padding:25px 0px"></div>
 
 
-<script type="text/javascript" src="/js/upload_reg.js"></script>
+<script type="text/javascript" src="/js/upload_conf.js"></script>
 <script type="text/javascript" src="/js/wangEditor.min.js"></script>
 <script type="text/javascript">
     $("#start_time").datetimepicker({

@@ -10,15 +10,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html class="ks-webkit537 ks-webkit ks-opera43 ks-opera ks-webkit537 ks-webkit ks-opera43 ks-opera ks-webkit602 ks-webkit ks-safari10 ks-safari">
 <head>
-    <title> 珍品拍卖 - 闲鱼拍卖 </title>
+    <title> 欢迎使用在线拍卖系统 </title>
     <script>window.g_config = {appId: 1009, toolbar: false, startTime: new Date().valueOf()};</script>
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <!-- assets start-->
 
     <!-- S GLOBAL CSS -->
-    <link rel="stylesheet" href="css/global-min.css">
+    <link rel="stylesheet" href="/css/global-min.css">
     <!-- S GLOBAL CSS -->
-    <link rel="stylesheet" type="text/css" href="css/saved_resource(13)">
 
 
     <style>
@@ -106,7 +105,6 @@
             min-height: 170px;
         }
     </style>
-    <link charset="utf-8" href="js/saved_resource(15)" rel="stylesheet">
     <style>.ww-light {
         overflow: hidden;
     }
@@ -172,17 +170,16 @@
     .ww-light a span {
         display: none;
     }</style>
-    <link charset="utf-8" href="js/saved_resource(16)" rel="stylesheet">
-    <script src="js/index.js(2).下载"></script>
-    <script src="js/index.js?v=0324"></script>
+    <script src="/js/index.js(2).下载"></script>
+    <script src="/js/index.js?v=0324"></script>
     <script src="//g.alicdn.com/secdev/adblk/index.js?v=0324"></script>
     <script src="//g.alicdn.com/secdev/sufei_data/2.2.0/index.js"></script>
-    <script src="js/index.js"></script>
+    <script src="/js/index.js"></script>
     <script src="//g.alicdn.com/secdev/adblk/index.js?v=0324"></script>
     <script src="//g.alicdn.com/secdev/sufei_data/2.2.0/index.js"></script>
-    <script src="js/index.js(3).下载"></script>
+    <script src="/js/index.js(3).下载"></script>
     <script type="text/javascript" async="" id="tb-beacon-aplus" exparams="category=&amp;userid=&amp;aplus"
-            src="js/aplus_v2.js(1).下载"></script>
+            src="/js/aplus_v2.js(1).下载"></script>
     <script async="" src="js/eg.js"></script>
     <style>.ww-light {
         overflow: hidden;
@@ -244,7 +241,6 @@
     .ww-light a span {
         display: none;
     }</style>
-    <link charset="utf-8" href="js/saved_resource(17)" rel="stylesheet">
     <script type="text/javascript" async="" id="tb-beacon-aplus" exparams="category=&amp;userid=&amp;aplus"
             src="http://ajs/aplus_v2.js"></script>
     <script async="" src="https://log.mmstat.com/eg.js"></script>
@@ -389,7 +385,6 @@ body .pm-body .pm-addition .tab-menu {
 .mkt-auction-top-2014 a.btn-down-arrow {
     left: 172px !important;
 }</style>
-<link rel="stylesheet" type="text/css" href="js/saved_resource(18)">
 <div id="paiheader" class="paiheader">
     <div class="mkt-auction-top-2014" data-time="&lt;?= time(); ?&gt;">
         <div id="nav">
@@ -424,12 +419,10 @@ body .pm-body .pm-addition .tab-menu {
                 </ul>
                 <div class="p-search" id="J_Search" role="search">
 
-                    <form class="paimai-search-form" method="get" target="_blank"
+                    <form class="paimai-search-form"  method="get" target="_blank"
                           action="https://paimai.taobao.com/pmp_list/3____1_1.htm" _lpchecked="1">
-                        <input id="J_SearchTxt" type="text" name="q" placeholder="用拍品名称搜索" accesskey="q"
+                        <input id="searchKey" name="searchKey" type="text" name="q" placeholder="用拍品名称搜索" accesskey="q"
                                maxlength="512">
-                        <input type="hidden" name="spm" value="search.9001.1">
-                        <input type="hidden" name="_input_charset" value="GBK" id="J_input_charset">
                         <button class="J_SearchIpt search-btn iconfont-pai-logo icon-sousuo" type="submit"></button>
                     </form>
 
@@ -445,7 +438,6 @@ body .pm-body .pm-addition .tab-menu {
         </div>
     </div>
 </div>
-<script src="js/saved_resource(19)"></script>
 <script>
     (function (S) {
         S.ready(function () {
@@ -461,9 +453,8 @@ body .pm-body .pm-addition .tab-menu {
 
 
 <!--编辑地址：/pmp/index-middle-->
-<link rel="stylesheet" type="text/css" href="js/saved_resource(20)">
 <div id="index-middle" class="index-middle">
-    <link rel="stylesheet" href="css/mainindex.css">
+    <link rel="stylesheet" href="/css/mainindex.css">
     <div class="tb-module pai-album-list1501 clearfix">
         <div class="album-list">
 
@@ -476,6 +467,7 @@ body .pm-body .pm-addition .tab-menu {
 
                 <div class="content J_AlbumContent">
                     <ul class="pai-album">
+
 
                         <li id="pai-album-item-127354899" class="item state-now">
                             <a class="item-wrap" target="_blank"
@@ -677,7 +669,6 @@ body .pm-body .pm-addition .tab-menu {
             </div>
         </div>
     </div>
-    <script src="js/saved_resource(21)"></script>
     <script>
         (function (S) {
             S.ready(function () {
@@ -816,16 +807,13 @@ body .pm-body .pm-addition .tab-menu {
     </script>
 </div>
 <!-- mock assets -->
-<link rel="stylesheet" type="text/css" href="js/saved_resource(22)">
-<script src="js/saved_resource(23)"></script>
 
 
 <!--编辑地址: /pmp/partner-institution-->
 
 
-<script src="js/saved_resource(24)"></script>
 
-<link rel="stylesheet" type="text/css" href="css/index(1).css">
+<link rel="stylesheet" type="text/css" href="/css/index(1).css">
 
 <a id="pm-right-banner" href="https://www.taobao.com/markets/paimai/20161212/index" target="_blank"
    class="pm-right-banner" style="top: 0px; width: 77px; display: none; height: 29854px;">
@@ -854,9 +842,7 @@ body .pm-body .pm-addition .tab-menu {
 
 <input type="hidden" id="J_Mpp_Switcher" value="true">
 <!--TMS:1495800-->
-<link rel="stylesheet" href="js/saved_resource(25)">
 
-<link rel="stylesheet" href="js/saved_resource(26)">
 
 
 <div class="skin-default" data-name="mkt-sidebar" data-skin="default" data-guid="14177696725030"
@@ -864,7 +850,6 @@ body .pm-body .pm-addition .tab-menu {
     <div class="mkt-sidebar tb-finish" style="display:none"></div>
 </div>
 
-<script src="js/saved_resource(27)"></script>
 
 <script>KISSY.use("node", function (S) {
     S.all('#guid-14177696725030').each(function (a) {
@@ -879,7 +864,7 @@ body .pm-body .pm-addition .tab-menu {
 <script src="js/index.js(5).下载"></script>
 <div class="grid-c">
     <div class="pm-foot clearfix">
-        <link rel="stylesheet" type="text/css" href="css/index(2).css">
+        <link rel="stylesheet" type="text/css" href="/css/index(2).css">
 
         <div id="pm-footer" class="pm-bottom">
             <div class="pai-bottom-slogan">
