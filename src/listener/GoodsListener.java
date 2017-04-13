@@ -30,12 +30,10 @@ public class GoodsListener implements ServletContextListener {
                 System.out.println("将要完成的商品个数为"+goodsList.size());
                 System.out.println("将要上架的商品个数为"+onSaleList.size());
                 if(goodsList.size()!=0) {
-                    context.setAttribute("GoodsList", goodsList);
-                    OrderListener.run(context);
+                    OrderListener.run(context,goodsList);
                 }
                 if(onSaleList.size()!=0) {
-                    context.setAttribute("onSaleList", onSaleList);
-                    AuctionListener.run(context);
+                    AuctionListener.run(context,onSaleList);
                 }
             }
         }, 1000, cacheTime);

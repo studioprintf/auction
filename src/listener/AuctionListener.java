@@ -18,7 +18,7 @@ public class AuctionListener {
     static private GoodsManagerImpl goodsManager;
     static private Goods goods;
 
-    static public void run(ServletContext context){
+    static public void run(ServletContext context,List<?> goodsList){
         System.out.println("AuctionListener启动");
         goodsManager = WebApplicationContextUtils.getRequiredWebApplicationContext(context).getBean(GoodsManagerImpl.class);
         Integer cacheTime = 500;
@@ -27,7 +27,6 @@ public class AuctionListener {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                List<?> goodsList = (List<?>) context.getAttribute("onSaleList");
                 for(int i = 0; i < goodsList.size();i++){
                     goods = (Goods) goodsList.get(i);
 //                    if(dateformatAll.format(goods.getStart_time()).equals(dateformatAll.format(new Timestamp(System.currentTimeMillis())))) {
@@ -37,8 +36,10 @@ public class AuctionListener {
                         goodsList.remove(i);
                     }
                 }
-                if(goodsList.size()==0)
+                if(goodsList.size()==0) {
                     timer.cancel();
+                    System.out.println("上架商品处理完毕,AucitonListener关闭");
+                }
             }
         }, 1000, cacheTime);
     }

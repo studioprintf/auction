@@ -19,7 +19,7 @@ import java.util.TimerTask;
     private static GoodsManagerImpl goodsManager;
     private static AuctionProcessManagerImpl auctionProcessManager;
 //    private static
-    static public void run(ServletContext context){
+    static public void run(ServletContext context,List<?> finish_goods){
         System.out.println("OrderListener启动");
         auctionProcessManager = WebApplicationContextUtils.getRequiredWebApplicationContext(context).getBean(AuctionProcessManagerImpl.class);
         goodsManager = WebApplicationContextUtils.getRequiredWebApplicationContext(context).getBean(GoodsManagerImpl.class);
@@ -29,7 +29,6 @@ import java.util.TimerTask;
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                List<?> finish_goods = (List<?>) context.getAttribute("GoodsList");
                 for(int i = 0;i < finish_goods.size();i++){
                     goods = (Goods) finish_goods.get(i);
                     if (goods.getFinal_time().before(new Timestamp(System.currentTimeMillis()))){  //结束时间是否在现在时间之后
@@ -40,8 +39,10 @@ import java.util.TimerTask;
                         finish_goods.remove(i);
                     }
                 }
-                if(finish_goods.size()==0)
+                if(finish_goods.size()==0) {
                     timer.cancel();
+                    System.out.println("下架商品处理完毕,OrderListener关闭");
+                }
             }
 
         }, 1000, cacheTime);
