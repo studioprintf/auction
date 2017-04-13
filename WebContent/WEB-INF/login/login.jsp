@@ -83,13 +83,13 @@
                                >
                     </div>
                     <div class="box">
-                        <span id="userPwdTip" jvnormaltip="&amp;nbsp;">&nbsp;</span>
+                        <span id="userPwdTip" jvnormaltip="&amp;nbsp;">&nbsp;&nbsp;</span>
                         <input id="passwdTxt" type="password" placeholder="密码" name="user_password" class="password"
                                jverrortip="喵，你没输入密码么？" jvpattern="^.{3,30}$" jvtipid="userPwdTip">
                     </div>
                     <div class="box">
                         <a href="/resetpwd" class="mima">忘记密码？&gt; </a>
-                        <span style="line-height: 30px;" class="begin" id="vdcodeSpt">&nbsp;</span>
+                        <span style="line-height: 30px;" class="begin" id="vdcodeSpt">&nbsp;&nbsp;</span>
                         <input id="checkImage" type="text" style="text-transform: lowercase;" placeholder="验证码"
                                class="code jv-box-default" jvdefault="验证码" name="checkImage" jvcorrecttip=""
                                jvtipid="vdcodeSpt" maxlength="10" jvpattern="^.{1,10}$" jverrortip="请输入验证码"

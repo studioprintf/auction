@@ -16,6 +16,7 @@
             <file>file://$MODULE_DIR$/src/struts.xml</file>
             <file>jar://$MODULE_DIR$/WebContent/WEB-INF/lib/struts2-core-2.5.10.jar!/struts-default.xml</file>
             <file>jar://$MODULE_DIR$/WebContent/WEB-INF/lib/struts2-spring-plugin-2.5.10.jar!/struts-plugin.xml</file>
+            <file>jar://$MODULE_DIR$/WebContent/WEB-INF/lib/struts2-json-plugin-2.5.10.1.jar!/struts-plugin.xml</file>
           </fileset>
           <propertiesKeys disabled="false" />
         </configuration>

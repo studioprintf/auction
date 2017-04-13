@@ -210,7 +210,7 @@
                     <ul>
                         <li><span id="leftTime"></span></li>
                         <li class="b_gray">竞价状态：
-                            <span id="a_s">距竞价开始还有</span>
+                            <span id="a_s">距竞价开始还有 </span>
                             <span class="pink t" id="showcount_down"></span><!--已结束-->
 
                         </li>
@@ -222,7 +222,7 @@
                         <%--type="button" class="hidden" value="查看最新积分" id="btn_point"--%>
                         <%--style="background-color: #18b4ed;border:none;color:#fff;border-radius: 5px;cursor:pointer;"></span>--%>
                         <%--</li>--%>
-                        <li class="b_gray"><span class="gray">当前最高金额： </span><span id="sp_price">0</span>（人出价）
+                        <li class="b_gray"><span class="gray">当前最高金额： </span><span id="sp_price">0元</span>（人出价）
                         </li>
                         <li class="b_gray">押金：<span class="pink">￥<span
                                 class="f30"> ${Goods.reserve_price} </span></span></li>
@@ -595,7 +595,7 @@
                 return;
 
             }
-            SetInfoB(uid, 20, bn - 1);
+            SetInfoB(uid, 20, bn);
         })
 
         $("#a_b_n").click(function () {
@@ -605,7 +605,7 @@
                 layer.msg("已经是最后一页");
                 return;
             }
-            SetInfoB(uid, 20, parseInt(bn, 0) + 1);
+            SetInfoB(uid, 20, parseInt(bn, 0));
         })
 
         $("#a_p_u").click(function () {
@@ -633,7 +633,7 @@
         var paiMsg = "";
 
 
-        //出价记录
+//        出价记录
 //        function SetInfoP(uid, pn, pc) {
 //
 //            $.ajax({
@@ -678,18 +678,19 @@
 
         function SetInfoB(uid, pn, pc) {
             $.ajax({
-                url: "/pai/GetShowBids",
+                url: "/auction/GetShowBids",
                 type: "post",
                 dataType: "json",
                 data: {
-                    id: uid,
-                    numPerPage: pn,//第n页
+                    goods_id: uid,
+                    numPerPage: pn,
                     pageNum: pc,
-//                    r: Math.random()
+                    r: Math.random()
                 },
                 success: function (data) {
-                    if (data.viewPrice != "") {
-                        $("#sp_price").html(data.viewPrice);
+                    var maxPrice = data.viewPrice;
+                    if (maxPrice != "") {
+                        $("#sp_price").html(maxPrice + "元");
                     }
                     if (data.list != "") {
                         var content = "";
@@ -700,7 +701,7 @@
                         $.each(data.list, function (commentIndex, comment) {
 
                             if ($("#showcount_down").text().trim() != "已结束") {
-                                if (comment.auction_status == 1) {
+                                if (comment.price == maxPrice) {
                                     isT = "领先";
                                 }
                                 else {
@@ -708,7 +709,7 @@
                                 }
                             }
                             else {
-                                if (comment.auction_status == 1) {
+                                if (comment.price == maxPrice) {
                                     isT = "中标";
                                 }
                                 else {
@@ -720,8 +721,8 @@
                                     content += '<li>';
                                     content += '<span class="jl_1 pink">' + isT + '</span>';
                                     content += '<span class="jl_2">' + comment.user_name + '</span>';
-                                    content += '<span class="jl_2">' + DateFormat(comment.bid_time, "yyyy/MM/dd HH:mm:ss") + '</span>';
-                                    content += '<span class="jl_3 pink">' + comment.bid_amt + '</span>';
+                                    content += '<span class="jl_2">' + comment.create_time.replace("T", " ") + '</span>';
+                                    content += '<span class="jl_3 pink">' + comment.price + '</span>';
                                     content += '</li>';
 
 
@@ -730,8 +731,8 @@
                                     content1 += '<li>';
                                     content1 += '<span class="jl_1 pink">' + isT + '</span>';
                                     content1 += '<span class="jl_2">' + comment.user_name + '</span>';
-                                    content1 += '<span class="jl_2">' + DateFormat(comment.bid_time, "yyyy/MM/dd HH:mm:ss") + '</span>';
-                                    content1 += '<span class="jl_3 pink">' + comment.bid_amt + '</span>';
+                                    content1 += '<span class="jl_2">' + comment.create_time.replace("T", " ") + '</span>';
+                                    content1 += '<span class="jl_3 pink">' + comment.price + '</span>';
                                     content1 += '</li>';
                                 }
                             }
@@ -764,12 +765,11 @@
         //加载评价与出价记录
 //        SetInfoP(uid, 8, 0);
 
-//        SetInfoB(uid, 20, 0);
+        SetInfoB(uid, 20, 1);
 
-//        getInfoByTime();//更新出价列表
+        getInfoByTime();//更新出价列表
 
         if (Coudown < 2) {//结束前更新时间
-//            getDate();
             getServTime();
         }
 
@@ -779,24 +779,29 @@
 
     })
 
+    ///////////////////////////startup end
 
-    function getInfoByTime() {//每3秒更新右出价列表
+    function getInfoByTime() {//每3秒更新右出价列表 维持动态
         if ($("#showcount_down").val() != "已结束") {
             $.ajax({
-                url: "/pai/GetRightShowBids",
+                url: "/auction/GetRightShowBids",
                 type: "get",
                 dataType: "json",
-                data: {id: uid, r: Math.random()},
+                data: {
+                    goods_id: uid,
+                    r: Math.random()
+                },
                 success: function (data) {
-                    if (data.viewPrice != "") {
-                        $("#sp_price").html(data.viewPrice);
+                    var maxPrice = data.viewPrice;
+                    if (maxPrice != "") {
+                        $("#sp_price").html(maxPrice + "元");
                     }
                     if (data.list != "") {
                         var content = "";
                         var isT = "";
                         $.each(data.list, function (commentIndex, comment) {
                             if ($("#showcount_down").text().trim() != "已结束") {
-                                if (comment.auction_status == 1) {
+                                if (comment.price==maxPrice) {
                                     isT = "领先";
                                 }
                                 else {
@@ -805,7 +810,7 @@
 
                             }
                             else {
-                                if (comment.auction_status == 1) {
+                                if (comment.price==maxPrice) {
                                     isT = "中标";
                                 }
                                 else {
@@ -817,7 +822,7 @@
                                 content += '<li class="b_gray">';
                                 content += '<span class="pr_1 pink">' + isT + '</span>';
                                 content += '<span class="pr_2">' + comment.user_name + '</span>';
-                                content += '<span class="pr_3 pink">' + comment.bid_amt + '</span>';
+                                content += '<span class="pr_3 pink">' + comment.price + '</span>';
                                 content += '</li>';
                             }
 
@@ -861,11 +866,11 @@
             case 1://正在竞拍
                 var t = "${Goods.final_time}".replace(/\-/g, "/");
                 endtime = new Date(t).getTime();
-
+//                $("#a_s").html("距竞价结束还有 ");
+//                $("#l_p").show();
 //                alert("endtime1:" + t);
                 break;
             case 2:
-
                 break;
         }
 
