@@ -32,6 +32,7 @@
 
         <global-results>
             <result name="login">/WEB-INF/login/login.jsp</result>
+            <result name="input">/WEB-INF/none.jsp</result>
             <result name="none">/WEB-INF/none.jsp</result>
         </global-results>
 
@@ -189,7 +190,7 @@
 
 
     <!--      拍卖流程管理      -->
-    <package name="auction" namespace="/auction" extends="user_action">
+    <package name="auction" namespace="/auction" extends="user_action,json-default">
 
         <action name="publish">
             <result>/WEB-INF/auction/publish.jsp</result>
@@ -230,30 +231,43 @@
         </action>
 
         <!--竞拍出价-->
-        <action name="ToBids" class="action.auction.UserAuctionAction">
+        <action name="ToBids" class="action.auction.ToBidsAction">
             <result type="stream" name="success">
                 <param name="contentType">text/html</param>
                 <param name="inputStream">inputStream</param>
             </result>
         </action>
 
-        <!--获取出价记录-->
-        <!--<action name="GetShowBids" class="">-->
-            <!---->
-        <!--</action>-->
+        <!--获取右部实时出价记录-->
+        <action name="GetRightShowBids" class="action.auction.GetRightShowBidsAction" method="json">
+            <result type="json">
+                <param name="root">dataMap</param>
+            </result>
+        </action>
+
+        <!--获取底部出价记录-->
+        <action name="GetShowBids" class="action.auction.GetShowBids" method="json">
+            <result type="json">
+                <param name="root">dataMap</param>
+            </result>
+        </action>
+
+
 
     </package>
 
 
-    <!--商品管理-->
-    <package name="goods" namespace="/" extends="user_action">
-
-        <!--商品详情-->
-        <action name="item" class="action.goods.UserGetGoodsAction">
+    <!--商品详情专用转发-->
+    <package name="item" namespace="/item" extends="user_action">
+        <action name="*" class="action.goods.UserGetGoodsAction">
+            <param name="goods_id">{1}</param>
             <result name="success">/WEB-INF/goods/item.jsp</result>
             <result name="error">/WEB-INF/error.jsp</result>
         </action>
+    </package>
 
+    <!--商品管理-->
+    <package name="goods" namespace="/" extends="user_action">
 
         <!--商品搜索-->
         <action name="search" class="action.goods.UserSearchAction">
@@ -261,5 +275,6 @@
         </action>
 
     </package>
+
 
 </struts>

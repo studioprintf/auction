@@ -17,4 +17,12 @@ public interface AuctionDao {
     //存入竞拍记录
     Boolean saveLog(Auction auction) throws HibernateException;
 
+    //获取对应商品的出价记录数
+    int getBidsNum(Goods goods) throws HibernateException;
+
+    //分页获取出价记录
+    public List<?> getBids(String goods_id, int offset, int length) throws HibernateException;
+
+    //根据goods_id获取出价记录
+    List<?> getBidList(String goods_id) throws HibernateException;
 }

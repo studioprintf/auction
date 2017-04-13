@@ -10,7 +10,7 @@
         </id>
         <property name="goods_id"/>
         <property name="price"/>
-        <property name="user_id"/>
+        <property name="user_name"/>
         <property name="create_time"/>
     </class>
 

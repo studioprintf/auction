@@ -1,15 +1,15 @@
 package service;
 
-import java.sql.Timestamp;
-import java.util.List;
-
 import daoImpl.AuctionDaoImpl;
 import daoImpl.GoodsDaoImpl;
 import daoImpl.GoodsinfoDaoImpl;
 import daoImpl.User_orderDaoImpl;
 import org.hibernate.HibernateException;
-
 import pojo.*;
+
+import javax.transaction.Transactional;
+import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * @author Lucifer
@@ -18,6 +18,8 @@ import pojo.*;
  * @parameter
  * @return
  */
+
+
 public class AuctionProcessManagerImpl implements AuctionProcessManager {
     private GoodsDaoImpl goodsDao;
     private GoodsinfoDaoImpl goodsinfoDao;
@@ -72,6 +74,7 @@ public class AuctionProcessManagerImpl implements AuctionProcessManager {
     }
 
     @Override
+    //拍卖出价
     public boolean joinAuction(User user, Goods goods, Auction auction) throws HibernateException {
         // TODO Auto-generated method stub
         goods = (Goods) goodsDao.fingGoodsInfo(goods).get(0);
@@ -83,30 +86,26 @@ public class AuctionProcessManagerImpl implements AuctionProcessManager {
         Auction auction1Sql;
         List<?> list = auctionDao.findMaxLog(goods);
 
-        System.out.println("price:"+auction.getPrice()+"  reserve:"+goods.getReserve_price()+"  limit"+goods.getLimit_price());
-        //test
 
         if(!list.isEmpty()) {//最高价不为空
             auction1Sql = (Auction) auctionDao.findMaxLog(goods).get(0);//获取最高价
-            if(!(auction.getPrice()>auction1Sql.getPrice())){//出价不大于最高价则出价失败
-                System.out.print("err1");
+            if(!(auction.getPrice()>auction1Sql.getPrice())){//出价不大于最高价则出价失败//                System.out.print("err1");
                 return false;
             }
         }
         if (!(auction.getPrice()>goods.getReserve_price())){//判断出价是否大于底价
-            System.out.print("err2");
             return false;
         }
         if((auction.getPrice()-goods.getReserve_price())%goods.getLimit_price()==0) {
             //出价是否为涨幅的整数倍
-            auction.setUser_id(user.getUser_id());
+            auction.setUser_name(user.getUser_name());
             auction.setCreate_time(new Timestamp(System.currentTimeMillis()));
             auctionDao.saveLog(auction);
             return true;
         }
-        System.out.print("err3");
         return false;
     }
+
 
     @Override
     public List<?> getAuctionList(Goods goods) throws HibernateException {
@@ -134,10 +133,39 @@ public class AuctionProcessManagerImpl implements AuctionProcessManager {
         order.setGoods_id(goods.getGoods_id());
         order.setCreate_time(new Timestamp(System.currentTimeMillis()));
         order.setPrice(auctionMax.getPrice());
-        order.setUser_id(auctionMax.getUser_id());
+        order.setUser_name(auctionMax.getUser_name());
         order.setState("已下单");
         orderDao.saveOrder(order);
         System.out.println("成功创建订单");
         return true;
     }
+
+    @Override
+    public List<?> getBidsList(String goods_id, int index , int numPerPage) throws HibernateException {
+        List<?> result = auctionDao.getBids(goods_id, index-1, numPerPage);
+        return result;
+    }
+
+    @Override//获取出价记录条数
+    public int getBidsNum(Goods goods, String numPerPage) throws HibernateException {
+        int bidsNum = auctionDao.getBidsNum(goods);//bids num
+        int n = Integer.parseInt(numPerPage);
+        if (bidsNum == n)
+            return bidsNum / n;
+        else
+            return bidsNum / n+1;
+    }
+
+    @Override//获取商品当前最高价
+    public String getMaxPrice(Goods goods) throws HibernateException {
+        List<Auction> list = (List<Auction>) auctionDao.findMaxLog(goods);
+        Auction max;
+        if (!(list.isEmpty())) {
+            max = list.get(0);
+            return String.valueOf(max.getPrice());
+        }
+        return "";
+    }
+
+
 }

@@ -3,15 +3,15 @@
         "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 
 <validators>
-    <field name="id">
+    <field name="goods_id">
         <!-- 必须输入项 -->
         <field-validator type="required">
             <message>必须输入商品号</message>
         </field-validator>
-        <!-- 底价必须符合表达式 -->
-        <field-validator type="int">
-            <param name="min">1</param>
-            <message>必须正确输入整数商品id</message>
+        <!-- 必须符合表达式 -->
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^[0-9]+$]]></param>
+            <message>限定为正浮点数</message>
         </field-validator>
     </field>
 </validators>

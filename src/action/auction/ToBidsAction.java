@@ -25,7 +25,7 @@ import java.util.Map;
  */
 
 @Controller
-public class UserAuctionAction implements Action, SessionAware {
+public class ToBidsAction implements Action, SessionAware {
     private int goods_id;
     private Map<String, Object> seesion;
     private double price;
@@ -34,6 +34,7 @@ public class UserAuctionAction implements Action, SessionAware {
     private String amt;//json
     private InputStream inputStream;
 
+    private AuctionProcessManagerImpl auctionProcessManager;
 
     private User user;
     private Goods goods;
@@ -87,7 +88,6 @@ public class UserAuctionAction implements Action, SessionAware {
         this.auctionProcessManager = auctionProcessManager;
     }
 
-    private AuctionProcessManagerImpl auctionProcessManager;
 
     public int getGoods_id() {
         return goods_id;
@@ -131,7 +131,7 @@ public class UserAuctionAction implements Action, SessionAware {
         goods = new Goods();
         auction = new Auction();
 //        user.setUser_id(Integer.parseInt(seesion.get("USER_ID").toString()));
-        user.setUser_id(1);//test
+        user.setUser_name("dymond");//test
         goods.setGoods_id(getGoods_id());
 //        if (auctionProcessManager.checkMargin(user, goods)) {
 //            //判断是否缴纳保证金

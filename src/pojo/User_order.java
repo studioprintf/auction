@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class User_order {
     private int order_id;
     private int goods_id;
-    private int user_id;
+    private String user_name;
     private String state;
     private Timestamp create_time;
     private Timestamp finish_time;
@@ -27,12 +27,12 @@ public class User_order {
         this.goods_id = goods_id;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public String getUser_name() {
+        return user_name;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
     }
 
     public String getState() {

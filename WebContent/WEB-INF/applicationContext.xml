@@ -218,9 +218,23 @@
         </property>
     </bean>
 
+    <bean id="getShowBids" class="action.auction.GetShowBids">
+        <property name="auctionProcessManager">
+            <ref bean="auctionProcessManager"></ref>
+        </property>
+    </bean>
 
+    <bean id="getRightShowBids" class="action.auction.GetRightShowBidsAction">
+        <property name="auctionProcessManager">
+            <ref bean="auctionProcessManager"></ref>
+        </property>
+    </bean>
 
-
+    <bean id="toBids" class="action.auction.ToBidsAction">
+        <property name="auctionProcessManager">
+            <ref bean="auctionProcessManager"></ref>
+        </property>
+    </bean>
 
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
