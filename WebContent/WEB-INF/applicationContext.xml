@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p"
        xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:jee="http://www.springframework.org/schema/jee"
        xmlns:tx="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="
-             http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd    
-             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd  
+       xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
              http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd  
-             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
-             http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd  
+
+
              http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
     <!-- 数据库源定义 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
@@ -53,6 +48,7 @@
                 <value>pojo/Goods.hbm.xml</value>
                 <value>pojo/Goodsinfo.hbm.xml</value>
                 <value>pojo/User_order.hbm.xml</value>
+                <value>pojo/Balance_log.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -140,6 +136,19 @@
             <ref bean="orderDaoImpl"></ref>
         </property>
     </bean>
+
+    <bean id="auctionLogManager" class="service.AuctionLogManagerImpl">
+        <property name="balanceLogDao">
+            <ref bean="balance_logDaoImpl"></ref>
+        </property>
+    </bean>
+
+    <bean id="balanceManager" class="service.BalanceManagerImpl">
+        <property name="balanceLogDao">
+            <ref bean="balance_logDaoImpl"></ref>
+        </property>
+    </bean>
+
 
     <!-- action类注册 -->
     <bean id="loginAction" class="action.user.UserLoginAction">
@@ -235,6 +244,22 @@
             <ref bean="auctionProcessManager"></ref>
         </property>
     </bean>
+
+    <bean id="marginCall" class="action.auction.MarginCallAction">
+        <property name="balanceManager">
+            <ref bean="balanceManager"></ref>
+        </property>
+        <property name="goodsManager">
+            <ref bean="goodsManager"></ref>
+        </property>
+    </bean>
+
+    <bean id="checkMargin" class="action.auction.CheckMarginAction">
+        <property name="balanceManager">
+            <ref bean="balanceManager"></ref>
+        </property>
+    </bean>
+
 
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 

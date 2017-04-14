@@ -22,4 +22,7 @@ public interface GoodsDao {
     List<?> searchGoodsHour() throws  HibernateException;
 
     List<?> searchOnsaleGoodsHour() throws HibernateException;
+
+    //查看商品状态
+    List<?> checkState(Goods goods) throws HibernateException;
 }

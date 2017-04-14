@@ -2,6 +2,7 @@ package service;
 
 import org.hibernate.HibernateException;
 
+import pojo.Balance_log;
 import pojo.User;
 
 /**
@@ -19,4 +20,14 @@ public interface BalanceManager {
 
     //����
     public boolean reflect(User user, Double amount) throws HibernateException;
+
+    //查询用户余额
+    public double checkBalance(User user) throws HibernateException;
+
+    //冻结资金
+    public String toMargin(Balance_log balance_log) throws HibernateException;
+
+    //检查是否交了押金
+    public boolean checkMargin(Balance_log balance_log) throws HibernateException;
+
 }

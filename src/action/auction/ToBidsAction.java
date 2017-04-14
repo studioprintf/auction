@@ -4,9 +4,11 @@ import com.opensymphony.xwork2.Action;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.stereotype.Controller;
 import pojo.Auction;
+import pojo.Balance_log;
 import pojo.Goods;
 import pojo.User;
 import service.AuctionProcessManagerImpl;
+import service.BalanceManagerImpl;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -27,7 +29,7 @@ import java.util.Map;
 @Controller
 public class ToBidsAction implements Action, SessionAware {
     private int goods_id;
-    private Map<String, Object> seesion;
+    private Map<String, Object> session;
     private double price;
 
     private String id;//json
@@ -35,10 +37,12 @@ public class ToBidsAction implements Action, SessionAware {
     private InputStream inputStream;
 
     private AuctionProcessManagerImpl auctionProcessManager;
+    private BalanceManagerImpl balanceManager;
 
     private User user;
     private Goods goods;
     private Auction auction;
+    private Balance_log balance_log;
 
     public String getId() {
         return id;
@@ -97,13 +101,6 @@ public class ToBidsAction implements Action, SessionAware {
         this.goods_id = goods_id;
     }
 
-    public Map<String, Object> getSeesion() {
-        return seesion;
-    }
-
-    public void setSeesion(Map<String, Object> seesion) {
-        this.seesion = seesion;
-    }
 
     public User getUser() {
         return user;
@@ -121,6 +118,7 @@ public class ToBidsAction implements Action, SessionAware {
         this.goods = goods;
     }
 
+
     @Override
     public String execute() throws Exception {
         // TODO Auto-generated method stub
@@ -130,14 +128,24 @@ public class ToBidsAction implements Action, SessionAware {
         user = new User();
         goods = new Goods();
         auction = new Auction();
-//        user.setUser_id(Integer.parseInt(seesion.get("USER_ID").toString()));
-        user.setUser_name("dymond");//test
-        goods.setGoods_id(getGoods_id());
-//        if (auctionProcessManager.checkMargin(user, goods)) {
-//            //判断是否缴纳保证金
-//            inputStream = new ByteArrayInputStream("请先缴纳押金！".getBytes("UTF-8"));
-//            return SUCCESS;
-//        } else {
+        balance_log = new Balance_log();
+
+        String user_name = "dymond";//test
+        int user_id = 1;//test
+
+//        int user_id = Integer.parseInt((String)session.get("USER_ID"));
+//        String user_name = session.get("USER_NAME");
+
+        user.setUser_name(user_name);//test
+        user.setUser_id(user_id);
+        goods.setGoods_id(goods_id);
+        balance_log.setUser_id(user_id);
+        balance_log.setOperation_note(String.valueOf(goods_id));
+        if (!balanceManager.checkMargin(balance_log)) {
+            //判断是否缴纳保证金
+            inputStream = new ByteArrayInputStream("请先缴纳押金！".getBytes("UTF-8"));
+            return SUCCESS;
+        } else {
             auction.setGoods_id(goods_id);
             auction.setPrice(price);
             if (auctionProcessManager.joinAuction(user, goods, auction)) {
@@ -146,11 +154,34 @@ public class ToBidsAction implements Action, SessionAware {
                 inputStream = new ByteArrayInputStream("出价失败！".getBytes("UTF-8"));
             }
 //        }
-        return SUCCESS;
+            return SUCCESS;
+        }
+
+
+    }
+
+    public BalanceManagerImpl getBalanceManager() {
+        return balanceManager;
+    }
+
+    public void setBalanceManager(BalanceManagerImpl balanceManager) {
+        this.balanceManager = balanceManager;
+    }
+
+    public Map<String, Object> getSession() {
+        return session;
     }
 
     @Override
-    public void setSession(Map<String, Object> map) {
-        this.seesion = map;
+    public void setSession(Map<String, Object> session) {
+        this.session = session;
+    }
+
+    public Balance_log getBalance_log() {
+        return balance_log;
+    }
+
+    public void setBalance_log(Balance_log balance_log) {
+        this.balance_log = balance_log;
     }
 }

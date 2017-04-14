@@ -1,5 +1,6 @@
 package daoImpl;
 
+import org.apache.struts2.components.Select;
 import org.hibernate.HibernateException;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
@@ -48,7 +49,7 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements GoodsDao {
 
     @Override
     public List<?> searchOnSale() throws HibernateException {
-        return getHibernateTemplate().find("FROM Goods G WHERE G.state = '在售'");
+        return getHibernateTemplate().find("FROM Goods G WHERE G.state = '1'");
     }
 
     @Override
@@ -87,6 +88,12 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements GoodsDao {
         List<?> result = getHibernateTemplate().find("FROM Goods G WHERE G.start_time >= ?0 AND G.start_time <= ?1",
                 new Timestamp[]{nowTime,final_time});
         return result;
+    }
+
+    @Override//
+    public List<?> checkState(Goods goods) throws HibernateException {
+        List<?> state = getHibernateTemplate().find("Select G.state from Goods G where G.goods_id =?0",goods.getGoods_id());
+        return state;
     }
 
 }

@@ -210,7 +210,7 @@
                     <ul>
                         <li><span id="leftTime"></span></li>
                         <li class="b_gray">竞价状态：
-                            <span id="a_s">距竞价开始还有 </span>
+                            <span id="a_s"></span>
                             <span class="pink t" id="showcount_down"></span><!--已结束-->
 
                         </li>
@@ -396,7 +396,7 @@
 <script>
     var uid = ${Goods.goods_id};
     var reverse_price= ${Goods.reserve_price};
-    var _brand_id = 2;
+//    var _brand_id = 2;
     var limit = ${Goods.limit_price};
     var markupPrice = 30.00;
     //    $("#sp_ts").html(1);
@@ -413,7 +413,7 @@
                 url: "/pai/subOrderToTickets",
                 type: "post",
                 dataType: "json",
-                data: {id: uid, r: Math.random()},
+                data: {goods_id: uid, r: Math.random()},
                 success: function (data) {
                     oid = data;
                     if ("" == "T") {
@@ -468,10 +468,13 @@
                 btn: ['参与', '不参与']
             }, function () {
                 $.ajax({
-                    url: "/pai/CheckUserInfo",
+                    url: "/auction/MarginCall",
                     type: "post",
                     dataType: "json",
-                    data: {id: uid, brand_id: _brand_id, r: Math.random()},
+                    data: {
+                        goods_id: uid,
+//                        brand_id: _brand_id,
+                        r: Math.random()},
                     success: function (data) {
                         //if(data.viewIsNum)
                         //{
@@ -481,13 +484,13 @@
                         //{
                         //    $("#sp_count").hide();
                         //}
-                        if (!data.retValue.HasError) {
+                        if (data.HasError=="0") {
                             layer.msg("参与成功，并锁定竞价押金！");
                             $(".l_p").hide();
                             $(".l_a").show();
                         }
                         else {
-                            var ms = data.retValue.Message == "" ? "对不起，您暂时不能参与竞价!" : data.retValue.Message;
+                            var ms = data.Message == "" ? "对不起，您暂时不能参与竞价!" : data.Message;
                             layer.msg(ms);
                             $(".l_p").show();
                             $(".l_a").hide();
@@ -533,7 +536,7 @@
                 data: {
                     id: uid,
                     amt: amt,
-//                    r: Math.random()
+                    r: Math.random()
                 },
                 success: function (data) {
                     if (data == "1") {
@@ -761,21 +764,48 @@
             });
         }
 
+        function checkMargin() {
+            $.ajax({
+                url:"/auction/checkMargin",
+                type:"get",
+                dataType:"json",
+                data:{
+                    goods_id : uid,
+                    r: Math.random()
+                },
+                success:function(data){
+                    if(data.result =="1"){
+                        $(".l_p").hide();
+                        $(".l_a").show();
+                    }else{
+
+                        $(".l_a").hide();
+                        $(".l_p").show();
+                    }
+                }
+            })
+        }
+
 
         //加载评价与出价记录
 //        SetInfoP(uid, 8, 0);
+
 
         SetInfoB(uid, 20, 1);
 
         getInfoByTime();//更新出价列表
 
+
         if (Coudown < 2) {//结束前更新时间
+
             getServTime();
+            checkMargin();
         }
 
         else {
             $("#showcount_down").html("已结束")
         }
+
 
     })
 
@@ -845,7 +875,7 @@
     }
 
     var endtime;
-    var Coudown = 0;//0=等待  1=在售 2=结束
+    var Coudown = ${Goods.state};//0=等待  1=在售 2=结束
     var difference_time = -1000000;//时差初始值
     var endSay = "";
     function lxfEndtime() {
@@ -861,14 +891,14 @@
             case 0://等待开始
                 var t = "${Goods.start_time}".replace(/\-/g, "/");
                 endtime = new Date(t).getTime();
+                $("#a_s").html("距竞价开始还有 ");
 //                alert("endtime0:" + t);
                 break;
             case 1://正在竞拍
                 var t = "${Goods.final_time}".replace(/\-/g, "/");
                 endtime = new Date(t).getTime();
-//                $("#a_s").html("距竞价结束还有 ");
-//                $("#l_p").show();
-//                alert("endtime1:" + t);
+                $("#a_s").html("距竞价结束还有 ");
+                $("#l_p").show();
                 break;
             case 2:
                 break;
@@ -886,13 +916,13 @@
 
 
         //"%"是取余运算，可以理解为60进一后取余数，然后只要余数。
-        if (endtime <= nowtime) {
+        if (endtime < nowtime) {
             switch (Coudown) {
                 case 0:
                     Coudown = 1;
                     $("#btnb_gray").show();
-                    lxfEndtime();
                     $("#a_s").html("距竞价结束还有 ");
+                    lxfEndtime();
                     return;
                 case 1:
                     Coudown = 2;
@@ -901,7 +931,7 @@
                     $("#a_s").html("");
                     $("#showcount_down").html("已结束");
                     $("#btnb_gray").hide();
-
+                    $("#l_p").hide();
                     setTimeout("location.reload();", 20000);
                     endSay = "后结束";
                     return;
@@ -942,41 +972,41 @@
 
     var renDate = 10000;
     var count = 0;
-    //    function getDate() {//时差控制
-    //        count++;
-    //        var date1 = new Date();
-    //        $.ajax({
-    //            async: false,
-    //            url: "/pai/GetTime?" + date1.getTime(),
-    //            success: function (data) {
-    //                data.replace(/Date\([\d+]+\)/, function (a) {
-    //                    eval('d = new ' + a)
-    //                });
-    //                d = (calcTime(d.getTime(), 8));
-    //
-    //                var n = d.getTime() - new Date().getTime();//服务器与本地时差
-    //
-    //                if (difference_time == -1000000) {
-    //
-    //                    difference_time = n - 300;
-    //                    lxfEndtime();
-    //                }
-    //
-    //                var date2 = new Date();
-    //                var data3 = (date2.getTime() - date1.getTime()) / 1000;
-    //                if (data3 < renDate) {
-    //                    renDate = data3;
-    //                }
-    //                if (renDate > 1) {//时差大于1秒
-    //                    if (count < 5) {//矫正次数少于5次，10秒后重新矫正，如矫正次数大于5次考虑网络因素放弃矫正
-    //                        setTimeout("getDate()", 10000);
-    //                    }
-    //                }
-    //
-    //
-    //            }
-    //        });
-    //    }
+//        function getDate() {//时差控制
+//            count++;
+//            var date1 = new Date();
+//            $.ajax({
+//                async: false,
+//                url: "/pai/GetTime?" + date1.getTime(),
+//                success: function (data) {
+//                    data.replace(/Date\([\d+]+\)/, function (a) {
+//                        eval('d = new ' + a)
+//                    });
+//                    d = (calcTime(d.getTime(), 8));
+//
+//                    var n = d.getTime() - new Date().getTime();//服务器与本地时差
+//
+//                    if (difference_time == -1000000) {
+//
+//                        difference_time = n - 300;
+//                        lxfEndtime();
+//                    }
+//
+//                    var date2 = new Date();
+//                    var data3 = (date2.getTime() - date1.getTime()) / 1000;
+//                    if (data3 < renDate) {
+//                        renDate = data3;
+//                    }
+//                    if (renDate > 1) {//时差大于1秒
+//                        if (count < 5) {//矫正次数少于5次，10秒后重新矫正，如矫正次数大于5次考虑网络因素放弃矫正
+//                            setTimeout("getDate()", 10000);
+//                        }
+//                    }
+//
+//
+//                }
+//            });
+//        }
     function getServTime() {
         count++;
         var date1 = new Date();//请求服务器前时间
@@ -1036,19 +1066,7 @@
 <script>
 
     $(function () {
-        if (browser.versions.mobile) {//判断是否是移动设备打开。browser代码在下面
-            //location.href = "http://m.48.cn";
-            location.href = window.location.href.replace('shop.48.cn', "m.48.cn");
-        }
 
-        if ("" != "1") {
-
-            $(".dh_1").hover(function () {
-                $(".columns").show();
-            }, function () {
-                $(".columns").hide();
-            });
-        }
         $("#topsearch").click(function () {
 
             location.href = "/search?searchKey=" + encodeURIComponent($("#topkey").val());
@@ -1064,7 +1082,7 @@
         $("#logout").click(function () {
             $.ajax({
                 url: "https://user.48.cn/snh48.php?act=logout",
-                dataType: 'jsonp',
+                dataType: 'json',
                 data: "",
                 jsonp: 'callback',
                 success: function (result) {

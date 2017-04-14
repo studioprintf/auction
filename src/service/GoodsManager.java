@@ -38,5 +38,7 @@ public interface GoodsManager {
     //用户在售商品
     List<?> userOnSaleGoods(Goods goods) throws HibernateException;
 
+    //检测商品状态
+    public String checkState (Goods goods)throws HibernateException;
 
 }

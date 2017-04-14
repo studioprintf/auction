@@ -24,9 +24,6 @@ public interface AuctionProcessManager {
     //获取拍卖列表
     public List<?> getAuctionList(Goods goods) throws HibernateException;
 
-    //检查保证金
-    public Boolean checkMargin(User user,Goods goods) throws HibernateException;
-
     //生成订单
     public Boolean createOrder(Goods goods) throws HibernateException;
 
@@ -38,5 +35,7 @@ public interface AuctionProcessManager {
 
     //获取当前最高价
     public String getMaxPrice (Goods goods) throws HibernateException;
+
+
 
 }
