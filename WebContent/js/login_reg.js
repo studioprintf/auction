@@ -121,7 +121,11 @@ $(function () {
             $("#userPwdTip").text("请输入密码！")
         }
         else {
-            $("#userPwdTip").text("");
+            if (val.length < 4 || val.length > 20) {
+                $("#userPwdTip").text("密码长度在6-20之间");
+            } else {
+                $("#userPwdTip").text("");
+            }
         }
     })
 

@@ -25,4 +25,7 @@ public interface AuctionDao {
 
     //根据goods_id获取出价记录
     List<?> getBidList(String goods_id) throws HibernateException;
+
+
+
 }

@@ -3,6 +3,9 @@ package service;
 import java.util.List;
 
 import org.hibernate.HibernateException;
+import pojo.Balance_log;
+import pojo.Goods;
+import pojo.User;
 
 /**
  * ������¼����
@@ -22,5 +25,6 @@ public interface AuctionLogManager {
 
     //�û��鿴�ñ������
     public List<?> getUserSuccess() throws HibernateException;
+
 
 }

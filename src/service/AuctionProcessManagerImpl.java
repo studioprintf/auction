@@ -5,9 +5,9 @@ import daoImpl.GoodsDaoImpl;
 import daoImpl.GoodsinfoDaoImpl;
 import daoImpl.User_orderDaoImpl;
 import org.hibernate.HibernateException;
+import org.springframework.stereotype.Service;
 import pojo.*;
 
-import javax.transaction.Transactional;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -19,7 +19,7 @@ import java.util.List;
  * @return
  */
 
-
+@Service
 public class AuctionProcessManagerImpl implements AuctionProcessManager {
     private GoodsDaoImpl goodsDao;
     private GoodsinfoDaoImpl goodsinfoDao;
@@ -79,9 +79,10 @@ public class AuctionProcessManagerImpl implements AuctionProcessManager {
         // TODO Auto-generated method stub
         goods = (Goods) goodsDao.fingGoodsInfo(goods).get(0);
         //获取拍卖物品的信息
-        if(!goods.getState().equals("1"))
+        if (!goods.getState().equals("1")) {
             //判断商品状态
             return false;
+        }
 
         Auction auction1Sql;
         List<?> list = auctionDao.findMaxLog(goods);
@@ -89,7 +90,7 @@ public class AuctionProcessManagerImpl implements AuctionProcessManager {
 
         if(!list.isEmpty()) {//最高价不为空
             auction1Sql = (Auction) auctionDao.findMaxLog(goods).get(0);//获取最高价
-            if(!(auction.getPrice()>auction1Sql.getPrice())){//出价不大于最高价则出价失败//                System.out.print("err1");
+            if (!(auction.getPrice() > auction1Sql.getPrice())) {//出价不大于最高价则出价失败//
                 return false;
             }
         }
@@ -114,13 +115,6 @@ public class AuctionProcessManagerImpl implements AuctionProcessManager {
         return null;
     }
 
-    @Override
-    public Boolean checkMargin(User user, Goods goods) throws HibernateException {
-        List<?> result = auctionDao.findLog(user,goods);
-        if(result.size()==0)
-            return true;
-        return false;
-    }
 
     @Override
     public Boolean createOrder(Goods goods) throws HibernateException {

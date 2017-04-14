@@ -190,7 +190,7 @@ public class SellerOnSaleAction extends BaseAction{
             //判断开始时间是否在现在时间之后
             //判断结束时间是否在开始时间之后的一个小时
 
-            inputStream = new ByteArrayInputStream("时间戳校验失败".getBytes("UTF-8"));
+            inputStream = new ByteArrayInputStream("时间戳校验失败,结束时间要晚于开始时间至少一个小时".getBytes("UTF-8"));
         } else {
 
 

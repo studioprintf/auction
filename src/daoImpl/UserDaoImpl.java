@@ -48,6 +48,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 
 
 
+
     public void updateObject(User user) throws HibernateException {
         getHibernateTemplate().update(user);
 

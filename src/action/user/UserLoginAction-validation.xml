@@ -25,7 +25,7 @@
         <field-validator type="stringlength">
             <param name="minLength">6</param>
             <param name="maxLength">20</param>
-            <message>限定密码长度在4-10之间</message>
+            <message>限定密码长度在6-10之间</message>
         </field-validator>
     </field>
 </validators>

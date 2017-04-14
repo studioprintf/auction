@@ -102,4 +102,14 @@ public class GoodsManagerImpl implements GoodsManager {
         return goodsDao.searchGoodsByUser(good);
     }
 
+    @Override//获取商品状态
+    public String checkState(Goods goods) throws HibernateException {
+        List<?> list= goodsDao.checkState(goods);
+        if(list.isEmpty()){
+            return null;
+        }
+        String state = (String) list.get(0);
+        return state;
+    }
+
 }

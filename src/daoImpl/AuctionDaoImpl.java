@@ -70,4 +70,6 @@ public class AuctionDaoImpl extends HibernateDaoSupport implements AuctionDao {
         return list;
     }
 
+
+
 }

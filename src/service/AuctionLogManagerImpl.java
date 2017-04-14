@@ -2,7 +2,12 @@ package service;
 
 import java.util.List;
 
+import daoImpl.AuctionDaoImpl;
+import daoImpl.Balance_logDaoImpl;
 import org.hibernate.HibernateException;
+import pojo.Balance_log;
+import pojo.Goods;
+import pojo.User;
 
 /**
  * @author Lucifer
@@ -12,6 +17,17 @@ import org.hibernate.HibernateException;
  * @return
  */
 public class AuctionLogManagerImpl implements AuctionLogManager {
+    private Balance_logDaoImpl balanceLogDao;
+
+
+    public Balance_logDaoImpl getBalanceLogDao() {
+        return balanceLogDao;
+    }
+
+
+    public void setBalanceLogDao(Balance_logDaoImpl balanceLogDao) {
+        this.balanceLogDao = balanceLogDao;
+    }
 
     @Override
     public List<?> getAuctionLog() throws HibernateException {
@@ -30,5 +46,6 @@ public class AuctionLogManagerImpl implements AuctionLogManager {
         // TODO Auto-generated method stub
         return null;
     }
+
 
 }
