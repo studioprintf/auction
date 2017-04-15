@@ -27,6 +27,17 @@ public class Balance_logDaoImpl extends HibernateDaoSupport implements Balance_l
     }
 
     @Override
+    public boolean saveBalance(Balance_log balance_log) throws HibernateException {
+        try{
+            getHibernateTemplate().save(balance_log);
+        }
+        catch (HibernateException h){
+            return false;
+        }
+        return true;
+    }
+
+    @Override
     public Boolean checkMargin(Balance_log balance_log) throws HibernateException {
         List<?> list = getHibernateTemplate().find("SELECT B from Balance_log B where B.user_id =?0 and B.operation_note = ?1",balance_log.getUser_id(),balance_log.getOperation_note());
         if(!list.isEmpty()){

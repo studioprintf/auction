@@ -8,14 +8,15 @@ import pojo.User;
 
 public interface UserDao {
 
-    public void saveObject(User user) throws HibernateException;
+    void saveObject(User user) throws HibernateException;
 
-    public List<User> getUsers() throws HibernateException;
+    List<User> getUsers() throws HibernateException;
 
-    public void updateObject(User user) throws HibernateException;
+    void updateObject(User user) throws HibernateException;
 
-    public User findUser(User user) throws HibernateException;
+    User findUser(User user) throws HibernateException;
 
-    public User findUserByName(String userName) throws HibernateException;
+    User findUserByName(String userName) throws HibernateException;
 
+    User findUserById(int user_id) throws HibernateException;
 }
