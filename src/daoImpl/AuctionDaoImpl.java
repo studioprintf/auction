@@ -59,6 +59,8 @@ public class AuctionDaoImpl extends HibernateDaoSupport implements AuctionDao {
         Query q = session.createQuery(hql).setParameter(0, Integer.parseInt(goods_id));
         q.setFirstResult(offset * length);//开始记录
         q.setMaxResults(length);//一次查询几条记录
+        if(q.list()==null)
+            return null;
         List<?> list = q.list();
 //        session.close();//出现回滚错误
         return list;

@@ -220,6 +220,12 @@
         </property>
     </bean>
 
+    <bean id="listGood" class="action.goods.ListGoodsAction">
+        <property name="goodsManager">
+            <ref bean="goodsManager"></ref>
+        </property>
+    </bean>
+
     <!--拍卖流程action注册-->
     <bean id="createGoods" class="action.seller.SellerOnSaleAction">
         <property name="auctionProcessManager">
@@ -259,6 +265,8 @@
             <ref bean="balanceManager"></ref>
         </property>
     </bean>
+
+
 
 
     <aop:aspectj-autoproxy proxy-target-class="true"/>

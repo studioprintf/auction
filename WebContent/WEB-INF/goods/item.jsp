@@ -299,28 +299,6 @@
                                 </li>
                             </ul>
                             <ul id="u_blist">
-                                <li><span class="jl_1 pink">中标</span><span class="jl_2">kikuscup</span><span
-                                        class="jl_2">2017/04/05 18:59:46</span><span class="jl_3 pink">16180</span></li>
-                                <li><span class="jl_1 pink">中标</span><span class="jl_2">KaKaflying</span><span
-                                        class="jl_2">2017/04/05 18:59:56</span><span class="jl_3 pink">12000</span></li>
-                                <li><span class="jl_1 pink">中标</span><span class="jl_2">Bulls</span><span class="jl_2">2017/04/05 18:59:03</span><span
-                                        class="jl_3 pink">11111</span></li>
-                                <li><span class="jl_1 pink">&nbsp;&nbsp;</span><span class="jl_2">Knight_of_Night</span><span
-                                        class="jl_2">2017/04/05 18:59:56</span><span class="jl_3 pink">7909</span></li>
-                                <li><span class="jl_1 pink">&nbsp;&nbsp;</span><span class="jl_2">nscrc</span><span
-                                        class="jl_2">2017/04/05 18:59:55</span><span class="jl_3 pink">7429</span></li>
-                                <li><span class="jl_1 pink">&nbsp;&nbsp;</span><span
-                                        class="jl_2">maxi_moralez</span><span
-                                        class="jl_2">2017/04/05 18:59:57</span><span class="jl_3 pink">6830</span></li>
-                                <li><span class="jl_1 pink">&nbsp;&nbsp;</span><span class="jl_2">Perfectliz</span><span
-                                        class="jl_2">2017/04/05 18:59:57</span><span class="jl_3 pink">6777</span></li>
-                                <li><span class="jl_1 pink">&nbsp;&nbsp;</span><span class="jl_2">onhouba</span><span
-                                        class="jl_2">2017/04/05 18:59:55</span><span class="jl_3 pink">6000</span></li>
-                                <li><span class="jl_1 pink">&nbsp;&nbsp;</span><span class="jl_2">paopaomola</span><span
-                                        class="jl_2">2017/04/05 18:59:52</span><span class="jl_3 pink">5909</span></li>
-                                <li><span class="jl_1 pink">&nbsp;&nbsp;</span><span
-                                        class="jl_2">maxi_moralez</span><span
-                                        class="jl_2">2017/04/05 18:59:45</span><span class="jl_3 pink">5830</span></li>
                             </ul>
                         </div>
                         <div class="p_jl d_blist">
@@ -333,29 +311,6 @@
                                 </li>
                             </ul>
                             <ul id="u_blistM">
-                                <li><span class="jl_1 pink">&nbsp;&nbsp;</span><span class="jl_2">expangzi</span><span
-                                        class="jl_2">2017/04/05 18:59:48</span><span class="jl_3 pink">5667</span></li>
-                                <li><span class="jl_1 pink">&nbsp;&nbsp;</span><span class="jl_2">丨甄丨330</span><span
-                                        class="jl_2">2017/04/05 18:59:56</span><span class="jl_3 pink">4330</span></li>
-                                <li><span class="jl_1 pink">&nbsp;&nbsp;</span><span
-                                        class="jl_2">snh48071284236</span><span
-                                        class="jl_2">2017/04/05 18:59:38</span><span class="jl_3 pink">3666</span></li>
-                                <li><span class="jl_1 pink">&nbsp;&nbsp;</span><span class="jl_2">WSi</span><span
-                                        class="jl_2">2017/04/05 18:59:07</span><span class="jl_3 pink">3456</span></li>
-                                <li><span class="jl_1 pink">&nbsp;&nbsp;</span><span class="jl_2">lkkl1001</span><span
-                                        class="jl_2">2017/04/05 18:59:06</span><span class="jl_3 pink">2333</span></li>
-                                <li><span class="jl_1 pink">&nbsp;&nbsp;</span><span
-                                        class="jl_2">snh48071284236</span><span
-                                        class="jl_2">2017/04/05 18:47:22</span><span class="jl_3 pink">1666</span></li>
-                                <li><span class="jl_1 pink">&nbsp;&nbsp;</span><span class="jl_2">kikuscup</span><span
-                                        class="jl_2">2017/04/05 18:46:09</span><span class="jl_3 pink">1233</span></li>
-                                <li><span class="jl_1 pink">&nbsp;&nbsp;</span><span
-                                        class="jl_2">snh48071284236</span><span
-                                        class="jl_2">2017/04/05 18:41:42</span><span class="jl_3 pink">1000</span></li>
-                                <li><span class="jl_1 pink">&nbsp;&nbsp;</span><span class="jl_2">yaolin5888</span><span
-                                        class="jl_2">2017/04/05 18:33:18</span><span class="jl_3 pink">800</span></li>
-                                <li><span class="jl_1 pink">&nbsp;&nbsp;</span><span class="jl_2">治愈型mayuyu</span><span
-                                        class="jl_2">2017/04/05 18:37:07</span><span class="jl_3 pink">1</span></li>
                             </ul>
                         </div>
                         <div class="clearfix"></div>
