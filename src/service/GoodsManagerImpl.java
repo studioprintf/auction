@@ -7,6 +7,10 @@ import org.springframework.stereotype.Service;
 import pojo.Goods;
 import pojo.Goodsinfo;
 
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -110,6 +114,53 @@ public class GoodsManagerImpl implements GoodsManager {
         }
         String state = (String) list.get(0);
         return state;
+    }
+
+    @Override//获取商品总数
+    public int onSaleNum() throws HibernateException {
+        int num = 0;
+        List<?> amount = goodsDao.getGoodsNum();
+        if (!amount.isEmpty()) {
+            num = Integer.parseInt(String.valueOf(amount.get(0)));
+        }
+        return num;
+    }
+
+    @Override//按页获取商品列表
+    public HashMap<String, List> getGoodsList(int index, int numPerPage) throws HibernateException {
+        List<?> list = goodsDao.getGoodsList(index, numPerPage);
+        List<Goods> goodsList = new LinkedList<>();
+        List<Goodsinfo> goodsinfosList = new LinkedList<>();
+        List<String> maxpriceList = new LinkedList<>();
+        HashMap<String, List> infoList = new HashMap<>();
+
+        for (int i = 0; i < list.size(); i++) {
+            Object[] object = (Object[]) list.get(i);
+            Goods goods = new Goods();
+            Goodsinfo goodsinfo = new Goodsinfo();
+            int goods_id = (int) object[0];
+            String state = (String) object[1];
+            Timestamp create_time = (Timestamp) object[2];
+            Timestamp start_time = (Timestamp) object[3];
+            Timestamp final_time = (Timestamp) object[4];
+            String goods_title = (String) object[5];
+            String goods_image1 = (String) object[6];
+
+            goods.setGoods_id(goods_id);
+            goods.setState(state);
+            goods.setCreate_time(create_time);
+            goods.setStart_time(start_time);
+            goods.setFinal_time(final_time);
+            goodsinfo.setGoods_title(goods_title);
+            goodsinfo.setGoods_image1(goods_image1);
+
+            goodsList.add(goods);
+            goodsinfosList.add(goodsinfo);
+        }
+        infoList.put("Goods", goodsList);
+        infoList.put("GoodsInfo", goodsinfosList);
+        return infoList;
+
     }
 
 }

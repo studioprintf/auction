@@ -1,16 +1,16 @@
 package daoImpl;
 
-import org.apache.struts2.components.Select;
+import dao.GoodsDao;
 import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
+import pojo.Goods;
 
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.List;
-
-import dao.GoodsDao;
-import pojo.Goods;
 
 @Repository
 public class GoodsDaoImpl extends HibernateDaoSupport implements GoodsDao {
@@ -94,6 +94,23 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements GoodsDao {
     public List<?> checkState(Goods goods) throws HibernateException {
         List<?> state = getHibernateTemplate().find("Select G.state from Goods G where G.goods_id =?0",goods.getGoods_id());
         return state;
+    }
+
+    @Override
+    public List<?> getGoodsList(int offset, int length) throws HibernateException {
+        String hql = "select g.goods_id,g.state,g.create_time,g.start_time,g.final_time,gi.goods_title,gi.goods_image1  from Goods g,Goodsinfo gi where g.goods_id = gi.goods_id order by g.state asc , g.create_time desc";
+        Session session = this.getSessionFactory().getCurrentSession();
+        Query q = session.createQuery(hql);
+        q.setFirstResult(offset * length);
+        q.setMaxResults(length);
+        List<?> list = q.list();
+        return list;
+    }
+
+    @Override
+    public List<?> getGoodsNum() throws HibernateException {
+        List<?> num = getHibernateTemplate().find("Select count(G) from Goods G");
+        return num;
     }
 
 }

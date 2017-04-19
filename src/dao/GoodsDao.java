@@ -25,4 +25,11 @@ public interface GoodsDao {
 
     //查看商品状态
     List<?> checkState(Goods goods) throws HibernateException;
+
+    //按页获取主页商品
+    List<?> getGoodsList(int offset, int length) throws HibernateException;
+
+    //获取商品总数量
+    List<?> getGoodsNum() throws HibernateException;
+
 }

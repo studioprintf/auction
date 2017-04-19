@@ -4,6 +4,8 @@ import org.hibernate.HibernateException;
 import pojo.Goods;
 import pojo.Goodsinfo;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -40,5 +42,13 @@ public interface GoodsManager {
 
     //检测商品状态
     public String checkState (Goods goods)throws HibernateException;
+
+    //获取商品总数
+    int onSaleNum() throws HibernateException;
+
+    //按页获取商品列表
+    HashMap<String, List> getGoodsList(int index, int numPerPage) throws HibernateException;
+
+
 
 }

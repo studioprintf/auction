@@ -18,4 +18,6 @@ public interface GoodsinfoDao {
     Goodsinfo findGoodsInfo(Goods goods) throws HibernateException;
 
     boolean updateInfo(Goodsinfo goodsinfo) throws HibernateException;
+
+
 }

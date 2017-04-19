@@ -62,9 +62,10 @@ public class AuctionProcessManagerImpl implements AuctionProcessManager {
     public boolean onSale(Goods goods, Goodsinfo goodsinfo) throws HibernateException {
         // TODO Auto-generated method stub
         goodsDao.saveGoods(goods);
+
         goodsinfo.setGoods_id(goods.getGoods_id());
 //        goodsinfoDao.saveInfo(goodsinfo);
-//        saveInfo(goodsinfo);
+        saveInfo(goodsinfo);
         return true;
     }
 
