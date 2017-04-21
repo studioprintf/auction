@@ -98,7 +98,7 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements GoodsDao {
 
     @Override
     public List<?> getGoodsList(int offset, int length) throws HibernateException {
-        String hql = "select g.goods_id,g.state,g.create_time,g.start_time,g.final_time,gi.goods_title,gi.goods_image1  from Goods g,Goodsinfo gi where g.goods_id = gi.goods_id order by g.state asc , g.create_time desc";
+        String hql= "select g.goods_id,g.state,g.create_time,g.start_time,g.final_time,gi.goods_title,gi.goods_image1, max(a.price)  from Goods g left join Goodsinfo gi on g.goods_id = gi.goods_id  left join Auction a on gi.goods_id = a.goods_id  group by a.goods_id,g.goods_id,g.state,g.create_time,g.start_time,g.final_time,gi.goods_title,gi.goods_image1 order by g.state asc , g.create_time desc";
         Session session = this.getSessionFactory().getCurrentSession();
         Query q = session.createQuery(hql);
         q.setFirstResult(offset * length);

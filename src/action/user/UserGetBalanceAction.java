@@ -3,6 +3,7 @@ package action.user;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import org.springframework.stereotype.Controller;
 import pojo.User;
 import service.UserManager;
 import service.UserManagerImpl;
@@ -10,6 +11,8 @@ import service.UserManagerImpl;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Dymond on 2017/3/28.
@@ -18,11 +21,13 @@ import java.io.UnsupportedEncodingException;
  * Ajax 显示用户余额
  */
 
-
-public class UserGetBalanceAction extends ActionSupport implements ModelDriven<User> {
+@Controller
+public class UserGetBalanceAction extends ActionSupport {
     private InputStream inputStream;
     private UserManager userManager = new UserManagerImpl();
-    private User user = new User();
+    private User user;
+    private String userName;
+    private Map<String,Object> dataMap;
 
 
     public User getUser() {
@@ -42,7 +47,13 @@ public class UserGetBalanceAction extends ActionSupport implements ModelDriven<U
         this.inputStream = inputStream;
     }
 
+    public String getUserName() {
+        return userName;
+    }
 
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public UserManager getUserManager() {
         return userManager;
@@ -52,28 +63,24 @@ public class UserGetBalanceAction extends ActionSupport implements ModelDriven<U
         this.userManager = userManager;
     }
 
-
-    public String checkBalance() throws UnsupportedEncodingException {
-
-        String user_name = user.getUser_name();
-        User userSql = userManager.findUserByName(user_name);
-        if ( userSql!= null){
-            System.out.println(userSql.getUser_name()+"  "+userSql.getSign_ip()+"  "+userSql.getBalance());
-            inputStream = new ByteArrayInputStream(String.valueOf(userSql.getBalance()).getBytes("UTF-8"));
-            return SUCCESS;
-        }
-        return NONE;
+    public Map<String, Object> getDataMap() {
+        return dataMap;
     }
 
-    @Override
-    public String execute() throws Exception {
-
-
-        return checkBalance();
+    public void setDataMap(Map<String, Object> dataMap) {
+        this.dataMap = dataMap;
     }
 
-    @Override
-    public User getModel() {
-        return user;
+    public String json(){
+        dataMap = new HashMap<>();
+        user = userManager.findUserByName(userName);
+        dataMap.put("balance",user.getBalance());
+        dataMap.put("frozen_amount",user.getFrozen_amount());
+
+
+        return SUCCESS;
+
     }
+
+
 }

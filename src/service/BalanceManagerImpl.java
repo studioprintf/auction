@@ -30,6 +30,13 @@ public class BalanceManagerImpl implements BalanceManager {
         this.balanceLogDao = balanceLogDao;
     }
 
+    public UserDaoImpl getUserDao() {
+        return userDao;
+    }
+
+    public void setUserDao(UserDaoImpl userDao) {
+        this.userDao = userDao;
+    }
 
     @Override
     public boolean recharge(int user_id, double amount) throws HibernateException {

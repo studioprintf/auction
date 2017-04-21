@@ -39,12 +39,12 @@
 
         登录成功
 
-        <br/><a href='http://localhost:8080/index'>如果你的浏览器没反应，请点击这里...</a>
+        <br/><a href='${pageContext.request.contextPath}/index'>如果你的浏览器没反应，请点击这里...</a>
         <script>
             var pgo = 0;
             function JumpUrl() {
                 if (pgo == 0) {
-                    location = 'http://localhost:8080/index';
+                    location = '${pageContext.request.contextPath}/index';
                     pgo = 1;
                 }
             }

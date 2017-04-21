@@ -147,6 +147,9 @@
         <property name="balanceLogDao">
             <ref bean="balance_logDaoImpl"></ref>
         </property>
+        <property name="userDao">
+            <ref bean="userDaoImpl"></ref>
+        </property>
     </bean>
 
 
@@ -177,17 +180,17 @@
         </property>
     </bean>
 
-    <!--<bean id="rechargeAction" class="action.user.UserRechargeAction">-->
-        <!--<property name="userManager">-->
-            <!--<ref bean="userManager"></ref>-->
-        <!--</property>-->
-    <!--</bean>-->
+    <bean id="rechargeAction" class="action.user.UserRechargeAction">
+        <property name="balanceManager">
+            <ref bean="balanceManager"></ref>
+        </property>
+    </bean>
 
-    <!--<bean id="withdrawalsAction" class="action.user.UserWithdrawalsAction">-->
-        <!--<property name="userManager">-->
-            <!--<ref bean="userManager"></ref>-->
-        <!--</property>-->
-    <!--</bean>-->
+    <bean id="withdrawalsAction" class="action.user.UserReflectAction">
+        <property name="balanceManager">
+            <ref bean="balanceManager"></ref>
+        </property>
+    </bean>
 
     <bean id="updatePasswordAction" class="action.user.UserUpdatePasswordAction">
         <property name="userManager">

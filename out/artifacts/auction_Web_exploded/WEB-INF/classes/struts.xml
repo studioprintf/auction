@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+    <constant name="struts.multipart.maxSize" value="9000000"/>
+
+    <package name="user_action" namespace="/" extends="struts-default">
+
+
+        <interceptors>
+        	<!-- 用户权限拦截器，判断session中的USER_ID和USER_NAME -->
+            <interceptor name="authority" class="action.user.AuthorityInterceptor"></interceptor>
+            <!-- 管理员权限拦截器，判断session中ADMIN是否为TRUE -->
+            <interceptor name="adminAuthority" class="action.admin.AdminAuthority"></interceptor>
+            <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
+            <interceptor-stack name="defaultinter">
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+                <interceptor-ref name="authority"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <!--<default-interceptor-ref name="defaultinter"></default-interceptor-ref>-->
+
+
+        <!-- 配置默认欢迎页 -->
+        <default-action-ref name="index"></default-action-ref>
+
+
+        <global-results>
+            <result name="login">/WEB-INF/login/login.jsp</result>
+            <result name="input">/WEB-INF/none.jsp</result>
+            <result name="none">/WEB-INF/none.jsp</result>
+        </global-results>
+
+
+        <!--直接访问地址dispatcher-->
+        <action name="" class="action.goods.ListGoodsAction">
+            <result type="dispatcher">/WEB-INF/index.jsp</result>
+        </action>
+
+        <action name="index" class="action.goods.ListGoodsAction">
+            <result type="dispatcher">/WEB-INF/index.jsp</result>
+        </action>
+        <action name="login">
+            <result type="dispatcher">/WEB-INF/login/login.jsp</result>
+        </action>
+        <action name="register">
+            <result type="dispatcher">/WEB-INF/register/register.jsp</result>
+        </action>
+        <action name="none">
+            <result type="dispatcher">/WEB-INF/none.jsp</result>
+        </action>
+        <action name="error">
+            <result type="dispatcher">/WEB-INF/error.jsp</result>
+        </action>
+
+        <!--用户登录操作-->
+        <action name="user_login" class="action.user.UserLoginAction">
+            <result name="success">/WEB-INF/login/login_succ.jsp</result>
+            <result name="error">/WEB-INF/error.jsp</result>
+            <result name="input">/WEB-INF/error.jsp</result>
+            <result name="fail">/WEB-INF/error.jsp</result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+
+		<!-- 管理员登陆操作 -->
+		<action name="admin_login" class="action.admin.AdminLoginAction">
+            <result name="success">/WEB-INF/login/login_succ.jsp</result>
+            <result name="error">/WEB-INF/error.jsp</result>
+            <result name="input">/WEB-INF/error.jsp</result>
+            <result name="fail">/WEB-INF/error.jsp</result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+
+        <!--注册操作-->
+        <action name="user_register" class="action.user.UserRegisterAction">
+            <result name="success">/WEB-INF/register/reg_succ.jsp</result>
+            <result name="error">/WEB-INF/error.jsp</result>
+        </action>
+
+        <!--用户名是否存在-->
+        <action name="user_checkName" class="action.user.UserCheckNameAction">
+            <result type="stream" name="ajax_succ">
+                <param name="contentType">text/html</param>
+                <param name="inputStream">inputStream</param>
+            </result>
+        </action>
+
+
+        <!--验证码-->
+        <action name="user_createImage" class="action.user.CreateImageAction">
+            <result type="stream" name="success">
+                <param name="contentType">image/jpeg</param>
+                <param name="inputStream">inputStream</param>
+            </result>
+        </action>
+
+        <action name="admin_getUser" class="action.admin.AdminGetUser">
+        	<result name="success"></result>
+        </action>
+
+        <!--注销-->
+        <action name="user_logout" class="action.user.UserExitAction">
+            <result type="redirect" name="success">
+                <param name="location">/index</param>
+            </result>
+        </action>
+
+
+        <action name="*">
+            <result>/WEB-INF/none.jsp</result>
+        </action>
+
+
+    </package>
+
+
+    <!---            个人中心             -->
+    <package name="user" namespace="/user" extends="user_action , json-default">
+        <global-results>
+            <result type="redirect" name="input">
+                <param name="location">/login</param>
+            </result>
+        </global-results>
+
+
+        <action name="user">
+            <result type="dispatcher" >/WEB-INF/user/user.jsp</result>
+            <interceptor-ref name="authority"></interceptor-ref>
+        </action>
+        <action name="payment">
+            <result type="dispatcher" >/WEB-INF/user/recharge.jsp</result>
+            <interceptor-ref name="authority"></interceptor-ref>
+        </action>
+        <action name="cash">
+            <result type="dispatcher" >/WEB-INF/user/reflect.jsp</result>
+            <interceptor-ref name="authority"></interceptor-ref>
+        </action>
+        <action name="recharge_succ">
+            <result type="dispatcher">/WEB-INF/user/recharge_succ.jsp</result>
+        </action>
+        <action name="reflect_succ">
+            <result type="dispatcher">/WEB-INF/user/reflect_succ.jsp</result>
+        </action>
+
+        <!--获取用户资料并转入个人资料页面-->
+        <action name="setting" class="action.user.UserInfoAction">
+            <result type="dispatcher" name="success">/WEB-INF/user/setting.jsp</result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+
+
+
+        <!--获取用户余额-->
+        <action name="user_getBalance" class="action.user.UserGetBalanceAction" method="json">
+            <result type="json">
+                <param name="root">dataMap</param>
+            </result>
+        </action>
+
+
+        <!--充值操作-->
+        <action name="user_recharge" class="action.user.UserRechargeAction">
+            <result type="stream" name="success">
+                <param name="contentType">text/html</param>
+                <param name="inputStream">inputStream</param>
+            </result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+
+
+        <!--提现操作-->
+        <action name="user_reflect" class="action.user.UserReflectAction">
+            <result type="stream" name="success">
+                <param name="contentType">text/html</param>
+                <param name="inputStream">inputStream</param>
+            </result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+
+        <!--更改密码操作-->
+        <action name="user_updatePassword" class="action.user.UserUpdatePasswordAction">
+            <result type="stream" name="success">
+                <param name="contentType">text/html</param>
+                <param name="inputStream">inputStream</param>
+            </result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+
+
+        <!--资料修改操作-->
+        <action name="user_updateInfo" class="action.user.UserUpdateInfo">
+            <result name="success"></result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+
+    </package>
+
+
+    <!--      拍卖流程管理      -->
+    <package name="auction" namespace="/auction" extends="user_action,json-default">
+
+        <action name="publish">
+            <result>/WEB-INF/auction/publish.jsp</result>
+        </action>
+        <action name="pub_succ">
+            <result>/WEB-INF/auction/pub_succ.jsp</result>
+        </action>
+
+        <!--富媒体编辑框架上传图片-->
+        <action name="uploadImg" class="action.auction.UploadImgAction">
+            <result type="stream" name="success">
+                <param name="contentType">text/html</param>
+                <param name="inputStream">inputStream</param>
+            </result>
+
+            <!--<interceptor-ref name="fileUpload">-->
+                <!--<param name="maximumSize">52428800</param>-->
+            <!--</interceptor-ref>-->
+        </action>
+
+        <!--封面橱窗图片上传-->
+        <action name="uploadWindowImg" class="action.auction.UploadImgAction">
+            <result type="stream" name="success">
+                <param name="contentType">text/html</param>
+                <param name="inputStream">inputStream</param>
+            </result>
+            <!--<interceptor-ref name="fileUpload">-->
+                <!--<param name="maximumSize">25165824</param>-->
+            <!--</interceptor-ref>-->
+        </action>
+
+        <!--商品发布提交-->
+        <action name="createGoods" class="action.seller.SellerOnSaleAction">
+            <result type="stream" name="success">
+                <param name="contentType">text/html</param>
+                <param name="inputStream">inputStream</param>
+            </result>
+        </action>
+
+        <!--竞拍出价-->
+        <action name="ToBids" class="action.auction.ToBidsAction">
+            <result type="stream" name="success">
+                <param name="contentType">text/html</param>
+                <param name="inputStream">inputStream</param>
+            </result>
+        </action>
+
+        <!--查询是否已缴押金-->
+        <action name="checkMargin" class="action.auction.CheckMarginAction" method="json">
+            <result type="json">
+                <param name="root">dataMap</param>
+            </result>
+        </action>
+
+        <!--参与拍卖冻结资金-->
+        <action name="MarginCall" class="action.auction.MarginCallAction" method="json">
+            <result type="json">
+                <param name="root">dataMap</param>
+            </result>
+        </action>
+
+        <!--获取右部实时出价记录-->
+        <action name="GetRightShowBids" class="action.auction.GetRightShowBidsAction" method="json">
+            <result type="json">
+                <param name="root">dataMap</param>
+            </result>
+        </action>
+
+        <!--获取底部出价记录-->
+        <action name="GetShowBids" class="action.auction.GetShowBids" method="json">
+            <result type="json">
+                <param name="root">dataMap</param>
+            </result>
+        </action>
+
+
+
+    </package>
+
+
+    <!--商品详情专用转发-->
+    <package name="item" namespace="/item" extends="user_action">
+        <action name="*" class="action.goods.UserGetGoodsAction">
+            <param name="goods_id">{1}</param>
+            <result name="success">/WEB-INF/goods/item.jsp</result>
+            <result name="error">/WEB-INF/error.jsp</result>
+        </action>
+    </package>
+
+    <!--商品管理-->
+    <package name="goods" namespace="/" extends="user_action">
+
+        <!--商品搜索-->
+        <action name="search" class="action.goods.UserSearchAction">
+            <result name="success">/WEB-INF/goods/search.jsp</result>
+        </action>
+
+    </package>
+
+
+</struts>

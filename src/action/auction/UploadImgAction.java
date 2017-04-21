@@ -81,7 +81,7 @@ public class UploadImgAction extends ActionSupport {
         if (publishImg == null) {
             inputStream = new ByteArrayInputStream("error|服务器错误".getBytes("UTF-8"));
         } else {
-            String fileNameExtension = publishImgFileName.substring(publishImgFileName.lastIndexOf("."), publishImgFileName.length());
+            String fileNameExtension = (publishImgFileName.substring(publishImgFileName.lastIndexOf("."), publishImgFileName.length())).toLowerCase();
             //文件类型限制
             String[] allowedType = {".bmp", ".gif", ".jpeg", ".png", ".jpg"};
 
