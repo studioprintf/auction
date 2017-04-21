@@ -21,19 +21,26 @@
     <link rel="stylesheet" type="text/css" href="/css/iconfont.css">
     <link rel="stylesheet" type="text/css" href="/css/jedate.css">
     <link rel="stylesheet" type="text/css" href="/css/common.css">
-    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/css/userindex.css">
     <script type="text/javascript" src="/js/jquery-3.2.0.min.js"></script>
     <script type="text/javascript">
         $(function () {
-            var val = "${sessionScope.get("USER_NAME")}"
-            var url = "user_getBalance";
-            var args = {
-                "user_name": val,
-                "time": new Date()
-            };
-            $.post(url, args, function (data) {
-                $(".charge").html(data);
-            });
+            var val = "${sessionScope.get("USER_NAME")}";
+
+            $.ajax({
+                url:"/user/user_getBalance",
+                async:true,
+                type:"post",
+                dataType:"json",
+                data:{
+                    userName: val,
+                    r : Math.random()
+                },
+                success:function (data) {
+                    $(".charge").html(data.balance);
+                    $(".frozen").html(data.frozen_amount);
+                }
+            })
         })
 
         function show_password_frame() {
@@ -110,24 +117,20 @@
             <div class="user-top">
 
 
-                <a href="/user/user">
+                <a href="/user">
                     欢迎您：${sessionScope.get("USER_NAME")}
                 </a>
 
-                <a class="pl-10" href="https://www.c5game.com/user/sell.html">我要出售</a>
-                <a href="https://www.c5game.com/user/purchase/purchase.html">我要求购</a>
+                <a class="pl-10" href="${pageContext.request.contextPath}/auction/publish">我要出售</a>
 
-
-                <a href="/user_logout">注销</a>
-                <a href="https://www.c5game.com/user/login/ajax.html" id="ajax-login-dailog" class="ajax-login hide"
-                   data-target="#remote-dailog-modal">登录</a>
+                <a href="${pageContext.request.contextPath}/user/user_logout">注销</a>
             </div>
         </div>
     </div>
     <div id="page-nav">
         <ul class="nav-links">
             <li class="">
-                <a href="https://www.c5game.com">首页</a>
+                <a href="${pageContext.request.contextPath}/index">首页</a>
             </li>
             <!--            <li style="position:relative;overflow: visible"-->
             <!--                class="--><!--">-->
@@ -136,10 +139,8 @@
             <!--            </li>-->
 
 
-            <li class=""><a href="/user/inventory.html">我的背包</a>
-            </li>
             <li class="current">
-                <a href="/user/user">个人中心</a></li>
+                <a href="${pageContext.request.contextPath}/user">个人中心</a></li>
         </ul>
     </div>
 </div>
@@ -154,8 +155,7 @@
                 <div class="user-bg">
                     <div class="user-pic-name">
 
-                        <div class="user-name pull-left ml-10"><span
-                                class="name name-ellipsis">${sessionScope.get("USER_NAME")}</span></div>
+                        <div class="user-name pull-left ml-10"><span id="username" class="name name-ellipsis">${sessionScope.get("USER_NAME")}</span></div>
                     </div>
                     <div class="user-info-list">
                         账户余额 <span class="charge ft-orange ml-10"></span>
@@ -170,9 +170,9 @@
 
                 <ul class="account-left-nav" id="yw1">
                     <li class="nav1 active"><a href="/user/user">账户中心</a></li>
-                    <li class="nav2"><a href="/user/sell.html">出售管理</a></li>
-                    <li class="nav3"><a href="/user/purchase/purchase.html">求购管理</a></li>
-                    <li class="nav5"><a href="#">账号设置</a></li>
+                    <li class="nav2"><a href="/user/selllist">我发布的拍卖</a></li>
+                    <li class="nav3"><a href="/user/buylist">我得标的拍卖</a></li>
+                    <li class="nav5"><a href="/user/setting">账号设置</a></li>
                 </ul>
             </div>
         </div>

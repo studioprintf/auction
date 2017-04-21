@@ -15,19 +15,22 @@ import pojo.User;
  * @return
  */
 public interface BalanceManager {
-    //��ֵ
-    public boolean recharge(User user, Double amount) throws HibernateException;
+    //充值
+    boolean recharge(int user_id, double amount) throws HibernateException;
 
-    //����
-    public boolean reflect(User user, Double amount) throws HibernateException;
+    //提现
+    boolean reflect(int user_id, double amount) throws HibernateException;
+
+    //充值记录
+    boolean balanceLog(int user_id, double amount) throws HibernateException;
 
     //查询用户余额
-    public double checkBalance(User user) throws HibernateException;
+    double checkBalance(User user) throws HibernateException;
 
     //冻结资金
-    public String toMargin(Balance_log balance_log) throws HibernateException;
+    String toMargin(Balance_log balance_log) throws HibernateException;
 
     //检查是否交了押金
-    public boolean checkMargin(Balance_log balance_log) throws HibernateException;
+    boolean checkMargin(Balance_log balance_log) throws HibernateException;
 
 }

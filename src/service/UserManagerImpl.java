@@ -93,7 +93,7 @@ public class UserManagerImpl implements UserManager {
         return userSql;
     }
 
-	@Override
+    @Override
 	public String adminLogin(User user) throws HibernateException {
 		// TODO Auto-generated method stub
         User userSql = dao.findUser(user);

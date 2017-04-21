@@ -17,27 +17,27 @@ import pojo.User;
  */
 public interface UserManager {
     //锟斤拷陆锟斤拷锟斤拷
-    public String login(User user) throws HibernateException;
+    String login(User user) throws HibernateException;
     
     //管理员登陆
-    public String adminLogin(User user) throws HibernateException;
+    String adminLogin(User user) throws HibernateException;
 
     //注锟结功锟斤拷
-    public boolean register(User user) throws HibernateException;
+    boolean register(User user) throws HibernateException;
 
     //锟介看全锟斤拷锟矫伙拷
-    public List<User> getUsers() throws HibernateException;
+    List<User> getUsers() throws HibernateException;
 
     //锟介看锟矫伙拷锟斤拷锟斤拷
-    public User findUserInfo(User user) throws HibernateException;
+    User findUserInfo(User user) throws HibernateException;
 
     //锟睫改革拷锟斤拷锟斤拷锟斤拷
-    public boolean updateUserInfo(User user) throws HibernateException;
+    boolean updateUserInfo(User user) throws HibernateException;
 
     //锟睫革拷锟斤拷锟斤拷
-    public boolean updateUserPW(User user,String oldPassword) throws HibernateException;
+    boolean updateUserPW(User user,String oldPassword) throws HibernateException;
 
     //根据用户名查找用户类
-    public User findUserByName(String userName) throws HibernateException;
+    User findUserByName(String userName) throws HibernateException;
 
 }

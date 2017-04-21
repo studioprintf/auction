@@ -23,6 +23,7 @@ public class ListGoodsAction extends ActionSupport implements RequestAware {
 
     private List<Goods> goodsList;
     private List<Goodsinfo> goodsInfoList;
+    private List<String> maxPrice;
 
     public Map<String, Object> getRequest() {
         return request;
@@ -69,6 +70,14 @@ public class ListGoodsAction extends ActionSupport implements RequestAware {
         this.goodsInfoList = goodsInfoList;
     }
 
+    public List<String> getMaxPrice() {
+        return maxPrice;
+    }
+
+    public void setMaxPrice(List<String> maxPrice) {
+        this.maxPrice = maxPrice;
+    }
+
     @Override
     public void setRequest(Map<String, Object> map) {
         this.request = map;
@@ -81,8 +90,8 @@ public class ListGoodsAction extends ActionSupport implements RequestAware {
         HashMap<String,List> map = goodsManager.getGoodsList(pageNum,numPerPage);
         goodsList = map.get("Goods");
         goodsInfoList = map.get("GoodsInfo");
+        maxPrice = map.get("maxPrice");
         request.put("totalCount",onsaleNum);
-
 
         return SUCCESS;
     }

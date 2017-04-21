@@ -27,34 +27,48 @@
 <body style="">
 <div class="top">
     <div class="top_k">
-
         <div class="top_1 a1">
 
 
-            <div class="login fl">
+            <form action="/Account/LogOff" class="navbar-right" id="logoutForm" method="post"><input
+                    name="__RequestVerificationToken" type="hidden"
+                    value="05zTx-5isbCGoyWDZ-_CFXmyEAQJOaRcgs9MMaDv-6wlcElwZbuvTJAgU6Kq_gzi7PD_HZQxuliO8ZPhSOf-2AYzHCFxmhQkvs79A4QXhZ0fePeGeRNgFrWlEHD65qrD_K7MeTbJCtPMqpU4zYwmow2">
+                <div class="login fl">
+                    欢迎使用在线拍卖系统&nbsp;&nbsp;&nbsp;&nbsp;
+                    <s:if test="#session.USER_NAME==null">
+                        <a href="${pageContext.request.contextPath}/login">请登陆</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="${pageContext.request.contextPath}/register">免费注册</a>
+                    </s:if>
+                    <s:else>
+                        <a href="${pageContext.request.contextPath}/user/user">你好${sessionScope.get("USER_NAME")}</a>
 
-                欢迎使用在线拍卖系统&nbsp;&nbsp;&nbsp;&nbsp; <a
-                    href="${pageContext.request.contextPath}/login" target="_blank">请登录</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
-                    href="${pageContext.request.contextPath}/register">免费注册</a>
-            </div>
+                        <a href="${pageContext.request.contextPath}/user_logout" id="logout2">退出</a>
+                    </s:else>
+                </div>
+            </form>
 
 
             <div onmouseout="MM_out(this)" onmouseover="MM_over(this)" class="list fr a1 pr">
                 <a href="#"><span class="icon_t fl"><img src="https://static.48.cn/Shop/images/top_icon_3.jpg"></span>
-                    我的订单 <span class="jian fr"><img src="https://static.48.cn/Shop/images/jian.jpg"></span></a>
+                    我的账户 <span class="jian fr"><img src="https://static.48.cn/Shop/images/jian.jpg"></span></a>
                 <div class="order_p a1" style="display: none;">
-                    <a href="/Order">我的周边</a><br>
-                    <a href="/TOrder">我的门票</a><br>
-                    <a href="/COrder">我的抽选</a>
+                    <a href="/Order">我的订单</a><br>
+                    <a href="/Order">充值</a><br>
+                    <a href="/TOrder">提现</a><br>
                     <div class="jian_2"><img src="https://static.48.cn/Shop/images/jian_1.png"></div>
                 </div>
 
             </div>
 
+            <div class="list fr">
+                <a href="/auction/publish">
+                    <div class="icon_t fl"><img src="https://static.48.cn/Shop/images/top_icon_4.jpg"></div>
+                    商品发布</a>
+            </div>
 
-            <div class="list fr"><a href="/Account">
+            <div class="list fr"><a href="/user/user">
                 <div class="icon_t fl"><img src="https://static.48.cn/Shop/images/top_icon_2.jpg"></div>
-                我的账户</a></div>
+                个人中心</a></div>
         </div>
         <script>
             function MM_over(mmObj) {
@@ -102,9 +116,9 @@
                 <li class="dh_3 fl"><a href="/">首页</a></li>
 
 
-                <li class="dh_2 fl"><a href="/goods/integral">积分商品</a></li>
-                <li class="dh_2 fl"><a href="/pai">竞价中心</a></li>
-                <li class="dh_2 fl"><a href="https://pay.48.cn//Bank/OAuth/pay?s=VDB3eHhaODJDNXc9">丝瓜钱包充值</a></li>
+                <%--<li class="dh_2 fl"><a href="/goods/integral">积分商品</a></li>--%>
+                <%--<li class="dh_2 fl"><a href="/pai">竞价中心</a></li>--%>
+                <li class="dh_2 fl"><a href="https://pay.48.cn//Bank/OAuth/pay?s=VDB3eHhaODJDNXc9">钱包充值</a></li>
 
 
             </ul>
@@ -160,7 +174,7 @@
 
                 <span class="icon ic_p">竞</span>
             </li>
-            <li class="gs_4">当前现金：<span class="jg">￥0.00</span></li>
+            <li class="gs_4">当前现金：<span class="jg">￥<s:property value="%{maxPrice[#status.index]}"/> </span></li>
             <li class="gs_l"></li>
             <li class="gs_6">
                 <span>
@@ -177,71 +191,6 @@
 </s:iterator>
 
 
-
-            <div class="gs_xx">
-                <ul>
-                    <li class="gs_1"><a href="/pai/item/1307"> <img
-                            src="https://file.48.cn/Shop/Product//Index/201704140527160822.png" width="285"
-                            height="285"></a></li>
-                    <li class="gs_2">
-                        <a href="/pai/item/1307">星梦剧院4月28日SNH48公演 VIP票 雨中钢琴师 UNIT签名版</a>
-                    </li>
-                    <li class="gs_3">
-                        <span class="icon ic_1">SNH48</span>
-                        <span class="icon ic_xh">现货</span>
-                        <span class="icon ic_xn">虚拟商品</span>
-
-
-                        <span class="icon ic_p">竞</span>
-                    </li>
-                    <li class="gs_4">当前现金：<span class="jg">￥0.00</span></li>
-                    <li class="gs_l"></li>
-                    <li class="gs_6">
-                        <span class="icon ic_cj">0次出价</span>
-                        <span>
-                                    竞价状态：<span class="actionstatus">未开始</span>
-                                    <br>
-
-                                    <span data-two="2017/04/17 19:00:00" class="auctionList lxftime"
-                                          data-enddate="2017/04/17 17:00:00">2天16时8分23秒开始</span>
-                                </span>
-                    </li>
-                </ul>
-
-            </div>
-
-
-            <div class="gs_xx">
-                <ul>
-                    <li class="gs_1"><a href="/pai/item/1307"> <img
-                            src="https://file.48.cn/Shop/Product//Index/201704140527160822.png" width="285"
-                            height="285"></a></li>
-                    <li class="gs_2">
-                        <a href="/pai/item/1307">星梦剧院4月28日SNH48公演 VIP票 雨中钢琴师 UNIT签名版</a>
-                    </li>
-                    <li class="gs_3">
-                        <span class="icon ic_1">SNH48</span>
-                        <span class="icon ic_xh">现货</span>
-                        <span class="icon ic_xn">虚拟商品</span>
-
-
-                        <span class="icon ic_p">竞</span>
-                    </li>
-                    <li class="gs_4">当前现金：<span class="jg">￥0.00</span></li>
-                    <li class="gs_l"></li>
-                    <li class="gs_6">
-                        <span class="icon ic_cj">0次出价</span>
-                        <span>
-                                    竞价状态：<span class="actionstatus">未开始</span>
-                                    <br>
-
-                                    <span data-two="2017/04/17 19:00:00" class="auctionList lxftime"
-                                          data-enddate="2017/04/17 17:00:00">2天16时8分23秒开始</span>
-                                </span>
-                    </li>
-                </ul>
-
-            </div>
 
 
         </div>

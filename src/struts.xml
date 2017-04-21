@@ -120,7 +120,7 @@
 
 
     <!---            个人中心             -->
-    <package name="user" namespace="/user" extends="user_action">
+    <package name="user" namespace="/user" extends="user_action , json-default">
         <global-results>
             <result type="redirect" name="input">
                 <param name="location">/login</param>
@@ -133,12 +133,18 @@
             <interceptor-ref name="authority"></interceptor-ref>
         </action>
         <action name="payment">
-            <result type="dispatcher" >/WEB-INF/user/payment.jsp</result>
+            <result type="dispatcher" >/WEB-INF/user/recharge.jsp</result>
             <interceptor-ref name="authority"></interceptor-ref>
         </action>
         <action name="cash">
-            <result type="dispatcher" >/WEB-INF/user/cash.jsp</result>
+            <result type="dispatcher" >/WEB-INF/user/reflect.jsp</result>
             <interceptor-ref name="authority"></interceptor-ref>
+        </action>
+        <action name="recharge_succ">
+            <result type="dispatcher">/WEB-INF/user/recharge_succ.jsp</result>
+        </action>
+        <action name="reflect_succ">
+            <result type="dispatcher">/WEB-INF/user/reflect_succ.jsp</result>
         </action>
 
         <!--获取用户资料并转入个人资料页面-->
@@ -150,23 +156,29 @@
 
 
         <!--获取用户余额-->
-        <action name="user_getBalance" class="action.user.UserGetBalanceAction">
-            <result type="stream" name="success">
-                <param name="contentType">text/html</param>
-                <param name="inputStream">inputStream</param>
+        <action name="user_getBalance" class="action.user.UserGetBalanceAction" method="json">
+            <result type="json">
+                <param name="root">dataMap</param>
             </result>
         </action>
 
 
         <!--充值操作-->
         <action name="user_recharge" class="action.user.UserRechargeAction">
-            <result name="success"></result>
+            <result type="stream" name="success">
+                <param name="contentType">text/html</param>
+                <param name="inputStream">inputStream</param>
+            </result>
             <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
 
+
         <!--提现操作-->
-        <action name="user_withdrawals" class="action.user.UserWithdrawalsAction">
-            <result name="success"></result>
+        <action name="user_reflect" class="action.user.UserReflectAction">
+            <result type="stream" name="success">
+                <param name="contentType">text/html</param>
+                <param name="inputStream">inputStream</param>
+            </result>
             <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
 

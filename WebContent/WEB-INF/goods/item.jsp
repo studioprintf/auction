@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Dymond
@@ -45,31 +46,44 @@
                     name="__RequestVerificationToken" type="hidden"
                     value="05zTx-5isbCGoyWDZ-_CFXmyEAQJOaRcgs9MMaDv-6wlcElwZbuvTJAgU6Kq_gzi7PD_HZQxuliO8ZPhSOf-2AYzHCFxmhQkvs79A4QXhZ0fePeGeRNgFrWlEHD65qrD_K7MeTbJCtPMqpU4zYwmow2">
                 <div class="login fl">
-                    欢迎使用在线拍卖系统&nbsp;&nbsp;&nbsp;&nbsp; <a
-                        href="${pageContext.request.contextPath}/user/user">你好${sessionScope.get("USER_NAME")}</a>
+                    欢迎使用在线拍卖系统&nbsp;&nbsp;&nbsp;&nbsp;
+                    <s:if test="#session.USER_NAME==null">
+                        <a href="${pageContext.request.contextPath}/login">请登陆</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="${pageContext.request.contextPath}/register">免费注册</a>
+                    </s:if>
+                    <s:else>
+                        <a href="${pageContext.request.contextPath}/user/user">你好${sessionScope.get("USER_NAME")}</a>
 
-                    <a href="http://user.snh48.com/shop48.php?return_url=https://shop.48.cn" id="logout2">退出</a>
+                        <a href="${pageContext.request.contextPath}/user_logout" id="logout2">退出</a>
+                    </s:else>
                 </div>
             </form>
 
 
             <div onmouseout="MM_out(this)" onmouseover="MM_over(this)" class="list fr a1 pr">
                 <a href="#"><span class="icon_t fl"><img src="https://static.48.cn/Shop/images/top_icon_3.jpg"></span>
-                    我的订单 <span class="jian fr"><img src="https://static.48.cn/Shop/images/jian.jpg"></span></a>
+                    我的账户 <span class="jian fr"><img src="https://static.48.cn/Shop/images/jian.jpg"></span></a>
                 <div class="order_p a1" style="display: none;">
-                    <a href="/Order">我的周边</a><br>
-                    <a href="/TOrder">我的门票</a><br>
-                    <a href="/COrder">我的抽选</a>
+                    <a href="/Order">我的订单</a><br>
+                    <a href="/Order">充值</a><br>
+                    <a href="/TOrder">提现</a><br>
                     <div class="jian_2"><img src="https://static.48.cn/Shop/images/jian_1.png"></div>
                 </div>
 
             </div>
 
+            <div class="list fr">
+            <a href="/auction/publish">
+                <div class="icon_t fl"><img src="https://static.48.cn/Shop/images/top_icon_4.jpg"></div>
+                商品发布</a>
+            </div>
 
-            <div class="list fr"><a href="/Account">
+            <div class="list fr"><a href="/user/user">
                 <div class="icon_t fl"><img src="https://static.48.cn/Shop/images/top_icon_2.jpg"></div>
-                我的账户</a></div>
+                个人中心</a></div>
         </div>
+
+
         <script>
             function MM_over(mmObj) {
                 var mSubObj = mmObj.getElementsByTagName("div")[0];
@@ -136,9 +150,9 @@
                     <a href="/Goods/index/">全部商品分类</a>
                     <ul class="columns banner_1 hidden">
 
-                        <li class="fs20"><a class="as" href="/Tickets">剧场门票</a></li>
-                        <li class="fs20"><a class="as " href="/Goods/Index/114">唱片EP</a></li>
-                        <div>时尚潮牌服饰</div>
+                        <li class="fs20"><a class="as" href="/Tickets">1</a></li>
+                        <li class="fs20"><a class="as " href="/Goods/Index/114">2</a></li>
+                        <div>3</div>
                         </a></li>
                     </ul>
                 </li>
@@ -222,7 +236,7 @@
                         <%--type="button" class="hidden" value="查看最新积分" id="btn_point"--%>
                         <%--style="background-color: #18b4ed;border:none;color:#fff;border-radius: 5px;cursor:pointer;"></span>--%>
                         <%--</li>--%>
-                        <li class="b_gray"><span class="gray">当前最高金额： </span><span id="sp_price">0元</span>（人出价）
+                        <li class="b_gray"><span class="gray">当前最高金额： </span><span id="sp_price">0元</span>
                         </li>
                         <li class="b_gray">押金：<span class="pink">￥<span
                                 class="f30"> ${Goods.reserve_price} </span></span></li>
@@ -245,7 +259,6 @@
                         </li>
                     </ul>
 
-                    <div class="l_b">16 人参与竞价&nbsp;&nbsp; <span class="fr"></span></div>
                 </div>
                 <div class="pai_r">
                     <div class="lan_tit ma_b5">出价记录</div>
@@ -272,9 +285,7 @@
         <div class="item">
             <div class="pai_lc"><img src="/img/pai_sm_tit3.jpg"></div>
             <div class="ny_kuang" id="bg">
-                <div id="font1" class="ny_choice_se"
-                     onclick="setTab03Syn(1);document.getElementById('bg').className='ny_kuang'">商品详细介绍
-                </div>
+
                 <div id="showBidsList" class="ny_choice" data-id="TabTab03Con2"
                      onclick="setTab03Syn(2);document.getElementById('bg').className='ny_kuang'">出价记录
                 </div>
@@ -460,7 +471,6 @@
             });
 
         })
-
 
 
         $("#ToBids").click(function () {
@@ -847,6 +857,7 @@
                 var t = "${Goods.start_time}".replace(/\-/g, "/");
                 endtime = new Date(t).getTime();
                 $("#a_s").html("距竞价开始还有 ");
+                $("#l_p").hide();
 //                alert("endtime0:" + t);
                 break;
             case 1://正在竞拍

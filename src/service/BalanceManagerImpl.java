@@ -19,7 +19,7 @@ import java.util.List;
 @Service
 public class BalanceManagerImpl implements BalanceManager {
     private Balance_logDaoImpl balanceLogDao;
-
+    private UserDaoImpl userDao;
 
 
     public Balance_logDaoImpl getBalanceLogDao() {
@@ -30,17 +30,44 @@ public class BalanceManagerImpl implements BalanceManager {
         this.balanceLogDao = balanceLogDao;
     }
 
+    public UserDaoImpl getUserDao() {
+        return userDao;
+    }
 
-    @Override
-    public boolean recharge(User user, Double amount) throws HibernateException {
-        // TODO Auto-generated method stub
-        return false;
+    public void setUserDao(UserDaoImpl userDao) {
+        this.userDao = userDao;
     }
 
     @Override
-    public boolean reflect(User user, Double amount) throws HibernateException {
+    public boolean recharge(int user_id, double amount) throws HibernateException {
+        User user = userDao.findUserById(user_id);
+        user.setBalance(user.getBalance()+amount);
+        userDao.updateObject(user);
+        return true;
+    }
+
+    @Override
+    public boolean reflect(int user_id, double amount) throws HibernateException {
         // TODO Auto-generated method stub
-        return false;
+        User user = userDao.findUserById(user_id);
+        if(user.getBalance()-amount<0)
+            return false;
+        else{
+            user.setBalance(user.getBalance()-amount);
+            userDao.updateObject(user);
+            return true;
+        }
+    }
+
+    @Override
+    public boolean balanceLog(int user_id, double amount) throws HibernateException {
+        Balance_log balance_log = new Balance_log();
+        balance_log.setUser_id(user_id);
+        balance_log.setAmount(amount);
+        balance_log.setOperation_type("充值");
+        balance_log.setOperation_note("充值:"+amount);
+        balanceLogDao.saveBalance(balance_log);
+        return true;
     }
 
     @Override//查询用户余额

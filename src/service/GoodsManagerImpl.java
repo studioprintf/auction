@@ -145,6 +145,12 @@ public class GoodsManagerImpl implements GoodsManager {
             Timestamp final_time = (Timestamp) object[4];
             String goods_title = (String) object[5];
             String goods_image1 = (String) object[6];
+            double price = 0;
+            if (!(object[7] == null)) {
+                price = (double)object[7];
+            }
+
+
 
             goods.setGoods_id(goods_id);
             goods.setState(state);
@@ -156,9 +162,11 @@ public class GoodsManagerImpl implements GoodsManager {
 
             goodsList.add(goods);
             goodsinfosList.add(goodsinfo);
+            maxpriceList.add(String.valueOf(price));
         }
         infoList.put("Goods", goodsList);
         infoList.put("GoodsInfo", goodsinfosList);
+        infoList.put("maxPrice",maxpriceList);
         return infoList;
 
     }
