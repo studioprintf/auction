@@ -140,7 +140,7 @@
 
 
             <li class="current">
-                <a href="${pageContext.request.contextPath}/user">个人中心</a></li>
+                <a href="${pageContext.request.contextPath}/user/user">个人中心</a></li>
         </ul>
     </div>
 </div>
@@ -161,7 +161,7 @@
                         账户余额 <span class="charge ft-orange ml-10"></span>
                         <span class="pull-right">
                                             <a href="/user/cash" class="ft-gray">提现</a>
-                                        <a href="/user/payment" target="_blank" class="ft-green ml-10">充值</a>
+                                        <a href="/user/payment"  class="ft-green ml-10">充值</a>
                 </span>
 
                     </div>
@@ -170,8 +170,8 @@
 
                 <ul class="account-left-nav" id="yw1">
                     <li class="nav1 active"><a href="/user/user">账户中心</a></li>
-                    <li class="nav2"><a href="/user/selllist">我发布的拍卖</a></li>
-                    <li class="nav3"><a href="/user/buylist">我得标的拍卖</a></li>
+                    <li class="nav2"><a href="/user/order/selllist">我发布的拍卖</a></li>
+                    <li class="nav3"><a href="/user/order/buylist">我得标的拍卖</a></li>
                     <li class="nav5"><a href="/user/setting">账号设置</a></li>
                 </ul>
             </div>

@@ -75,7 +75,6 @@ public class UploadImgAction extends ActionSupport {
                 f.mkdirs();
             }
         }
-        System.out.println("realpath:" + real_path);
 
 
         if (publishImg == null) {

@@ -67,7 +67,7 @@
     <div id="page-nav">
         <ul class="nav-links">
             <li class="">
-                <a href="https://www.c5game.com">首页</a>
+                <a href="${pageContext.request.contextPath}/index">首页</a>
             </li>
 
 
@@ -95,7 +95,7 @@
                         账户余额 <span class="charge ft-orange ml-10"></span>
                         <span class="pull-right">
                                             <a href="/user/cash" class="ft-gray">提现</a>
-                                        <a href="/user/payment" target="_blank" class="ft-green ml-10">充值</a>
+                                        <a href="/user/payment"  class="ft-green ml-10">充值</a>
                 </span>
 
                     </div>
@@ -105,19 +105,21 @@
                 <ul class="account-left-nav" id="yw1">
                     <li class="nav1 active"><a href="/user/user">账户中心</a></li>
                     <li class="nav2"><a href="/user/selllist">我发布的拍卖</a></li>
-                    <li class="nav3"><a href="/user/buylist">我得标的拍卖</a></li>
-                    <li class="nav5"><a href="/user/setting">账号设置</a></li>
+                    <li class="nav3"><a href="/user/order/buylist">我得标的拍卖</a></li>
+                    <li class="nav5"><a href="/user/order/setting">账号设置</a></li>
                 </ul>
             </div>
         </div>
         <div class="account-right">
-            <ul class="floor-nav">
-                <li><a href="/user/user">账户中心</a></li>
-                <li><a href="/user/payment">账户充值</a></li>
-                <li class="active"><a>账户提现</a></li>
-                <li><a href="/user/order/buyerHistory.html">购买记录</a></li>
-                <li><a href="/user/order/sellerHistory.html">出售记录</a></li>
-            </ul>
+                <ul class="floor-nav">
+                    <li ><a href="/user/user">账户中心</a></li>
+                    <li><a href="/user/payment">账户充值</a></li>
+                    <li class="active"><a href="/user/cash">账户提现</a></li>
+
+                    <li><a href="/user/order/payHistory">购买记录</a></li>
+                    <li><a href="/user/order/sellHistory">出售记录</a></li>
+
+                </ul>
 
             <!-- Tab panes -->
             <div class="account-content">
@@ -261,8 +263,7 @@
             },
             function (data) {
                 if (data == "1") {
-                    alert("1");
-                    document.location.href("${pageContext.request.contextPath}/user/reflect_succ");
+                    window.location.href="${pageContext.request.contextPath}/user/reflect_succ";
                 }
                 else {
                     alert(data);

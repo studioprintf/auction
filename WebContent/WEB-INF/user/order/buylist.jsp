@@ -106,76 +106,32 @@
                 </div>
 
                 <ul class="account-left-nav" id="yw1">
-                    <li class="nav1 active"><a href="/user/user">账户中心</a></li>
+                    <li class="nav1"><a href="/user/user">账户中心</a></li>
                     <li class="nav2"><a href="/user/order/selllist">我发布的拍卖</a></li>
-                    <li class="nav3"><a href="/user/order/buylist">我得标的拍卖</a></li>
+                    <li class="nav3 active"><a href="/user/order/buylist">我得标的拍卖</a></li>
                     <li class="nav5"><a href="/user/setting">账号设置</a></li>
                 </ul>
             </div>
         </div>
         <div class="account-right">
-                <ul class="floor-nav">
-                    <li class="active"><a>账户中心</a></li>
-                    <li><a href="/user/payment">账户充值</a></li>
-                    <li><a href="/user/cash">账户提现</a></li>
+            <ul class="floor-nav">
+                <li class="active"><a>账户中心</a></li>
 
-                    <li><a href="/user/order/payHistory">购买记录</a></li>
-                    <li><a href="/user/order/sellHistory">出售记录</a></li>
 
-                </ul>
+
+
+
+
+            </ul>
             <!-- Tab panes -->
 
             <div class="account-content">
 
-                <div class="account-amount clearfix mb-20 mt-10">
-                    <div class="amount amount1 ">
-                        <p>账户余额:</p>
-                        <p>
-                            <span class="ft-orange">￥</span>
-                            <span class="charge ft-orange ft-30 "></span>
 
-                            <a href="/user/payment" class="btn btn-orange  mt-5 pull-right">充值</a>
-                            <a href="/user/cash"
-                               class="btn btn-blue ml-20 mt-5 mr-10 pull-right btn-cash-out">提现</a>
-                        </p>
-
-                    </div>
-
-                    <div class="amount amount3">
-                        <p>锁定金额</p>
-                        <p>
-                            ￥
-                            <span class="frozen ft-30"></span>
-                        </p>
-                    </div>
-                </div>
 
 
                 <div class="account-record">
-                    <ul class="floor-nav" role="tablist" style="overflow:visible">
-                        <a href="/user.html?type=1">
-                            <li role="presentation" class="active">账户流水</li>
-                        </a>
-                        <li class="pull-right">
-                            <div class="dropdown">
-                                <button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
-                                        data-toggle="dropdown" style="background: transparent">查看全部 <span
-                                        class="caret bottom-2"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                    <li role="presentation">
-                                        <a role="menuitem" tabindex="-1" href="/user.html?type=1&amp;filter=0">查看全部</a>
-                                    </li>
-                                    <li role="presentation">
-                                        <a role="menuitem" tabindex="-1" href="/user.html?type=1&amp;filter=1">只看收入</a>
-                                    </li>
-                                    <li role="presentation">
-                                        <a role="menuitem" tabindex="-1" href="/user.html?type=1&amp;filter=2">只看支出</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
+
                     <table class="table sale-item-table sale-user-table">
                         <!-- 账户流水 -->
                         <tbody>

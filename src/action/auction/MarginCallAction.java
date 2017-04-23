@@ -83,10 +83,10 @@ public class MarginCallAction extends ActionSupport implements SessionAware{
 
     public String json(){
         dataMap = new HashMap<String,Object>();
-//        if (session.get("USER_NAME") != null && session.get("USER_ID") != null) {
-//            return ERROR;
-//        }
-        int user_id = 1;//test
+        if (!(session.get("USER_NAME") != null && session.get("USER_ID") != null)) {
+            return NONE;
+        }
+        int user_id = (int) session.get("USER_ID");//test
 
         //查询当前商品是否在售
         goods = new Goods();
@@ -107,7 +107,6 @@ public class MarginCallAction extends ActionSupport implements SessionAware{
             balance_log.setAmount(goodsSql.getReserve_price());
             String result = balanceManager.toMargin(balance_log);
             if (result=="success") {
-                System.out.println("参与成功");
                 dataMap.put("HasError", "0");
             } else {
                 System.out.println("冻结押金失败");

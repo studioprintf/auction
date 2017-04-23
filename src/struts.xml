@@ -153,15 +153,12 @@
             <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
 
-
-
         <!--获取用户余额-->
         <action name="user_getBalance" class="action.user.UserGetBalanceAction" method="json">
             <result type="json">
                 <param name="root">dataMap</param>
             </result>
         </action>
-
 
         <!--充值操作-->
         <action name="user_recharge" class="action.user.UserRechargeAction">
@@ -171,7 +168,6 @@
             </result>
             <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
-
 
         <!--提现操作-->
         <action name="user_reflect" class="action.user.UserReflectAction">
@@ -191,7 +187,6 @@
             <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
 
-
         <!--资料修改操作-->
         <action name="user_updateInfo" class="action.user.UserUpdateInfo">
             <result name="success"></result>
@@ -201,11 +196,39 @@
     </package>
 
 
+
+
+    <!--      拍卖纪录管理      -->
+    <package name="order" namespace="/user/order" extends="user_action">
+        <action name="payHistory" >
+            <result>/WEB-INF/user/order/payHistory.jsp</result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+        <action name="sellHistory">
+            <result>/WEB-INF/user/order/sellHistory.jsp</result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+        <action name="buylist">
+            <result>/WEB-INF/user/order/buylist.jsp</result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+        <action name="selllist">
+            <result>/WEB-INF/user/order/selllist.jsp</result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+
+
+    </package>
+
+
+
+
     <!--      拍卖流程管理      -->
     <package name="auction" namespace="/auction" extends="user_action,json-default">
 
         <action name="publish">
             <result>/WEB-INF/auction/publish.jsp</result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
         <action name="pub_succ">
             <result>/WEB-INF/auction/pub_succ.jsp</result>
@@ -216,8 +239,9 @@
             <result type="stream" name="success">
                 <param name="contentType">text/html</param>
                 <param name="inputStream">inputStream</param>
-            </result>
 
+            </result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
             <!--<interceptor-ref name="fileUpload">-->
                 <!--<param name="maximumSize">52428800</param>-->
             <!--</interceptor-ref>-->
@@ -229,6 +253,7 @@
                 <param name="contentType">text/html</param>
                 <param name="inputStream">inputStream</param>
             </result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
             <!--<interceptor-ref name="fileUpload">-->
                 <!--<param name="maximumSize">25165824</param>-->
             <!--</interceptor-ref>-->
@@ -240,6 +265,7 @@
                 <param name="contentType">text/html</param>
                 <param name="inputStream">inputStream</param>
             </result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
 
         <!--竞拍出价-->
@@ -248,6 +274,7 @@
                 <param name="contentType">text/html</param>
                 <param name="inputStream">inputStream</param>
             </result>
+            <interceptor-ref name="defaultinter"></interceptor-ref>
         </action>
 
         <!--查询是否已缴押金-->
@@ -261,6 +288,7 @@
         <action name="MarginCall" class="action.auction.MarginCallAction" method="json">
             <result type="json">
                 <param name="root">dataMap</param>
+
             </result>
         </action>
 

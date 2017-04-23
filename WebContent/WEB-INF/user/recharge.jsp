@@ -53,12 +53,10 @@
             <div class="user-top">
 
 
-                <a href="https://www.c5game.com/user.html">
+                <a href="/user/user">
                     欢迎您：${sessionScope.get("USER_NAME")}
                 </a>
 
-                <a class="pl-10" href="https://www.c5game.com/user/sell.html">我要出售</a>
-                <a href="https://www.c5game.com/user/purchase/purchase.html">我要求购</a>
 
 
                 <a href="/user_logout">注销</a>
@@ -70,7 +68,7 @@
     <div id="page-nav">
         <ul class="nav-links">
             <li class="">
-                <a href="https://www.c5game.com">首页</a>
+                <a href="${pageContext.request.contextPath}/index">首页</a>
             </li>
             <!--            <li style="position:relative;overflow: visible"-->
             <!--                class="--><!--">-->
@@ -80,7 +78,7 @@
 
 
             <li class="current">
-                <a href="/user.html">个人中心</a></li>
+                <a href="/user/user">个人中心</a></li>
         </ul>
     </div>
 </div>
@@ -103,7 +101,7 @@
                         账户余额 <span class="charge ft-orange ml-10"></span>
                         <span class="pull-right">
                                             <a href="/user/cash" class="ft-gray">提现</a>
-                                        <a href="/user/payment" target="_blank" class="ft-green ml-10">充值</a>
+                                        <a href="/user/payment" class="ft-green ml-10">充值</a>
                 </span>
 
                     </div>
@@ -113,18 +111,20 @@
                 <ul class="account-left-nav" id="yw1">
                     <li class="nav1 active"><a href="/user/user">账户中心</a></li>
                     <li class="nav2"><a href="/user/selllist">我发布的拍卖</a></li>
-                    <li class="nav3"><a href="/user/buylist">我得标的拍卖</a></li>
-                    <li class="nav5"><a href="/user/setting">账号设置</a></li>
+                    <li class="nav3"><a href="/user/order/buylist">我得标的拍卖</a></li>
+                    <li class="nav5"><a href="/user/order/setting">账号设置</a></li>
                 </ul>
             </div>
         </div>
         <div class="account-right">
             <ul class="floor-nav">
-                <li><a href="/user/user">账户中心</a></li>
-                <li class="active"><a href="#">账户充值</a></li>
+                <li ><a href="/user/user">账户中心</a></li>
+                <li class="active"><a href="/user/payment">账户充值</a></li>
                 <li><a href="/user/cash">账户提现</a></li>
-                <li><a href="/user/order/buyerHistory.html">购买记录</a></li>
-                <li><a href="/user/order/sellerHistory.html">出售记录</a></li>
+
+                <li><a href="/user/order/payHistory">购买记录</a></li>
+                <li><a href="/user/order/sellHistory">出售记录</a></li>
+
             </ul>
 
             <!-- Tab panes -->
@@ -233,7 +233,7 @@
             },
             function (data) {
                 if (data == "1") {
-                    document.location.href("${pageContext.request.contextPath}/user/recharge_succ");
+                    window.location.href="${pageContext.request.contextPath}/user/recharge_succ";
                 }
                 else {
                     alert(data);

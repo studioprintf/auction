@@ -76,6 +76,7 @@ public class UserLoginAction implements Action, SessionAware, RequestAware {
     }
 
     public String execute() throws Exception {
+//        System.out.println(session.get("checkCode"));
         if (session.get("USER_NAME") != null && session.get("USER_ID") != null) {
             request.put("msg", "您已经登录");
             request.put("url", "index");
