@@ -130,11 +130,9 @@ public class ToBidsAction implements Action, SessionAware {
         auction = new Auction();
         balance_log = new Balance_log();
 
-        String user_name = "dymond";//test
-        int user_id = 1;//test
 
-//        int user_id = Integer.parseInt((String)session.get("USER_ID"));
-//        String user_name = session.get("USER_NAME");
+        int user_id = (int) session.get("USER_ID");
+        String user_name = (String) session.get("USER_NAME");
 
         user.setUser_name(user_name);//test
         user.setUser_id(user_id);

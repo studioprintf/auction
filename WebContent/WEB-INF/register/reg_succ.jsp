@@ -40,12 +40,12 @@
 
         注册成功
 
-        <br/><a href='http://localhost:8080/login'>如果你的浏览器没反应，请点击这里...</a>
+        <br/><a href='${pageContext.request.contextPath}/login'>如果你的浏览器没反应，请点击这里...</a>
         <script>
             var pgo = 0;
             function JumpUrl() {
                 if (pgo == 0) {
-                    location = 'http://localhost:8080/login';
+                    location = '${pageContext.request.contextPath}/login';
                     pgo = 1;
                 }
             }

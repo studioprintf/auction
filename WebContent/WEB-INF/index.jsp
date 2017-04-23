@@ -52,9 +52,9 @@
                 <a href="#"><span class="icon_t fl"><img src="https://static.48.cn/Shop/images/top_icon_3.jpg"></span>
                     我的账户 <span class="jian fr"><img src="https://static.48.cn/Shop/images/jian.jpg"></span></a>
                 <div class="order_p a1" style="display: none;">
-                    <a href="/Order">我的订单</a><br>
-                    <a href="/Order">充值</a><br>
-                    <a href="/TOrder">提现</a><br>
+                    <a href="/user/user">我的订单</a><br>
+                    <a href="/user/payment">充值</a><br>
+                    <a href="/user/cash">提现</a><br>
                     <div class="jian_2"><img src="https://static.48.cn/Shop/images/jian_1.png"></div>
                 </div>
 
@@ -99,26 +99,26 @@
             <ul>
                 <li class="dh_1 fl">
                     <a href="/Goods/index/">全部商品分类</a>
-                    <ul class="columns banner_1 hidden">
+                    <%--<ul class="columns banner_1 hidden">--%>
 
-                        <li class="fs20"><a class="as" href="/Tickets">剧场门票</a></li>
-                        <li class="fs20"><a class="as " href="/Goods/Index/114">唱片EP</a></li>
-                        <li class="fs20"><a class="as " href="/Goods/Index/115">生写照片</a></li>
-                        <li class="fs20"><a class="as " href="/Goods/Index/116">文具品</a></li>
-                        <li class="fs20"><a class="as " href="/Goods/Index/117">饰品</a></li>
-                        <li class="fs20"><a class="as " href="/Goods/Index/118">日用服饰</a></li>
-                        <li class="fs20"><a class="as " href="/Goods/Index/119">应援品</a></li>
-                        <li><a class="ido" href="/Goods/CostumeInfo/123">IDOLS GENERATION
-                            <div>时尚潮牌服饰</div>
-                        </a></li>
-                    </ul>
+                        <%--<li class="fs20"><a class="as" href="/Tickets">剧场门票</a></li>--%>
+                        <%--<li class="fs20"><a class="as " href="/Goods/Index/114">唱片EP</a></li>--%>
+                        <%--<li class="fs20"><a class="as " href="/Goods/Index/115">生写照片</a></li>--%>
+                        <%--<li class="fs20"><a class="as " href="/Goods/Index/116">文具品</a></li>--%>
+                        <%--<li class="fs20"><a class="as " href="/Goods/Index/117">饰品</a></li>--%>
+                        <%--<li class="fs20"><a class="as " href="/Goods/Index/118">日用服饰</a></li>--%>
+                        <%--<li class="fs20"><a class="as " href="/Goods/Index/119">应援品</a></li>--%>
+                        <%--<li><a class="ido" href="/Goods/CostumeInfo/123">IDOLS GENERATION--%>
+                            <%--<div>时尚潮牌服饰</div>--%>
+                        <%--</a></li>--%>
+                    <%--</ul>--%>
                 </li>
                 <li class="dh_3 fl"><a href="/">首页</a></li>
 
 
                 <%--<li class="dh_2 fl"><a href="/goods/integral">积分商品</a></li>--%>
                 <%--<li class="dh_2 fl"><a href="/pai">竞价中心</a></li>--%>
-                <li class="dh_2 fl"><a href="https://pay.48.cn//Bank/OAuth/pay?s=VDB3eHhaODJDNXc9">钱包充值</a></li>
+                <li class="dh_2 fl"><a href="${pageContext.request.contextPath}/user/payment">钱包充值</a></li>
 
 
             </ul>

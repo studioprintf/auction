@@ -7,8 +7,8 @@
 
 $(function () {
     var editor = new wangEditor('editor');
-//var user_name = "${sessionScope.get("USER_NAME")}";
-    var user_name = "dymond";
+var user_name = "${sessionScope.get('USER_NAME')}";
+    // var user_name = "dymond";
 
     editor.config.uploadImgUrl = '/auction/uploadImg';
     editor.config.uploadImgFileName = 'publishImg';

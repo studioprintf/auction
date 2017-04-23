@@ -39,12 +39,12 @@
         ${msg}
 
 
-        <br/><a href='http://localhost:8080/${url}'>如果你的浏览器没反应，请点击这里...</a>
+        <br/><a href='${pageContext.request.contextPath}/${url}'>如果你的浏览器没反应，请点击这里...</a>
         <script>
             var pgo = 0;
             function JumpUrl() {
                 if (pgo == 0) {
-                    location = 'http://localhost:8080/${url}';
+                    location = '${pageContext.request.contextPath}/${url}';
                     pgo = 1;
                 }
             }

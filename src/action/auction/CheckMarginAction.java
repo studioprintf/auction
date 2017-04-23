@@ -59,8 +59,7 @@ public class CheckMarginAction extends ActionSupport implements SessionAware {
 
     public String json(){
         balance_log = new Balance_log();
-//        int user_id = (int) session.get("USER_ID");
-        int user_id = 1;//test
+        int user_id = (int) session.get("USER_ID");
         balance_log.setUser_id(user_id);
         balance_log.setOperation_note(goods_id);
         dataMap = new HashMap<String,Object>();
